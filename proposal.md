@@ -47,7 +47,7 @@ A user will have the ability to virtually share an agreement with a second user,
 
 #### **Homepage**
 
-![](https://raw.githubusercontent.com/aazaiez/LeanTerms/master/docs/Wireframes/Images/to/Screenshot 2018-02-18 16.54.19.png.png)
+![](https://raw.githubusercontent.com/aazaiez/LeanTerms/master/docs/Wireframes/Images/to/Screenshot%202018-02-18%2016.52.34.png)
 
 ### Architecture & Technologies
 
