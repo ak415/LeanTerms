@@ -8,8 +8,7 @@ A user will have the ability to virtually share an agreement with a second user,
 
 ### MVPs
 
-* [ ] User Authentication
-* [ ] New account creation, login, and demo login
+* [ ] User Authentication: New account creation, login, and demo login
 * [ ] Contract Form: users will be able to create, view, edit, and/or delete a contract
 * [ ] User Page: where a logged in user will be able to view all contracts associated with their account
 * [ ] Payment: Allow transfer of payments between user accounts
@@ -67,7 +66,7 @@ A user will have the ability to virtually share an agreement with a second user,
 **Day 1**
 
 * [ ] Complete user authentication back-end (Areej)
-* [ ] Set up Heroku page
+* [ ] Set up Heroku page (Areej)
 * [ ] Install and learn MongoDB (Everyone)
 * [ ] Complete styling of login/signup pages (Akram)
 * [ ] Learn how to user Paperclip (Ali)

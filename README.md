@@ -1,1 +1,1 @@
-# leanterms
+# Lean Terms
