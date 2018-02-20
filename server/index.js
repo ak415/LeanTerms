@@ -19,6 +19,7 @@ const authRoutes = require('./routes/authRoutes');
 mongoose.connect('mongodb://localhost/leanterms');
 mongoose.Promise = global.Promise;
 
+
 const app = express();
 
 // BodyParser middleware setup- this allows us to use req.body to get params from post requests

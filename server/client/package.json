@@ -1,7 +1,3 @@
-/* This is the second packet package that Jason File. It is inside of the client directory and records all of the dependencies
-of our front end application and some of the different scripts that it uses as well.
- */
-
 {
   "name": "client",
   "version": "0.1.0",
