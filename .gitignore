@@ -1,2 +1,1 @@
-#this ignores all files in the config folder
-/config/*
+/config/keys.js

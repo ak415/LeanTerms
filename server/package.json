@@ -2,7 +2,6 @@
 
 /* line 18 (scripts client) allows running npm within the client's context. That's what the --prefix is doing  */
 
-
 {
   "name": "leanterms",
   "version": "1.0.0",
@@ -18,7 +17,6 @@
     "server": "nodemon index.js",
     "client": "npm run start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\""
-
   },
   "repository": {
     "type": "git",
