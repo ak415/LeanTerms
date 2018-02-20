@@ -27,8 +27,7 @@ router.post('/api/user', (req, res, next) => {
 });
 
 /// Login route
-
-router.post('/api/login', (req, res, next) => {
+router.post('/api/session', (req, res, next) => {
   passport.authenticate('local', (err, user, info) => {
     if (err) return res.status(422).json(err);
 
@@ -54,9 +53,19 @@ passport.deserializeUser(function(id, done) {
 });
 
 // Logout route
-router.get('/api/session', (req, res, next) => {
+router.get('/api/logout', isAuthenticated, (req, res, next) => {
   req.logout();
   req.session.destroy();
 });
+
+//this part allows us to check if user is logged in
+function isAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next();
+  } else {
+    res.status(404).json('Please login first');
+  }
+}
+///
 
 module.exports = router;

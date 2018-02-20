@@ -33,6 +33,7 @@ app.use(
     saveUninitialized: false,
     resave: false,
     ttl: 14 * 24 * 60 * 60,
+    // unset: 'destroy',
     store: new MongoStore({
       mongooseConnection: mongoose.connection
     })
