@@ -4,6 +4,9 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const keys = require('./config/keys');
+const User = require('./models/user');
+const MongoDB = require('mongodb');
+const $ = require('jquery');
 
 //Authentication Packages
 const session = require('express-session');
@@ -11,38 +14,71 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcrypt');
 
-// const index = require('./routes/index');
-// const users = require('./routes/users');
+const MongoStore = require('connect-mongo')(session);
 const authRoutes = require('./routes/authRoutes');
 
 ///connect to MongoDB
 mongoose.connect('mongodb://localhost/leanterms');
-mongoose.Promise = global.Promise;
 
 const app = express();
+
+// require('dotenv').config();
 
 // BodyParser middleware setup- this allows us to use req.body to get params from post requests
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-// app.use(cookieParser.json());
+app.use(expressValidator());
 
-app.use(authRoutes);
-
-app.use(passport.initialize());
-app.use(passport.session());
-
-//this part allows us to check if user is logged in
-app.use((req, res, next) => {
-  res.locals.isAuthenticated = req.isAuthenticated();
-  next();
-});
+app.use(cookieParser());
 
 // Express Session middleware
 app.use(
   session({
-    secret: keys.sessionSecret,
-    saveUninitialized: true,
-    resave: true
+    secret: 'jhsdlfhsdkjfh2345345kjh',
+    saveUninitialized: false,
+    resave: false,
+    ttl: 14 * 24 * 60 * 60,
+    unset: 'destroy',
+    store: new MongoStore({
+      mongooseConnection: mongoose.connection
+    })
+  })
+);
+
+///passport
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use(authRoutes);
+
+app.use(function(err, req, res, next) {
+  console.log(err);
+  res.status(422).json(err.message);
+});
+
+passport.use(
+  new LocalStrategy((username, password, done) => {
+    User.findOne({ username: username }, (err, user) => {
+      if (err) return done(err);
+
+      if (!user) {
+        return done(null, false);
+      } else {
+        // check if password matches hashed password
+        const passwordDigest = user.password.toString();
+        bcrypt.compare(password, passwordDigest, (error, response) => {
+          if (response === true) {
+            return done(null, {
+              id: user.id,
+              username: user.username,
+              email: user.email
+            });
+          } else {
+            return done(null, false);
+          }
+        });
+      }
+    });
   })
 );
 
