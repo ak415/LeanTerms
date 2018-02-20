@@ -1,7 +1,3 @@
-/* This pachage.json file is on the server and records all the development assets that we need for our back end server. */
-
-/* line 18 (scripts client) allows running npm within the client's context. That's what the --prefix is doing  */
-
 {
   "name": "leanterms",
   "version": "1.0.0",
