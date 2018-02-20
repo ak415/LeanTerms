@@ -1,0 +1,4 @@
+jim2018
+AKIAJSKXEWSFYLJM7QYQ,
+E87SZLEuj88lg+FEzPdHxl0JLs50cB0WQnpRD2Ir
+https://025059547797.signin.aws.amazon.com/console
