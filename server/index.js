@@ -11,6 +11,7 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcrypt');
 
+
 // const index = require('./routes/index');
 // const users = require('./routes/users');
 const authRoutes = require('./routes/authRoutes');
@@ -27,8 +28,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // app.use(cookieParser.json());
 
 app.use(authRoutes);
-
 app.use(passport.initialize());
+
 app.use(passport.session());
 
 //this part allows us to check if user is logged in
@@ -36,6 +37,7 @@ app.use((req, res, next) => {
   res.locals.isAuthenticated = req.isAuthenticated();
   next();
 });
+
 
 // Express Session middleware
 app.use(
