@@ -7,9 +7,10 @@
     "doc": "docs"
   },
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "webpack": "webpack --watch",
-    "dev": "nodemon"
+    "server": "nodemon index.js"
   },
   "repository": {
     "type": "git",
