@@ -55,7 +55,13 @@ passport.deserializeUser(function(id, done) {
 // Logout route
 router.get('/api/logout', isAuthenticated, (req, res, next) => {
   req.logout();
-  req.session.destroy();
+  req.session.destroy(function(err) {
+    if (err) {
+      return next(err);
+    } else {
+      return res.redirect('/');
+    }
+  });
 });
 
 //this part allows us to check if user is logged in

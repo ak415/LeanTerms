@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 const keys = require('./config/keys');
 const User = require('./models/user');
 const MongoDB = require('mongodb');
+const $ = require('jquery');
 
 //Authentication Packages
 const session = require('express-session');
@@ -21,9 +22,13 @@ mongoose.connect('mongodb://localhost/leanterms');
 
 const app = express();
 
+// require('dotenv').config();
+
 // BodyParser middleware setup- this allows us to use req.body to get params from post requests
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(expressValidator());
+
 app.use(cookieParser());
 
 // Express Session middleware
@@ -33,7 +38,7 @@ app.use(
     saveUninitialized: false,
     resave: false,
     ttl: 14 * 24 * 60 * 60,
-    // unset: 'destroy',
+    unset: 'destroy',
     store: new MongoStore({
       mongooseConnection: mongoose.connection
     })
