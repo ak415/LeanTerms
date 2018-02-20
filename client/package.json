@@ -1,0 +1,20 @@
+/* This is the second packet package that Jason File. It is inside of the client directory and records all of the dependencies
+of our front end application and some of the different scripts that it uses as well.
+ */
+
+{
+  "name": "client",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-scripts": "1.1.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
