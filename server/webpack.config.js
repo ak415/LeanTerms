@@ -2,10 +2,10 @@ var path = require('path');
 var webpack = require('webpack');
 
 module.exports = {
-  entry: './index.js',
+  entry: './front-end/app.jsx',
   output: {
     path: path.resolve(__dirname, './'),
-    filename: 'bundle.js'
+    filename: 'static/bundle.js'
   },
   module: {
     loaders: [
@@ -14,7 +14,7 @@ module.exports = {
         exclude: /(node_modules)/,
         loader: 'babel-loader',
         query: {
-          presets: ['env']
+          presets: ['env','react','es2015']
         }
       }
     ]

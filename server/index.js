@@ -50,9 +50,14 @@ app.use(
 ///passport
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(express.static('static'));
 
 app.use(authRoutes);
+app.get('/', function(req,res){
+       
+   res.sendFile(__dirname+'/index.html'); 
 
+});
 app.use(function(err, req, res, next) {
   console.log(err);
   res.status(422).json(err.message);

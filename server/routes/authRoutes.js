@@ -66,9 +66,9 @@ passport.deserializeUser(function(user, done) {
 });
 
 //testing
-router.get('/', (req, res, next) => {
-  res.send('hi');
-});
+//router.get('/', (req, res, next) => {
+//  res.send('hi');
+//});
 
 // Logout route
 router.get('/api/logout', (req, res, next) => {
