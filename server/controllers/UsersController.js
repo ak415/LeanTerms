@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 const User = require('../models/user');
 const Session = require('../models/session');
 
-export const signup = (req, res, next) => {
+const signup = (req, res, next) => {
   const username = req.body.username;
   const email = req.body.email;
   const password = req.body.password;
@@ -29,4 +29,9 @@ export const signup = (req, res, next) => {
   });
 };
 
-export const login = (req, res, next) => {};
+const login = (req, res, next) => {};
+
+module.exports = {
+  signup,
+  login
+};

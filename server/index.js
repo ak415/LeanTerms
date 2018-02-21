@@ -16,7 +16,9 @@ const MongoDB = require('mongodb');
 const authRoutes = require('./routes/authRoutes');
 
 ///connect to MongoDB
-mongoose.connect('mongodb://localhost/leanterms');
+mongoose.connect('mongodb://localhost/leanterms', err => {
+  if (err) console.log(err);
+});
 
 //Models
 const User = require('./models/user');
@@ -25,7 +27,7 @@ const Type = require('./models/type');
 const Contract = require('./models/contract');
 
 ///Seeds
-const seededData = require('./db/seeds.js');
+// const seededData = require('./db/seeds.js');
 
 const app = express();
 
