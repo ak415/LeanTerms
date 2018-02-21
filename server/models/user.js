@@ -2,19 +2,32 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
-  name: {
-    type: String
-    // required: [true, 'Name field required']
+  username: {
+    type: String,
+    required: [true, 'Name field required'],
+    unique: true
   },
   email: {
-    type: String
-    // required: [true, 'Email required']
+    type: String,
+    required: [true, 'Email required'],
+    unique: true
   },
-  password_digest: {
+  password: {
+    type: String,
+    required: [true, 'Password required']
+  },
+  sessionToken: {
     type: String
-    // required: [true, 'Password required']
   }
 });
+
+function findUserById(userId) {
+  User.findById(userId, function(err, user) {
+    if (err) throw err;
+    user.sessionToken = 'sdhfo;hfkjsdhfklsdhf';
+    user.save();
+  });
+}
 
 const User = mongoose.model('user', UserSchema);
 
