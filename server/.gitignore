@@ -1,5 +1,5 @@
 /awscred.js
 /node_modules
-/bundle.js
-/bundle.js.map
+/static/bundle.js
+/static/bundle.js.map
 /package-lock.json

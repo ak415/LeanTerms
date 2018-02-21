@@ -59,14 +59,6 @@ passport.deserializeUser(function(user, done) {
   });
 });
 
-<<<<<<< HEAD
-=======
-//testing
-//router.get('/', (req, res, next) => {
-//  res.send('hi');
-//});
-
->>>>>>> 97f4a328351c6f731a028b59ff54b114d7139c78
 // Logout route
 router.get('/api/logout', (req, res, next) => {
   Session.findById(req.sessionID, function(err, dbSession) {
