@@ -65,9 +65,9 @@ A user will have the ability to virtually share an agreement with a second user,
 
 **Day 1**
 
-* [ ] Complete user authentication back-end (Areej)
+* [x] Complete user authentication back-end (Areej)
 * [ ] Set up Heroku page (Areej)
-* [ ] Install and learn MongoDB (Everyone)
+* [x] Install and learn MongoDB (Everyone)
 * [ ] Complete styling of login/signup pages (Akram)
 * [ ] Learn how to user Paperclip (Ali)
 
@@ -75,7 +75,7 @@ A user will have the ability to virtually share an agreement with a second user,
 
 * [ ] Set up Paperclip and begin learning PDFKit.js (Ali)
 * [ ] Complete User page (Akram)
-* [ ] Set up database 'Contracts' and 'Types' collections (Areej)
+* [x] Set up database 'Contracts' and 'Types' collections (Areej)
 
 **Day 3**
 

@@ -1,32 +1,39 @@
 const express = require('express');
 const router = express.Router();
-var expressValidator = require('express-validator');
-var bcrypt = require('bcrypt');
+const expressValidator = require('express-validator');
+const bcrypt = require('bcrypt');
 const saltRounds = 10;
-var passport = require('passport');
+const passport = require('passport');
 const mongoose = require('mongoose');
 const User = require('../models/user');
 const Session = require('../models/session');
+import * as UsersController from '../controllers/UsersController';
 
 /// Signup route
-router.post('/api/signup', (req, res, next) => {
-  const username = req.body.username;
-  const email = req.body.email;
-  const password = req.body.password;
+router.route('/api/signup').post(UsersController.signup);
 
-  bcrypt.hash(password, saltRounds, (err, hash) => {
-    //insert into database
-    const user = new User({ username: username, email: email, password: hash });
-    user
-      .save()
-      .then(savedUser => {
-        req.login(user, error => {
-          return res.send(savedUser);
-        });
-      })
-      .catch(next);
-  });
-});
+// router.post('/api/signup', (req, res, next) => {
+//   const username = req.body.username;
+//   const email = req.body.email;
+//   const password = req.body.password;
+//
+//   bcrypt.hash(password, saltRounds, (err, hash) => {
+//     //insert into database
+//     const user = new User({ username: username, email: email, password: hash });
+//     user
+//       .save()
+//       .then(savedUser => {
+//         req.login(user, error => {
+//           return res.send({
+//             id: savedUser.id,
+//             username: savedUser.username,
+//             email: savedUser.email
+//           });
+//         });
+//       })
+//       .catch(next);
+//   });
+// });
 
 /// Login route
 router.post('/api/login', (req, res, next) => {
@@ -37,7 +44,6 @@ router.post('/api/login', (req, res, next) => {
       if (error) {
         return next(error);
       }
-
       return res.send(user);
     });
   })(req, res, next);

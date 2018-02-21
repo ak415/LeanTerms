@@ -12,12 +12,20 @@ const bcrypt = require('bcrypt');
 
 const mongoose = require('mongoose');
 const MongoDB = require('mongodb');
-const User = require('./models/user');
 
 const authRoutes = require('./routes/authRoutes');
 
 ///connect to MongoDB
 mongoose.connect('mongodb://localhost/leanterms');
+
+//Models
+const User = require('./models/user');
+const Session = require('./models/session');
+const Type = require('./models/type');
+const Contract = require('./models/contract');
+
+///Seeds
+const seededData = require('./db/seeds.js');
 
 const app = express();
 

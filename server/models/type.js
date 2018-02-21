@@ -10,5 +10,5 @@ const TypeSchema = new Schema({
   }
 });
 
-const Type = mongoose.model('contract', TypeSchema);
+const Type = mongoose.model('type', TypeSchema);
 module.exports = Type;
