@@ -4,7 +4,9 @@ var expressValidator = require('express-validator');
 var bcrypt = require('bcrypt');
 const saltRounds = 10;
 var passport = require('passport');
+const mongoose = require('mongoose');
 const User = require('../models/user');
+const Session = require('../models/session');
 
 /// Signup route
 router.post('/api/user', (req, res, next) => {
@@ -26,18 +28,29 @@ router.post('/api/user', (req, res, next) => {
   });
 });
 
+///testing
+router.get('/users/:id', (req, res, next) => {
+  console.log('inside users route');
+});
+////
+
 /// Login route
 router.post('/api/session', (req, res, next) => {
   passport.authenticate('local', (err, user, info) => {
     if (err) return res.status(422).json(err);
-
     if (!user) return res.status(404).json('Invalid login credentials');
     req.login(user, error => {
       if (error) {
         return next(error);
       }
       console.log(user);
-      return res.send(user);
+      console.log('SessionID', req.sessionID);
+      console.log('Session id', req.session.id);
+      User.findById(user.id, function(err2, userInstance) {
+        userInstance.sessionToken = 'sdhfohfkjsdhfklsdhf';
+        userInstance.save();
+        return res.send(userInstance);
+      });
     });
   })(req, res, next);
 });
@@ -46,21 +59,24 @@ passport.serializeUser(function(user, done) {
   done(null, user);
 });
 
-passport.deserializeUser(function(id, done) {
-  User.findById(id, function(err, user) {
-    done(err, user);
+passport.deserializeUser(function(user, done) {
+  User.findById(user.id, function(err, aUser) {
+    done(err, aUser);
   });
 });
 
+//testing
+router.get('/', (req, res, next) => {
+  res.send('hi');
+});
+
 // Logout route
-router.get('/api/logout', isAuthenticated, (req, res, next) => {
-  req.logout();
-  req.session.destroy(function(err) {
-    if (err) {
-      return next(err);
-    } else {
-      return res.redirect('/');
-    }
+router.get('/api/logout', (req, res, next) => {
+  res.clearCookie('connect.sid', { path: '/' });
+  Session.findById(req.sessionID, function(err, dbSession) {
+    if (err) throw err;
+    dbSession.remove();
+    res.send(dbSession);
   });
 });
 

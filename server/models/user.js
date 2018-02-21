@@ -15,8 +15,19 @@ const UserSchema = new Schema({
   password: {
     type: String,
     required: [true, 'Password required']
+  },
+  sessionToken: {
+    type: String
   }
 });
+
+function findUserById(userId) {
+  User.findById(userId, function(err, user) {
+    if (err) throw err;
+    user.sessionToken = 'sdhfo;hfkjsdhfklsdhf';
+    user.save();
+  });
+}
 
 const User = mongoose.model('user', UserSchema);
 

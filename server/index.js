@@ -1,20 +1,20 @@
 const express = require('express');
-const expressValidator = require('express-validator');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
-const keys = require('./config/keys');
-const User = require('./models/user');
-const MongoDB = require('mongodb');
-const $ = require('jquery');
+const expressValidator = require('express-validator');
+// const keys = require('./config/keys');
 
 //Authentication Packages
 const session = require('express-session');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
+const MongoStore = require('connect-mongo')(session);
 const bcrypt = require('bcrypt');
 
-const MongoStore = require('connect-mongo')(session);
+const mongoose = require('mongoose');
+const MongoDB = require('mongodb');
+const User = require('./models/user');
+
 const authRoutes = require('./routes/authRoutes');
 
 ///connect to MongoDB
@@ -27,6 +27,7 @@ const app = express();
 // BodyParser middleware setup- this allows us to use req.body to get params from post requests
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
 app.use(expressValidator());
 
 app.use(cookieParser());
