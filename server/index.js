@@ -2,7 +2,6 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const expressValidator = require('express-validator');
-// const keys = require('./config/keys');
 
 //Authentication Packages
 const session = require('express-session');
@@ -22,8 +21,6 @@ mongoose.connect('mongodb://localhost/leanterms');
 
 const app = express();
 
-// require('dotenv').config();
-
 // BodyParser middleware setup- this allows us to use req.body to get params from post requests
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -32,7 +29,7 @@ app.use(expressValidator());
 
 app.use(cookieParser());
 
-// Express Session middleware
+// Express-session middleware
 app.use(
   session({
     secret: 'jhsdlfhsdkjfh2345345kjh',
@@ -83,7 +80,7 @@ passport.use(
   })
 );
 
-// choosing port to listen to based on environment
+// choosing port at which to listen based on environment
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT);
