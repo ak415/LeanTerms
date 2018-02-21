@@ -9,7 +9,7 @@ const User = require('../models/user');
 const Session = require('../models/session');
 
 /// Signup route
-router.post('/api/user', (req, res, next) => {
+router.post('/api/signup', (req, res, next) => {
   const username = req.body.username;
   const email = req.body.email;
   const password = req.body.password;
@@ -28,14 +28,8 @@ router.post('/api/user', (req, res, next) => {
   });
 });
 
-///testing
-router.get('/users/:id', (req, res, next) => {
-  console.log('inside users route');
-});
-////
-
 /// Login route
-router.post('/api/session', (req, res, next) => {
+router.post('/api/login', (req, res, next) => {
   passport.authenticate('local', (err, user, info) => {
     if (err) return res.status(422).json(err);
     if (!user) return res.status(404).json('Invalid login credentials');
@@ -43,14 +37,8 @@ router.post('/api/session', (req, res, next) => {
       if (error) {
         return next(error);
       }
-      console.log(user);
-      console.log('SessionID', req.sessionID);
-      console.log('Session id', req.session.id);
-      User.findById(user.id, function(err2, userInstance) {
-        userInstance.sessionToken = 'sdhfohfkjsdhfklsdhf';
-        userInstance.save();
-        return res.send(userInstance);
-      });
+
+      return res.send(user);
     });
   })(req, res, next);
 });
@@ -65,17 +53,12 @@ passport.deserializeUser(function(user, done) {
   });
 });
 
-//testing
-router.get('/', (req, res, next) => {
-  res.send('hi');
-});
-
 // Logout route
 router.get('/api/logout', (req, res, next) => {
-  res.clearCookie('connect.sid', { path: '/' });
   Session.findById(req.sessionID, function(err, dbSession) {
     if (err) throw err;
     dbSession.remove();
+    res.clearCookie('connect.sid', { path: '/' });
     res.send(dbSession);
   });
 });
