@@ -20,6 +20,7 @@ const authRoutes = require('./routes/authRoutes');
 ///connect to MongoDB
 mongoose.connect('mongodb://localhost/leanterms');
 
+
 const app = express();
 
 // require('dotenv').config();
