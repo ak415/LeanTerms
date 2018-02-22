@@ -14,11 +14,11 @@ router.route('/api/login').post(UsersController.login);
 // logout
 router.route('/api/logout').get(UsersController.logout);
 
-// current_user
+// current_user;
 router.route('/api/current_user').get(UsersController.currentUser);
 
 //this part allows us to check if user is logged in
-const isAuthenticated = (req, res, next) => {
+const isLoggedIn = (req, res, next) => {
   if (req.isAuthenticated()) {
     return next();
   } else {

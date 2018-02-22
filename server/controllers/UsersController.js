@@ -50,7 +50,11 @@ const login = (req, res, next) => {
         } else {
           fetchedUser.session_token = req.sessionID;
           fetchedUser.save().then(savedUser => {
-            return res.send(savedUser);
+            return res.send({
+              id: savedUser.id,
+              username: savedUser.username,
+              email: savedUser.email
+            });
           });
         }
       });
@@ -70,15 +74,24 @@ const logout = (req, res, next) => {
 const currentUser = (req, res, next) => {
   User.findOne({ session_token: req.sessionID }, (err, fetchedUser) => {
     if (err) {
-      res.status(404).send('No current user found');
+      return 'No current user found';
     } else {
       res.json({
         id: fetchedUser.id,
         username: fetchedUser.username,
         email: fetchedUser.email
       });
+      return fetchedUser;
     }
   });
+};
+
+const isLoggedIn = (req, res, next) => {
+  if (req.isAuthenticated()) {
+    return next();
+  } else {
+    res.status(404).json('Please login first');
+  }
 };
 
 passport.serializeUser(function(user, done) {

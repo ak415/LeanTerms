@@ -41,19 +41,19 @@ A user will have the ability to virtually share an agreement with a second user,
 
 #### **Homepage**
 
-![](https://raw.githubusercontent.com/aazaiez/LeanTerms/master/docs/Wireframes/Images/Screenshot%202018-02-18%2016.54.19.png)
+![](https://raw.githubusercontent.com/aazaiez/LeanTerms/master/server/docs/Wireframes/Images/Screenshot%202018-02-18%2016.54.19.png)
 
 #### **Form Creation**
 
-![](https://raw.githubusercontent.com/aazaiez/LeanTerms/master/docs/Wireframes/Images/Screenshot%202018-02-18%2016.53.51.png)
+![](https://raw.githubusercontent.com/aazaiez/LeanTerms/master/server/docs/Wireframes/Images/Screenshot%202018-02-18%2016.53.51.png)
 
 #### **User Page**
 
-![](https://raw.githubusercontent.com/aazaiez/LeanTerms/master/docs/Wireframes/Images/Screenshot%202018-02-18%2016.53.25.png)
+![](https://raw.githubusercontent.com/aazaiez/LeanTerms/master/server/docs/Wireframes/Images/Screenshot%202018-02-18%2016.53.25.png)
 
 #### **Contact Sharing Page**
 
-![](https://raw.githubusercontent.com/aazaiez/LeanTerms/master/docs/Wireframes/Images/Screenshot%202018-02-18%2016.52.34.png)
+![](https://raw.githubusercontent.com/aazaiez/LeanTerms/master/server/docs/Wireframes/Images/Screenshot%202018-02-18%2016.52.34.png)
 
 ### Architecture & Technologies
 

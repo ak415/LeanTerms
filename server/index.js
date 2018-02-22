@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const expressValidator = require('express-validator');
@@ -15,7 +16,7 @@ const MongoDB = require('mongodb');
 
 const authRoutes = require('./routes/authRoutes');
 
-///connect to MongoDB
+//connect to MongoDB
 mongoose.connect('mongodb://localhost/leanterms', err => {
   if (err) console.log(err);
 });
@@ -25,6 +26,8 @@ const User = require('./models/user');
 const Session = require('./models/session');
 const Type = require('./models/type');
 const Contract = require('./models/contract');
+
+const UsersController = require('./controllers/UsersController');
 
 ///Seeds
 const seededData = require('./db/seeds.js');
@@ -59,9 +62,11 @@ app.use(passport.session());
 app.use(express.static('static'));
 
 app.use(authRoutes);
+
 app.get('/', function(req, res) {
   res.sendFile(__dirname + '/index.html');
 });
+
 app.use(function(err, req, res, next) {
   console.log(err);
   res.status(422).json(err.message);
