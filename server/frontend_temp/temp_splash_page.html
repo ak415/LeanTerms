@@ -1,0 +1,141 @@
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>LeanTerms</title>
+    <link rel="stylesheet" href="./application.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+
+
+    function switchToSignUp() {
+      document.getElementById('id02').style.display='none';
+      document.getElementById('id01').style.display='flex';
+    }
+
+    function switchToLogIn() {
+      document.getElementById('id01').style.display='none';
+      document.getElementById('id02').style.display='flex';
+    }
+        var modal = document.getElementById('id01');
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+  </head>
+  <body>
+    <div class="wrap-nav-and-info">
+
+    <div class="nav-bar">
+      <div class="logo-title-wrap">
+
+      <img src="http://res.cloudinary.com/aazaiez/image/upload/v1519269426/logo_3_LT_sknvf1.svg" class="LeanTerms-logo-white"/>
+      <div>LeanTerms</div>
+    </div>
+
+    <div class="main-nav">
+
+      <button
+      id="login-effects" class="cd-signup"
+       onclick="document.getElementById('id02').style.display='flex'">Log In</button>
+
+      <button
+      id="nav-bar-signup" class="cd-signup"
+       onclick="document.getElementById('id01').style.display='flex'">Sign Up</button>
+    </div>
+
+
+    </div>
+
+
+    <div id="id01" class="modal">
+      <form class="modal-content" action="">
+        <div class="container">
+          <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">X</span>
+          <h1>Sign Up</h1>
+          <p>Please fill in this form to create an account.</p>
+          <hr>
+          <label for="email"><b>Username</b></label>
+          <input type="text" placeholder="Enter Username" name="email" required>
+
+          <label for="psw"><b>Email</b></label>
+          <input type="password" placeholder="Enter Email" name="psw" required>
+
+          <label for="psw-repeat"><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="psw-repeat" required>
+
+
+
+          <div class="clearfix">
+            <button type="submit" class="signup">Sign Up</button>
+            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+          </div>
+
+          <div class="form-last-line">
+            <button type="button" onclick="" class="demobtn">Demo</button>
+
+          <p class="alternative-option">Already have an account? <a  id="log-in-instead" href="#"
+            onclick="switchToLogIn()" style="color:#c24e04d4">Log In</a>.</p>
+
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div id="id02" class="modal">
+      <form class="modal-content" action="">
+        <div class="container">
+          <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">X</span>
+          <h1>Log In</h1>
+          <p>In order to access your account, please enter your information.</p>
+          <hr>
+          <label for="email"><b>Username</b></label>
+          <input type="text" placeholder="Enter Username" name="email" required>
+
+          <label for="psw-repeat"><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="psw-repeat" required>
+
+
+
+          <div class="clearfix">
+            <button type="submit" class="signup">Log In</button>
+            <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
+          </div>
+
+          <div class="form-last-line">
+            <button type="button" onclick="" class="demobtn">Demo</button>
+
+            <p class="alternative-option">Don't have an account? <a  id="sign-up-instead" href="#"  onclick="switchToSignUp()" style="color:#c24e04d4">Sign Up</a>.</p>
+          </div>
+
+        </div>
+      </form>
+    </div>
+
+
+
+
+
+
+
+  <ul class="homepage-intro">
+  <li>
+    <h1 class="welcome-page-message">Lease Contracts</h1>
+    <h2 id="redefined" class="welcome-page-message">Redefined</h2>
+  </li>
+  <li>
+    <p >Create, share, and sign a free customized lease contract in minutes.</p>
+  </li>
+  </ul>
+
+</div>
+
+
+
+  </body>
+</html>

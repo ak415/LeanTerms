@@ -12,17 +12,24 @@ const signup = (req, res, next) => {
   const username = req.body.username;
   const email = req.body.email;
   const password = req.body.password;
+  const session_token = req.sessionID;
   bcrypt.hash(password, saltRounds, (err, hash) => {
     //insert into database
-    const user = new User({ username: username, email: email, password: hash });
+    const user = new User({
+      username,
+      email,
+      password: hash,
+      session_token
+    });
     user
       .save()
       .then(savedUser => {
         req.login(user, error => {
           return res.send({
             id: savedUser.id,
+            email: savedUser.email,
             username: savedUser.username,
-            email: savedUser.email
+            session_token: savedUser.session_token
           });
         });
       })
@@ -38,7 +45,16 @@ const login = (req, res, next) => {
       if (error) {
         return next(error);
       }
-      return res.send(user);
+      User.findById(user.id, (anErr, fetchedUser) => {
+        if (anErr) {
+          res.send('Oops. Something went wrong.');
+        } else {
+          fetchedUser.session_token = req.sessionID;
+          fetchedUser.save().then(savedUser => {
+            return res.send(savedUser);
+          });
+        }
+      });
     });
   })(req, res, next);
 };
@@ -49,6 +65,20 @@ const logout = (req, res, next) => {
     dbSession.remove();
     res.clearCookie('connect.sid', { path: '/' });
     return res.status(200).json('Successfully logged out!');
+  });
+};
+
+const currentUser = (req, res, next) => {
+  User.findOne({ session_token: req.sessionID }, (err, fetchedUser) => {
+    if (err) {
+      res.status(404).send('No current user found');
+    } else {
+      res.json({
+        id: fetchedUser.id,
+        username: fetchedUser.username,
+        email: fetchedUser.email
+      });
+    }
   });
 };
 
@@ -65,5 +95,6 @@ passport.deserializeUser(function(user, done) {
 module.exports = {
   signup,
   login,
-  logout
+  logout,
+  currentUser
 };
