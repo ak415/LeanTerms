@@ -27,7 +27,7 @@ const Type = require('./models/type');
 const Contract = require('./models/contract');
 
 ///Seeds
-// const seededData = require('./db/seeds.js');
+const seededData = require('./db/seeds.js');
 
 const app = express();
 
@@ -82,7 +82,8 @@ passport.use(
             return done(null, {
               id: user.id,
               username: user.username,
-              email: user.email
+              email: user.email,
+              session_token: user.session_token
             });
           } else {
             return done(null, false);

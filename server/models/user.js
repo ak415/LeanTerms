@@ -16,6 +16,9 @@ const UserSchema = new Schema({
     type: String,
     required: [true, 'Password required']
   },
+  session_token: {
+    type: String
+  },
   firstName: {
     type: String
   },
