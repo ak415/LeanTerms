@@ -7,6 +7,7 @@ const mongoose = require('mongoose');
 const User = require('../models/user');
 const Session = require('../models/session');
 
+
 const signup = (req, res, next) => {
   const username = req.body.username;
   const email = req.body.email;
