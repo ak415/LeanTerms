@@ -5,7 +5,6 @@ const saltRounds = 10;
 
 const User = require('../models/user');
 const Contract = require('../models/contract');
-const Type = require('../models/type');
 const mongoose = require('mongoose');
 const UsersController = require('../controllers/UsersController');
 
@@ -47,7 +46,7 @@ for (let i = 0; i < contracts.length; i++) {
   let contractToAdd = contracts[i];
   let foundContract = Contract.findOne({ specialID: contractToAdd.specialID });
   if (!foundContract) {
-    let contract = new Contract(contractToAdd());
+    let contract = new Contract(contractToAdd);
     contract.save();
   }
 }

@@ -7,7 +7,6 @@ const mongoose = require('mongoose');
 const User = require('../models/user');
 const Session = require('../models/session');
 
-
 const signup = (req, res, next) => {
   const username = req.body.username;
   const email = req.body.email;
@@ -73,17 +72,14 @@ const logout = (req, res, next) => {
 };
 
 const currentUser = (req, res, next) => {
-  User.findOne({ session_token: req.sessionID }, (err, fetchedUser) => {
-    if (err) {
-      return 'No current user found';
-    } else {
-      res.json({
-        id: fetchedUser.id,
-        username: fetchedUser.username,
-        email: fetchedUser.email
-      });
-      return fetchedUser;
-    }
+  User.findOne({ session_token: req.sessionID }, (err, foundUser) => {
+    if (err) throw err;
+    if (!foundUser) return res.send({});
+    return res.send({
+      id: foundUser.id,
+      username: foundUser.username,
+      email: foundUser.email
+    });
   });
 };
 

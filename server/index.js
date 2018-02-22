@@ -24,7 +24,6 @@ mongoose.connect('mongodb://localhost/leanterms', err => {
 //Models
 const User = require('./models/user');
 const Session = require('./models/session');
-const Type = require('./models/type');
 const Contract = require('./models/contract');
 
 const UsersController = require('./controllers/UsersController');
