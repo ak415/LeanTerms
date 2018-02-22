@@ -4,9 +4,7 @@ const Schema = mongoose.Schema;
 const TypeSchema = new Schema({
   description: {
     type: String
-  },
-  text: {
-    type: String
+    ///month-to-month or fixed-term
   }
 });
 

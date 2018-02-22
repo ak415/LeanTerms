@@ -2,11 +2,36 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const ContractSchema = new Schema({
-  typeId: {
-    type: [Schema.Types.ObjectId],
-    ref: 'Type',
-    required: [true, 'Name field required'],
+  specialID: {
+    type: Number,
     unique: true
+  },
+  type: {
+    type: String
+  },
+  cancelNotice: {
+    type: Number
+  },
+  propertyType: {
+    type: String
+  },
+  propertyStreetAddress: {
+    type: String
+  },
+  propertyCity: {
+    type: String
+  },
+  propertyState: {
+    type: String
+  },
+  propertyZipCode: {
+    type: Number
+  },
+  furnished: {
+    type: Boolean
+  },
+  parkingAvailable: {
+    type: Boolean
   },
   signingDate: {
     type: Date
@@ -14,16 +39,25 @@ const ContractSchema = new Schema({
   effectiveDate: {
     type: Date
   },
-  text: {
-    type: String
-  },
-  lessorId: {
+  landlordId: {
     type: [Schema.Types.ObjectId],
     ref: 'User'
   },
-  lesseeId: {
+  tenantId: {
     type: [Schema.Types.ObjectId],
     ref: 'User'
+  },
+  firstMonthRequired: {
+    type: Boolean
+  },
+  depositRequired: {
+    type: Boolean
+  },
+  subletAllowed: {
+    type: Boolean
+  },
+  guestsAllowed: {
+    type: Boolean
   },
   depositAmt: {
     type: Number
@@ -34,16 +68,25 @@ const ContractSchema = new Schema({
   rentDueDate: {
     type: Date
   },
-  customTerms: {
+  lateFee: {
+    type: Boolean
+  },
+  lateFeeAmt: {
+    type: Number
+  },
+  paymentMethod: {
     type: String
   },
-  utilityBills: {
+  utilityBillsIncluded: {
     type: Boolean
   },
-  waterBills: {
-    type: Boolean
+  petsAllowed: {
+    type: Number
   },
-  pets: {
+  petsTotal: {
+    type: Number
+  },
+  singlePetFee: {
     type: Number
   },
   moveOutDate: {
