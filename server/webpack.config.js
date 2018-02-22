@@ -2,7 +2,7 @@ var path = require('path');
 var webpack = require('webpack');
 
 module.exports = {
-  entry: './front-end/app.jsx',
+  entry: './front-end/leanterms.jsx',
   output: {
     path: path.resolve(__dirname, './'),
     filename: 'static/bundle.js'
