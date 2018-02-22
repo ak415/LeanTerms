@@ -1,8 +1,10 @@
 const mongoose = require('mongoose');
 const Contract = require('../models/contract');
 
-// const showContract = (req, res, next) => {
-//   Contract.findById(re)
-// };
+const show = (req, res, next) => {
+  Contract.findById(req);
+};
 
-module.exports = {};
+module.exports = {
+  show
+};
