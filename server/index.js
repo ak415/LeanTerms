@@ -26,6 +26,8 @@ const Session = require('./models/session');
 const Type = require('./models/type');
 const Contract = require('./models/contract');
 
+
+
 ///Seeds
 // const seededData = require('./db/seeds.js');
 
