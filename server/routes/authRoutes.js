@@ -1,50 +1,16 @@
 const express = require('express');
 const router = express.Router();
 const expressValidator = require('express-validator');
-const bcrypt = require('bcrypt');
-const saltRounds = 10;
 const passport = require('passport');
 const mongoose = require('mongoose');
-const User = require('../models/user');
-const Session = require('../models/session');
 const UsersController = require('../controllers/UsersController');
 
 /// Signup route
 router.route('/api/signup').post(UsersController.signup);
 
-/// Login route
-router.post('/api/login', (req, res, next) => {
-  passport.authenticate('local', (err, user, info) => {
-    if (err) return res.status(422).json(err);
-    if (!user) return res.status(404).json('Invalid login credentials');
-    req.login(user, error => {
-      if (error) {
-        return next(error);
-      }
-      return res.send(user);
-    });
-  })(req, res, next);
-});
+router.route('/api/login').post(UsersController.login);
 
-passport.serializeUser(function(user, done) {
-  done(null, user);
-});
-
-passport.deserializeUser(function(user, done) {
-  User.findById(user.id, function(err, aUser) {
-    done(err, aUser);
-  });
-});
-
-// Logout route
-router.get('/api/logout', (req, res, next) => {
-  Session.findById(req.sessionID, function(err, dbSession) {
-    if (err) throw err;
-    dbSession.remove();
-    res.clearCookie('connect.sid', { path: '/' });
-    res.send(dbSession);
-  });
-});
+router.route('/api/logout').get(UsersController.logout);
 
 //this part allows us to check if user is logged in
 function isAuthenticated(req, res, next) {
