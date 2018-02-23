@@ -8,12 +8,6 @@ class App extends React.Component {
     super(props);
   }
 
-<<<<<<< HEAD
-    constructor(props){
-        super(props);
-
-    }
-
 
 
     render(){
@@ -26,11 +20,9 @@ class App extends React.Component {
 
         );
     }
-=======
-  render() {
-    return <Navbar />;
   }
->>>>>>> a406d86a23044c6e7bd739e35a51ac4422626829
-}
+
+  
+
 
 export default App;

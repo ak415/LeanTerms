@@ -25497,10 +25497,63 @@ var withRouter = function withRouter(Component) {
 
 /***/ }),
 /* 112 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-throw new Error("Module build failed: SyntaxError: Unexpected token (11:0)\n\n\u001b[0m \u001b[90m  9 | \u001b[39m  }\n \u001b[90m 10 | \u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 | \u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\n \u001b[90m    | \u001b[39m\u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 | \u001b[39m    constructor(props){\n \u001b[90m 13 | \u001b[39m        \u001b[36msuper\u001b[39m(props)\u001b[33m;\u001b[39m\n \u001b[90m 14 | \u001b[39m\u001b[0m\n");
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = __webpack_require__(40);
+
+var _navbar = __webpack_require__(223);
+
+var _navbar2 = _interopRequireDefault(_navbar);
+
+var _contract = __webpack_require__(222);
+
+var _contract2 = _interopRequireDefault(_contract);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var App = function (_React$Component) {
+  _inherits(App, _React$Component);
+
+  function App(props) {
+    _classCallCheck(this, App);
+
+    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+  }
+
+  _createClass(App, [{
+    key: 'render',
+    value: function render() {
+
+      return (
+        // <Navbar />
+        _react2.default.createElement(_contract2.default, null)
+      );
+    }
+  }]);
+
+  return App;
+}(_react2.default.Component);
+
+exports.default = App;
 
 /***/ }),
 /* 113 */
@@ -28886,6 +28939,421 @@ var SessionErrorsReducer = function SessionErrorsReducer() {
 };
 
 exports.default = SessionErrorsReducer;
+
+/***/ }),
+/* 222 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Contract = function (_React$Component) {
+  _inherits(Contract, _React$Component);
+
+  function Contract(props) {
+    _classCallCheck(this, Contract);
+
+    var _this = _possibleConstructorReturn(this, (Contract.__proto__ || Object.getPrototypeOf(Contract)).call(this, props));
+
+    _this.changedisplay = _this.changedisplay.bind(_this);
+    _this.switchToLogIn = _this.switchToLogIn.bind(_this);
+    _this.switchToSignUp = _this.switchToSignUp.bind(_this);
+    _this.updateProgressBar = _this.updateProgressBar.bind(_this);
+
+    return _this;
+  }
+
+  _createClass(Contract, [{
+    key: 'changedisplay',
+    value: function changedisplay(id) {
+      if (document.getElementById(id)) {
+        document.getElementById(id).style.display = 'flex';
+      }
+      return;
+    }
+  }, {
+    key: 'switchToSignUp',
+    value: function switchToSignUp() {
+      document.getElementById('id02').style.display = 'none';
+      document.getElementById('id01').style.display = 'flex';
+    }
+  }, {
+    key: 'switchToLogIn',
+    value: function switchToLogIn() {
+      document.getElementById('id01').style.display = 'none';
+      document.getElementById('id02').style.display = 'flex';
+    }
+  }, {
+    key: 'updateProgressBar',
+    value: function updateProgressBar() {
+      $("#bar").text(($("#bar").width() / $("#bar").parent().width() * 100).toFixed(0) + "%");
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+          'div',
+          { className: 'contract-form-wrapper' },
+          _react2.default.createElement(
+            'div',
+            { id: 'progress', className: 'graph' },
+            _react2.default.createElement(
+              'div',
+              { id: 'bar' },
+              _react2.default.createElement(
+                'p',
+                null,
+                '34% complete'
+              )
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'contract-title' },
+            _react2.default.createElement(
+              'h1',
+              null,
+              'California Residential Lease Agreement'
+            )
+          )
+        )
+      );
+    }
+  }]);
+
+  return Contract;
+}(_react2.default.Component);
+
+exports.default = Contract;
+
+/***/ }),
+/* 223 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Navbar = function (_React$Component) {
+    _inherits(Navbar, _React$Component);
+
+    function Navbar(props) {
+        _classCallCheck(this, Navbar);
+
+        var _this = _possibleConstructorReturn(this, (Navbar.__proto__ || Object.getPrototypeOf(Navbar)).call(this, props));
+
+        _this.changeDisplay = _this.changeDisplay.bind(_this);
+        _this.switchToLogIn = _this.switchToLogIn.bind(_this);
+        _this.switchToSignUp = _this.switchToSignUp.bind(_this);
+        return _this;
+    }
+
+    _createClass(Navbar, [{
+        key: 'changeDisplay',
+        value: function changeDisplay(id) {
+            debugger;
+            if (document.getElementById(id)) {
+                if (document.getElementById(id).style.display === 'flex') {
+                    document.getElementById(id).style.display = 'none';
+                } else {
+                    document.getElementById(id).style.display = 'flex';
+                }
+            }
+        }
+    }, {
+        key: 'switchToSignUp',
+        value: function switchToSignUp() {
+
+            if (document.getElementById('id02')) {
+                document.getElementById('id02').style.display = 'none';
+                document.getElementById('id01').style.display = 'flex';
+            }
+        }
+    }, {
+        key: 'switchToLogIn',
+        value: function switchToLogIn() {
+            if (document.getElementById('id01')) {
+                document.getElementById('id01').style.display = 'none';
+                document.getElementById('id02').style.display = 'flex';
+            }
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var _this2 = this;
+
+            return _react2.default.createElement(
+                'div',
+                null,
+                _react2.default.createElement(
+                    'div',
+                    { className: 'wrap-nav-and-info' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'nav-bar' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'logo-title-wrap' },
+                            _react2.default.createElement('img', { src: 'http://res.cloudinary.com/aazaiez/image/upload/v1519269426/logo_3_LT_sknvf1.svg', className: 'LeanTerms-logo-white' }),
+                            _react2.default.createElement(
+                                'div',
+                                null,
+                                'LeanTerms'
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'main-nav' },
+                            _react2.default.createElement(
+                                'button',
+                                {
+                                    id: 'login-effects', className: 'cd-signup',
+                                    onClick: function onClick() {
+                                        return _this2.changeDisplay('id02');
+                                    } },
+                                'Log In'
+                            ),
+                            _react2.default.createElement(
+                                'button',
+                                {
+                                    id: 'nav-bar-signup', className: 'cd-signup',
+                                    onClick: function onClick() {
+                                        return _this2.changeDisplay('id01');
+                                    } },
+                                'Sign Up'
+                            )
+                        )
+                    )
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { id: 'id01', className: 'modal' },
+                    _react2.default.createElement(
+                        'form',
+                        { className: 'modal-content', action: '' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'container' },
+                            _react2.default.createElement(
+                                'span',
+                                { onClick: function onClick() {
+                                        return _this2.changeDisplay('id01');
+                                    }, className: 'close', title: 'Close Modal' },
+                                'X'
+                            ),
+                            _react2.default.createElement(
+                                'h1',
+                                null,
+                                'Sign Up'
+                            ),
+                            _react2.default.createElement(
+                                'p',
+                                null,
+                                'Please fill in this form to create an account.'
+                            ),
+                            _react2.default.createElement('hr', null),
+                            _react2.default.createElement(
+                                'label',
+                                null,
+                                _react2.default.createElement(
+                                    'b',
+                                    null,
+                                    'Username'
+                                )
+                            ),
+                            _react2.default.createElement('input', { type: 'text', placeholder: 'Enter Username', name: 'email', required: true }),
+                            _react2.default.createElement(
+                                'label',
+                                null,
+                                _react2.default.createElement(
+                                    'b',
+                                    null,
+                                    'Email'
+                                )
+                            ),
+                            _react2.default.createElement('input', { type: 'password', placeholder: 'Enter Email', name: 'psw', required: true }),
+                            _react2.default.createElement(
+                                'label',
+                                null,
+                                _react2.default.createElement(
+                                    'b',
+                                    null,
+                                    'Password'
+                                )
+                            ),
+                            _react2.default.createElement('input', { type: 'password', placeholder: 'Enter Password', name: 'psw-repeat', required: true }),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'clearfix' },
+                                _react2.default.createElement(
+                                    'button',
+                                    { type: 'submit', className: 'signup' },
+                                    'Sign Up'
+                                ),
+                                _react2.default.createElement(
+                                    'button',
+                                    { type: 'button', onClick: function onClick() {
+                                            return _this2.changeDisplay('id01');
+                                        }, className: 'cancelbtn' },
+                                    'Cancel'
+                                )
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'form-last-line' },
+                                _react2.default.createElement(
+                                    'button',
+                                    { type: 'button', className: 'demobtn' },
+                                    'Demo'
+                                ),
+                                _react2.default.createElement(
+                                    'p',
+                                    { className: 'alternative-option' },
+                                    'Already have an account? ',
+                                    _react2.default.createElement(
+                                        'a',
+                                        { id: 'log-in-instead', href: '#',
+                                            onClick: this.switchToLogIn, style: { color: "#c24e04d4" } },
+                                        'Log In'
+                                    ),
+                                    '.'
+                                )
+                            )
+                        )
+                    )
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { id: 'id02', className: 'modal' },
+                    _react2.default.createElement(
+                        'form',
+                        { className: 'modal-content', action: '' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'container' },
+                            _react2.default.createElement(
+                                'span',
+                                { onClick: function onClick() {
+                                        return _this2.changeDisplay('id02');
+                                    }, className: 'close', title: 'Close Modal' },
+                                'X'
+                            ),
+                            _react2.default.createElement(
+                                'h1',
+                                null,
+                                'Log In'
+                            ),
+                            _react2.default.createElement(
+                                'p',
+                                null,
+                                'In order to access your account, please enter your information.'
+                            ),
+                            _react2.default.createElement('hr', null),
+                            _react2.default.createElement(
+                                'label',
+                                null,
+                                _react2.default.createElement(
+                                    'b',
+                                    null,
+                                    'Username'
+                                )
+                            ),
+                            _react2.default.createElement('input', { type: 'text', placeholder: 'Enter Username', name: 'email', required: true }),
+                            _react2.default.createElement(
+                                'label',
+                                null,
+                                _react2.default.createElement(
+                                    'b',
+                                    null,
+                                    'Password'
+                                )
+                            ),
+                            _react2.default.createElement('input', { type: 'password', placeholder: 'Enter Password', name: 'psw-repeat', required: true }),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'clearfix' },
+                                _react2.default.createElement(
+                                    'button',
+                                    { type: 'submit', className: 'signup' },
+                                    'Log In'
+                                ),
+                                _react2.default.createElement(
+                                    'button',
+                                    { type: 'button', onClick: function onClick() {
+                                            return _this2.changeDisplay('id02');
+                                        }, className: 'cancelbtn' },
+                                    'Cancel'
+                                )
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'form-last-line' },
+                                _react2.default.createElement(
+                                    'button',
+                                    { type: 'button', className: 'demobtn' },
+                                    'Demo'
+                                ),
+                                _react2.default.createElement(
+                                    'p',
+                                    { className: 'alternative-option' },
+                                    'Don\'t have an account? ',
+                                    _react2.default.createElement(
+                                        'a',
+                                        { id: 'sign-up-instead', href: '#', onClick: this.switchToSignUp(), style: { color: "#c24e04d4" } },
+                                        'Sign Up'
+                                    ),
+                                    '.'
+                                )
+                            )
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return Navbar;
+}(_react2.default.Component);
+
+exports.default = Navbar;
 
 /***/ })
 /******/ ]);
