@@ -33,7 +33,10 @@ const ContractSchema = new Schema({
   parkingAvailable: {
     type: Boolean
   },
-  signingDate: {
+  signingDateLandlord: {
+    type: Date
+  },
+  signingDateTenant: {
     type: Date
   },
   effectiveDate: {
@@ -66,6 +69,9 @@ const ContractSchema = new Schema({
     type: Number
   },
   rentDueDate: {
+    type: Number
+  },
+  firstPaymentDueDate: {
     type: Date
   },
   lateFee: {
@@ -77,13 +83,22 @@ const ContractSchema = new Schema({
   paymentMethod: {
     type: String
   },
+  acceptOtherPaymentMethods: {
+    type: Boolean
+  },
   utilityBillsIncluded: {
     type: Boolean
   },
-  petsAllowed: {
+  utilityCharges: {
     type: Number
   },
-  petsTotal: {
+  petsAllowed: {
+    type: Boolean
+  },
+  petsAllowedTotal: {
+    type: Number
+  },
+  petsTenantHas: {
     type: Number
   },
   singlePetFee: {
