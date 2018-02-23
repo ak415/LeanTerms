@@ -3813,7 +3813,7 @@ var isExtraneousPopstateEvent = function isExtraneousPopstateEvent(event) {
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 exports.ClearError = exports.CreateUser = exports.LogoutUser = exports.LoginUser = exports.RECEIVE_SIGNUP_ERRORS = exports.RECEIVE_SESSION_ERRORS = exports.REMOVE_CURRENT_USER = exports.RECEIVE_CURRENT_USER = undefined;
 
@@ -3823,65 +3823,65 @@ var SessionAPI = _interopRequireWildcard(_session_api);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-var RECEIVE_CURRENT_USER = exports.RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
-var REMOVE_CURRENT_USER = exports.REMOVE_CURRENT_USER = "REMOVE_CURRENT_USER";
-var RECEIVE_SESSION_ERRORS = exports.RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
-var RECEIVE_SIGNUP_ERRORS = exports.RECEIVE_SIGNUP_ERRORS = "RECEIVE_SIGNUP_ERRORS";
+var RECEIVE_CURRENT_USER = exports.RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
+var REMOVE_CURRENT_USER = exports.REMOVE_CURRENT_USER = 'REMOVE_CURRENT_USER';
+var RECEIVE_SESSION_ERRORS = exports.RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
+var RECEIVE_SIGNUP_ERRORS = exports.RECEIVE_SIGNUP_ERRORS = 'RECEIVE_SIGNUP_ERRORS';
 
 var ReceiveCurrentUser = function ReceiveCurrentUser(user) {
-    return {
-        type: RECEIVE_CURRENT_USER,
-        user: user
-    };
+  return {
+    type: RECEIVE_CURRENT_USER,
+    user: user
+  };
 };
 
 var RemoveCurrentUser = function RemoveCurrentUser() {
-    return {
-        type: REMOVE_CURRENT_USER
-    };
+  return {
+    type: REMOVE_CURRENT_USER
+  };
 };
 
 var ReceiveErrors = function ReceiveErrors(errors) {
-    return {
-        type: RECEIVE_SESSION_ERRORS,
-        errors: errors
-    };
+  return {
+    type: RECEIVE_SESSION_ERRORS,
+    errors: errors
+  };
 };
 
 var LoginUser = exports.LoginUser = function LoginUser(user) {
-    return function (dispatch) {
-        return SessionAPI.LoginUser(user).then(function (CurrentUser) {
-            return dispatch(ReceiveCurrentUser(CurrentUser));
-        }, function (err) {
-            return dispatch(ReceiveErrors(err.responseJSON));
-        });
-    };
+  return function (dispatch) {
+    return SessionAPI.LoginUser(user).then(function (CurrentUser) {
+      return dispatch(ReceiveCurrentUser(CurrentUser));
+    }, function (err) {
+      return dispatch(ReceiveErrors(err.responseJSON));
+    });
+  };
 };
 
 var LogoutUser = exports.LogoutUser = function LogoutUser() {
-    return function (dispatch) {
-        return SessionAPI.Logout().then(function () {
-            return dispatch(RemoveCurrentUser());
-        }, function (err) {
-            return dispatch(ReceiveErrors(err.responseJSON));
-        });
-    };
+  return function (dispatch) {
+    return SessionAPI.Logout().then(function () {
+      return dispatch(RemoveCurrentUser());
+    }, function (err) {
+      return dispatch(ReceiveErrors(err.responseJSON));
+    });
+  };
 };
 
 var CreateUser = exports.CreateUser = function CreateUser(user) {
-    return function (dispatch) {
-        return SessionAPI.CreateUser(user).then(function (currentuser) {
-            return dispatch(ReceiveCurrentUser(currentuser));
-        }, function (err) {
-            return dispatch(ReceiveErrors(err.responseJSON));
-        });
-    };
+  return function (dispatch) {
+    return SessionAPI.CreateUser(user).then(function (currentuser) {
+      return dispatch(ReceiveCurrentUser(currentuser));
+    }, function (err) {
+      return dispatch(ReceiveErrors(err.responseJSON));
+    });
+  };
 };
 
 var ClearError = exports.ClearError = function ClearError() {
-    return function (dispatch) {
-        return dispatch(ReceiveErrors([]));
-    };
+  return function (dispatch) {
+    return dispatch(ReceiveErrors([]));
+  };
 };
 
 /***/ }),
