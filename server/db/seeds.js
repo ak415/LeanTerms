@@ -9,12 +9,12 @@ const mongoose = require('mongoose');
 const UsersController = require('../controllers/UsersController');
 
 const users = [
-  { username: 'demo', email: 'demo', password: 'password' }
-  // { username: 'areej', email: 'areej@gmail.com', password: 'password' },
-  // { username: 'akram', email: 'akram@gmail.com', password: 'password' },
-  // { username: 'ali', email: 'ali@gmail.com', password: 'password' },
-  // { username: 'markov', email: 'markov@gmail.com', password: 'password' },
-  // { username: 'sennacy', email: 'sennacy@gmail.com', password: 'password' }
+  { username: 'demo', email: 'demo', password: 'password' },
+  { username: 'areej', email: 'areej@gmail.com', password: 'password' },
+  { username: 'akram', email: 'akram@gmail.com', password: 'password' },
+  { username: 'ali', email: 'ali@gmail.com', password: 'password' },
+  { username: 'markov', email: 'markov@gmail.com', password: 'password' },
+  { username: 'sennacy', email: 'sennacy@gmail.com', password: 'password' }
 ];
 
 const contracts = [
@@ -42,25 +42,48 @@ const contracts = [
   }
 ];
 
-for (let i = 0; i < contracts.length; i++) {
-  let contractToAdd = contracts[i];
-  let foundContract = Contract.findOne({ specialID: contractToAdd.specialID });
-  if (!foundContract) {
-    let contract = new Contract(contractToAdd);
-    contract.save();
+const seedContracts = () => {
+  for (let i = 0; i < contracts.length; i++) {
+    let contractToAdd = contracts[i];
+    Contract.findOne(
+      {
+        specialID: contractToAdd.specialID
+      },
+      (err, foundContract) => {
+        if (err) throw err;
+        if (!foundContract) {
+          let contract = new Contract(contractToAdd);
+          console.log('seeding contracts');
+          contract.save();
+        }
+      }
+    );
   }
-}
+};
 
-for (let i = 0; i < users.length; i++) {
-  let username = users[i].username;
-  let email = users[i].email;
-  let password = users[i].password;
-  let foundUser = User.findOne({ username: username, email: email });
-  if (!foundUser) {
-    bcrypt.hash(password, saltRounds, (err, hash) => {
-      if (err) console.log(err);
-      let user = new User({ username: username, email: email, password: hash });
-      user.save();
+const seedUsers = () => {
+  for (let i = 0; i < users.length; i++) {
+    let username = users[i].username;
+    let email = users[i].email;
+    let password = users[i].password;
+    User.findOne({ username: username, email: email }, (error, foundUser) => {
+      if (error) throw error;
+      if (!foundUser) {
+        bcrypt.hash(password, saltRounds, (err, hash) => {
+          if (err) throw err;
+          let user = new User({
+            username: username,
+            email: email,
+            password: hash
+          });
+          user.save();
+        });
+      }
     });
   }
-}
+};
+
+module.exports = {
+  seedUsers,
+  seedContracts
+};

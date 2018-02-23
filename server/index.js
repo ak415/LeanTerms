@@ -29,7 +29,11 @@ const Contract = require('./models/contract');
 const UsersController = require('./controllers/UsersController');
 
 ///Seeds
-const seededData = require('./db/seeds.js');
+const Seeds = require('./db/seeds.js');
+
+//Actually seed the data
+// Seeds.seedUsers();
+// Seeds.seedContracts();
 
 const app = express();
 
