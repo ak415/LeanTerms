@@ -20,27 +20,30 @@
       document.getElementById('id01').style.display='none';
       document.getElementById('id02').style.display='flex';
     }
-    window.onclick = function(event) {
-    // debugger;
-      let modal1 = document.getElementById('id01');
-        if (event.target == modal1) {
-            modal1.style.display = "none";
-        }
-    }
 
-    window.onclick = function(event) {
-      // debugger;
-      let modal2 = document.getElementById('id02');
-        if (event.target == modal2) {
-            modal2.style.display = "none";
+
+        var modal = document.getElementsByClassName('modal');
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
         }
-    }
+
+
+
+
+      // if (typeof $("#bar") != 'undefined') {
+      window.onload = () => {
+        $("#bar").text(($("#bar").width()/$("#bar").parent().width()*100).toFixed(0) + "%")};
+
+      // }
+
+
     </script>
   </head>
   <body>
-    <div class="wrap-nav-and-info">
 
-    <div class="nav-bar">
+    <div class="nav-bar-2">
       <div class="logo-title-wrap">
 
       <img src="http://res.cloudinary.com/aazaiez/image/upload/v1519269426/logo_3_LT_sknvf1.svg" class="LeanTerms-logo-white"/>
@@ -126,25 +129,25 @@
       </form>
     </div>
 
+    <div class="contract-form-wrapper">
+
+      <!-- Progress Bar -->
+
+      <div id="progress" class="graph">
+        <div id="bar"><p>34% complete</p></div>
+      </div>
+
+
+
+      <div class="contract-title">
+        <h1>California Residential Lease Agreement</h1>
+      </div>
 
 
 
 
 
 
-  <ul class="homepage-intro">
-  <li>
-    <h1 class="welcome-page-message">Lease Contracts</h1>
-    <h2 id="redefined" class="welcome-page-message">Redefined</h2>
-  </li>
-  <li>
-    <p >Create, share, and sign a free customized lease contract in minutes.</p>
-  </li>
-  </ul>
-
-</div>
-
-
-
+    </div>
   </body>
 </html>
