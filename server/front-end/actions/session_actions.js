@@ -48,6 +48,13 @@ export const CreateUser = (user) =>dispatch =>(
         err => dispatch(ReceiveErrors(err.responseJSON)))
 );
 
+
+export const CurrentUser= () => dispatch =>(
+    SessionAPI.CurrentUser()
+        .then((user) => dispatch(ReceiveCurrentUser(user))),
+        err => dispatch(ReceiveErrors(err.responseJSON))
+);
+
 export const ClearError = () => dispatch =>(
     dispatch(ReceiveErrors([]))
 ); 

@@ -13,8 +13,8 @@ document.addEventListener("DOMContentLoaded",()=>{
          return ;
      });
     
-     
-     let preloadstate =undefined;
+    debugger; 
+    let preloadstate =undefined;
     if (window.current_user){
         preloadstate={
             session:{
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded",()=>{
         };
     }
     
-    let store = configureStore();
+    let store = configureStore(preloadstate);
     window.store = store;
     window.LoginUser = LoginUser;
     window.ReceiveCurrentUser= ReceiveCurrentUser;
