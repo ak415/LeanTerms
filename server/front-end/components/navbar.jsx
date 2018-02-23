@@ -11,11 +11,15 @@ class Navbar extends React.Component{
     
     
     changeDisplay(id){
-        window.onload=()=>{
-            if (document.getElementById(id)){
+        debugger;
+        if (document.getElementById(id)){
+            if (document.getElementById(id).style.display === 'flex'){
+                document.getElementById(id).style.display = 'none';
+            }else{
                 document.getElementById(id).style.display = 'flex';
             }
-        };
+        }
+        
         
     }
     
@@ -50,11 +54,11 @@ class Navbar extends React.Component{
 
                           <button
                           id="login-effects" className="cd-signup"
-                           onClick={this.changeDisplay('id02')}>Log In</button>
+                           onClick={() => this.changeDisplay('id02')}>Log In</button>
 
                           <button
                           id="nav-bar-signup" className="cd-signup"
-                           onClick={this.changeDisplay('id01')}>Sign Up</button>
+                           onClick={() => this.changeDisplay('id01')}>Sign Up</button>
                         </div>
                     </div>
                 </div>
@@ -62,7 +66,7 @@ class Navbar extends React.Component{
                     <div id="id01" className="modal">
                       <form className="modal-content" action="">
                         <div className="container">
-                          <span onClick={this.changeDisplay('id01')} className="close" title="Close Modal">X</span>
+                          <span onClick={()=> this.changeDisplay('id01')} className="close" title="Close Modal">X</span>
                           <h1>Sign Up</h1>
                           <p>Please fill in this form to create an account.</p>
                           <hr/>
@@ -79,7 +83,7 @@ class Navbar extends React.Component{
 
                           <div className="clearfix">
                             <button type="submit" className="signup">Sign Up</button>
-                            <button type="button" onClick={this.changeDisplay('id01')} className="cancelbtn">Cancel</button>
+                            <button type="button" onClick={() => this.changeDisplay('id01')} className="cancelbtn">Cancel</button>
                           </div>
 
                           <div className="form-last-line">
@@ -100,7 +104,7 @@ class Navbar extends React.Component{
                     <div id="id02" className="modal">
                           <form className="modal-content" action="">
                             <div className="container">
-                              <span onClick={this.changeDisplay('id02')} className="close" title="Close Modal">X</span>
+                              <span onClick={() => this.changeDisplay('id02')} className="close" title="Close Modal">X</span>
                               <h1>Log In</h1>
                               <p>In order to access your account, please enter your information.</p>
                               <hr/>
@@ -113,7 +117,7 @@ class Navbar extends React.Component{
 
                               <div className="clearfix">
                                 <button type="submit" className="signup">Log In</button>
-                                <button type="button" onClick={this.changeDisplay('id02')} className="cancelbtn">Cancel</button>
+                                <button type="button" onClick={() => this.changeDisplay('id02')} className="cancelbtn">Cancel</button>
                               </div>
 
                               <div className="form-last-line">
