@@ -25514,13 +25514,9 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = __webpack_require__(40);
 
-var _splash = __webpack_require__(150);
+var _navbar = __webpack_require__(223);
 
-var _splash2 = _interopRequireDefault(_splash);
-
-var _contract = __webpack_require__(222);
-
-var _contract2 = _interopRequireDefault(_contract);
+var _navbar2 = _interopRequireDefault(_navbar);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -25543,12 +25539,7 @@ var App = function (_React$Component) {
         key: 'render',
         value: function render() {
 
-            return _react2.default.createElement(
-                'div',
-                null,
-                _react2.default.createElement(_splash2.default, null),
-                _react2.default.createElement(_contract2.default, null)
-            );
+            return _react2.default.createElement(_navbar2.default, null);
         }
     }]);
 
@@ -26660,209 +26651,7 @@ module.exports = identity;
 
 
 /***/ }),
-/* 150 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(1);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Splash = function (_React$Component) {
-  _inherits(Splash, _React$Component);
-
-  function Splash(props) {
-    _classCallCheck(this, Splash);
-
-    var _this = _possibleConstructorReturn(this, (Splash.__proto__ || Object.getPrototypeOf(Splash)).call(this, props));
-
-    _this.changedisplay = _this.changedisplay.bind(_this);
-    _this.switchToLogIn = _this.switchToLogIn.bind(_this);
-    _this.switchToSignUp = _this.switchToSignUp.bind(_this);
-    return _this;
-  }
-
-  _createClass(Splash, [{
-    key: 'changedisplay',
-    value: function changedisplay(id) {
-      if (document.getElementById(id)) {
-        document.getElementById(id).style.display = 'flex';
-      }
-      return;
-    }
-  }, {
-    key: 'switchToSignUp',
-    value: function switchToSignUp() {
-      document.getElementById('id02').style.display = 'none';
-      document.getElementById('id01').style.display = 'flex';
-    }
-  }, {
-    key: 'switchToLogIn',
-    value: function switchToLogIn() {
-      document.getElementById('id01').style.display = 'none';
-      document.getElementById('id02').style.display = 'flex';
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        'div',
-        null,
-        _react2.default.createElement(
-          'div',
-          { className: 'wrap-nav-and-info' },
-          _react2.default.createElement(
-            'div',
-            { className: 'nav-bar' },
-            _react2.default.createElement(
-              'div',
-              { className: 'logo-title-wrap' },
-              _react2.default.createElement('img', { src: 'http://res.cloudinary.com/aazaiez/image/upload/v1519269426/logo_3_LT_sknvf1.svg', className: 'LeanTerms-logo-white' }),
-              _react2.default.createElement(
-                'div',
-                null,
-                'LeanTerms'
-              )
-            ),
-            _react2.default.createElement(
-              'div',
-              { className: 'main-nav' },
-              _react2.default.createElement(
-                'button',
-                {
-                  id: 'login-effects', className: 'cd-signup',
-                  onClick: this.changedisplay('id02') },
-                'Log In'
-              ),
-              _react2.default.createElement(
-                'button',
-                {
-                  id: 'nav-bar-signup', className: 'cd-signup',
-                  onClick: this.changedisplay('id01') },
-                'Sign Up'
-              )
-            )
-          )
-        ),
-        _react2.default.createElement(
-          'div',
-          { id: 'id01', className: 'modal' },
-          _react2.default.createElement(
-            'form',
-            { className: 'modal-content', action: '' },
-            _react2.default.createElement(
-              'div',
-              { className: 'container' },
-              _react2.default.createElement(
-                'span',
-                { onClick: this.changedisplay('id01'), className: 'close', title: 'Close Modal' },
-                'X'
-              ),
-              _react2.default.createElement(
-                'h1',
-                null,
-                'Sign Up'
-              ),
-              _react2.default.createElement(
-                'p',
-                null,
-                'Please fill in this form to create an account.'
-              ),
-              _react2.default.createElement('hr', null),
-              _react2.default.createElement(
-                'label',
-                null,
-                _react2.default.createElement(
-                  'b',
-                  null,
-                  'Username'
-                )
-              ),
-              _react2.default.createElement('input', { type: 'text', placeholder: 'Enter Username', name: 'email', required: true }),
-              _react2.default.createElement(
-                'label',
-                null,
-                _react2.default.createElement(
-                  'b',
-                  null,
-                  'Email'
-                )
-              ),
-              _react2.default.createElement('input', { type: 'password', placeholder: 'Enter Email', name: 'psw', required: true }),
-              _react2.default.createElement(
-                'label',
-                null,
-                _react2.default.createElement(
-                  'b',
-                  null,
-                  'Password'
-                )
-              ),
-              _react2.default.createElement('input', { type: 'password', placeholder: 'Enter Password', name: 'psw-repeat', required: true }),
-              _react2.default.createElement(
-                'div',
-                { className: 'clearfix' },
-                _react2.default.createElement(
-                  'button',
-                  { type: 'submit', className: 'signup' },
-                  'Sign Up'
-                ),
-                _react2.default.createElement(
-                  'button',
-                  { type: 'button', onClick: this.changedisplay('id01'), className: 'cancelbtn' },
-                  'Cancel'
-                )
-              ),
-              _react2.default.createElement(
-                'div',
-                { className: 'form-last-line' },
-                _react2.default.createElement(
-                  'button',
-                  { type: 'button', className: 'demobtn' },
-                  'Demo'
-                ),
-                _react2.default.createElement(
-                  'p',
-                  { className: 'alternative-option' },
-                  'Already have an account? ',
-                  _react2.default.createElement(
-                    'a',
-                    { id: 'log-in-instead', href: '#',
-                      onClick: this.switchToLogIn, style: { color: "#c24e04d4" } },
-                    'Log In'
-                  ),
-                  '.'
-                )
-              )
-            )
-          )
-        )
-      );
-    }
-  }]);
-
-  return Splash;
-}(_react2.default.Component);
-
-exports.default = Splash;
-
-/***/ }),
+/* 150 */,
 /* 151 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -29145,14 +28934,15 @@ var SessionErrorsReducer = function SessionErrorsReducer() {
 exports.default = SessionErrorsReducer;
 
 /***/ }),
-/* 222 */
+/* 222 */,
+/* 223 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -29169,87 +28959,271 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Contract = function (_React$Component) {
-  _inherits(Contract, _React$Component);
+var Navbar = function (_React$Component) {
+    _inherits(Navbar, _React$Component);
 
-  function Contract(props) {
-    _classCallCheck(this, Contract);
+    function Navbar(props) {
+        _classCallCheck(this, Navbar);
 
-    var _this = _possibleConstructorReturn(this, (Contract.__proto__ || Object.getPrototypeOf(Contract)).call(this, props));
+        var _this = _possibleConstructorReturn(this, (Navbar.__proto__ || Object.getPrototypeOf(Navbar)).call(this, props));
 
-    _this.changedisplay = _this.changedisplay.bind(_this);
-    _this.switchToLogIn = _this.switchToLogIn.bind(_this);
-    _this.switchToSignUp = _this.switchToSignUp.bind(_this);
-    _this.updateProgressBar = _this.updateProgressBar.bind(_this);
-
-    return _this;
-  }
-
-  _createClass(Contract, [{
-    key: 'changedisplay',
-    value: function changedisplay(id) {
-      if (document.getElementById(id)) {
-        document.getElementById(id).style.display = 'flex';
-      }
-      return;
+        _this.changeDisplay = _this.changeDisplay.bind(_this);
+        _this.switchToLogIn = _this.switchToLogIn.bind(_this);
+        _this.switchToSignUp = _this.switchToSignUp.bind(_this);
+        return _this;
     }
-  }, {
-    key: 'switchToSignUp',
-    value: function switchToSignUp() {
-      document.getElementById('id02').style.display = 'none';
-      document.getElementById('id01').style.display = 'flex';
-    }
-  }, {
-    key: 'switchToLogIn',
-    value: function switchToLogIn() {
-      document.getElementById('id01').style.display = 'none';
-      document.getElementById('id02').style.display = 'flex';
-    }
-  }, {
-    key: 'updateProgressBar',
-    value: function updateProgressBar() {
-      $("#bar").text(($("#bar").width() / $("#bar").parent().width() * 100).toFixed(0) + "%");
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        'div',
-        null,
-        _react2.default.createElement(
-          'div',
-          { className: 'contract-form-wrapper' },
-          _react2.default.createElement(
-            'div',
-            { id: 'progress', className: 'graph' },
-            _react2.default.createElement(
-              'div',
-              { id: 'bar' },
-              _react2.default.createElement(
-                'p',
+
+    _createClass(Navbar, [{
+        key: 'changeDisplay',
+        value: function changeDisplay(id) {
+            window.onload = function () {
+                if (document.getElementById(id)) {
+                    document.getElementById(id).style.display = 'flex';
+                }
+            };
+        }
+    }, {
+        key: 'switchToSignUp',
+        value: function switchToSignUp() {
+
+            if (document.getElementById('id02')) {
+                document.getElementById('id02').style.display = 'none';
+                document.getElementById('id01').style.display = 'flex';
+            }
+        }
+    }, {
+        key: 'switchToLogIn',
+        value: function switchToLogIn() {
+            if (document.getElementById('id01')) {
+                document.getElementById('id01').style.display = 'none';
+                document.getElementById('id02').style.display = 'flex';
+            }
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
                 null,
-                '34% complete'
-              )
-            )
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'contract-title' },
-            _react2.default.createElement(
-              'h1',
-              null,
-              'California Residential Lease Agreement'
-            )
-          )
-        )
-      );
-    }
-  }]);
+                _react2.default.createElement(
+                    'div',
+                    { className: 'wrap-nav-and-info' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'nav-bar' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'logo-title-wrap' },
+                            _react2.default.createElement('img', { src: 'http://res.cloudinary.com/aazaiez/image/upload/v1519269426/logo_3_LT_sknvf1.svg', className: 'LeanTerms-logo-white' }),
+                            _react2.default.createElement(
+                                'div',
+                                null,
+                                'LeanTerms'
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'main-nav' },
+                            _react2.default.createElement(
+                                'button',
+                                {
+                                    id: 'login-effects', className: 'cd-signup',
+                                    onClick: this.changeDisplay('id02') },
+                                'Log In'
+                            ),
+                            _react2.default.createElement(
+                                'button',
+                                {
+                                    id: 'nav-bar-signup', className: 'cd-signup',
+                                    onClick: this.changeDisplay('id01') },
+                                'Sign Up'
+                            )
+                        )
+                    )
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { id: 'id01', className: 'modal' },
+                    _react2.default.createElement(
+                        'form',
+                        { className: 'modal-content', action: '' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'container' },
+                            _react2.default.createElement(
+                                'span',
+                                { onClick: this.changeDisplay('id01'), className: 'close', title: 'Close Modal' },
+                                'X'
+                            ),
+                            _react2.default.createElement(
+                                'h1',
+                                null,
+                                'Sign Up'
+                            ),
+                            _react2.default.createElement(
+                                'p',
+                                null,
+                                'Please fill in this form to create an account.'
+                            ),
+                            _react2.default.createElement('hr', null),
+                            _react2.default.createElement(
+                                'label',
+                                null,
+                                _react2.default.createElement(
+                                    'b',
+                                    null,
+                                    'Username'
+                                )
+                            ),
+                            _react2.default.createElement('input', { type: 'text', placeholder: 'Enter Username', name: 'email', required: true }),
+                            _react2.default.createElement(
+                                'label',
+                                null,
+                                _react2.default.createElement(
+                                    'b',
+                                    null,
+                                    'Email'
+                                )
+                            ),
+                            _react2.default.createElement('input', { type: 'password', placeholder: 'Enter Email', name: 'psw', required: true }),
+                            _react2.default.createElement(
+                                'label',
+                                null,
+                                _react2.default.createElement(
+                                    'b',
+                                    null,
+                                    'Password'
+                                )
+                            ),
+                            _react2.default.createElement('input', { type: 'password', placeholder: 'Enter Password', name: 'psw-repeat', required: true }),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'clearfix' },
+                                _react2.default.createElement(
+                                    'button',
+                                    { type: 'submit', className: 'signup' },
+                                    'Sign Up'
+                                ),
+                                _react2.default.createElement(
+                                    'button',
+                                    { type: 'button', onClick: this.changeDisplay('id01'), className: 'cancelbtn' },
+                                    'Cancel'
+                                )
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'form-last-line' },
+                                _react2.default.createElement(
+                                    'button',
+                                    { type: 'button', className: 'demobtn' },
+                                    'Demo'
+                                ),
+                                _react2.default.createElement(
+                                    'p',
+                                    { className: 'alternative-option' },
+                                    'Already have an account? ',
+                                    _react2.default.createElement(
+                                        'a',
+                                        { id: 'log-in-instead', href: '#',
+                                            onClick: this.switchToLogIn, style: { color: "#c24e04d4" } },
+                                        'Log In'
+                                    ),
+                                    '.'
+                                )
+                            )
+                        )
+                    )
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { id: 'id02', className: 'modal' },
+                    _react2.default.createElement(
+                        'form',
+                        { className: 'modal-content', action: '' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'container' },
+                            _react2.default.createElement(
+                                'span',
+                                { onClick: this.changeDisplay('id02'), className: 'close', title: 'Close Modal' },
+                                'X'
+                            ),
+                            _react2.default.createElement(
+                                'h1',
+                                null,
+                                'Log In'
+                            ),
+                            _react2.default.createElement(
+                                'p',
+                                null,
+                                'In order to access your account, please enter your information.'
+                            ),
+                            _react2.default.createElement('hr', null),
+                            _react2.default.createElement(
+                                'label',
+                                null,
+                                _react2.default.createElement(
+                                    'b',
+                                    null,
+                                    'Username'
+                                )
+                            ),
+                            _react2.default.createElement('input', { type: 'text', placeholder: 'Enter Username', name: 'email', required: true }),
+                            _react2.default.createElement(
+                                'label',
+                                null,
+                                _react2.default.createElement(
+                                    'b',
+                                    null,
+                                    'Password'
+                                )
+                            ),
+                            _react2.default.createElement('input', { type: 'password', placeholder: 'Enter Password', name: 'psw-repeat', required: true }),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'clearfix' },
+                                _react2.default.createElement(
+                                    'button',
+                                    { type: 'submit', className: 'signup' },
+                                    'Log In'
+                                ),
+                                _react2.default.createElement(
+                                    'button',
+                                    { type: 'button', onClick: this.changeDisplay('id02'), className: 'cancelbtn' },
+                                    'Cancel'
+                                )
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'form-last-line' },
+                                _react2.default.createElement(
+                                    'button',
+                                    { type: 'button', className: 'demobtn' },
+                                    'Demo'
+                                ),
+                                _react2.default.createElement(
+                                    'p',
+                                    { className: 'alternative-option' },
+                                    'Don\'t have an account? ',
+                                    _react2.default.createElement(
+                                        'a',
+                                        { id: 'sign-up-instead', href: '#', onClick: this.switchToSignUp(), style: { color: "#c24e04d4" } },
+                                        'Sign Up'
+                                    ),
+                                    '.'
+                                )
+                            )
+                        )
+                    )
+                )
+            );
+        }
+    }]);
 
-  return Contract;
+    return Navbar;
 }(_react2.default.Component);
 
-exports.default = Contract;
+exports.default = Navbar;
 
 /***/ })
 /******/ ]);
