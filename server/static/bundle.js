@@ -26534,7 +26534,7 @@ exports.default = App;
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -26552,284 +26552,341 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var Navbar = function (_React$Component) {
-    _inherits(Navbar, _React$Component);
+  _inherits(Navbar, _React$Component);
 
-    function Navbar(props) {
-        _classCallCheck(this, Navbar);
+  function Navbar(props) {
+    _classCallCheck(this, Navbar);
 
-        var _this = _possibleConstructorReturn(this, (Navbar.__proto__ || Object.getPrototypeOf(Navbar)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (Navbar.__proto__ || Object.getPrototypeOf(Navbar)).call(this, props));
 
-        _this.changeDisplay = _this.changeDisplay.bind(_this);
-        _this.switchToLogIn = _this.switchToLogIn.bind(_this);
-        _this.switchToSignUp = _this.switchToSignUp.bind(_this);
-        return _this;
+    _this.changeDisplay = _this.changeDisplay.bind(_this);
+    _this.switchToLogIn = _this.switchToLogIn.bind(_this);
+    _this.switchToSignUp = _this.switchToSignUp.bind(_this);
+    return _this;
+  }
+
+  _createClass(Navbar, [{
+    key: 'changeDisplay',
+    value: function changeDisplay(id) {
+      if (document.getElementById(id)) {
+        if (document.getElementById(id).style.display === 'flex') {
+          document.getElementById(id).style.display = 'none';
+        } else {
+          document.getElementById(id).style.display = 'flex';
+        }
+      }
     }
+  }, {
+    key: 'switchToSignUp',
+    value: function switchToSignUp() {
+      if (document.getElementById('id02')) {
+        document.getElementById('id02').style.display = 'none';
+        document.getElementById('id01').style.display = 'flex';
+      }
+    }
+  }, {
+    key: 'switchToLogIn',
+    value: function switchToLogIn() {
+      if (document.getElementById('id01')) {
+        document.getElementById('id01').style.display = 'none';
+        document.getElementById('id02').style.display = 'flex';
+      }
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
 
-    _createClass(Navbar, [{
-        key: 'changeDisplay',
-        value: function changeDisplay(id) {
-            debugger;
-            if (document.getElementById(id)) {
-                if (document.getElementById(id).style.display === 'flex') {
-                    document.getElementById(id).style.display = 'none';
-                } else {
-                    document.getElementById(id).style.display = 'flex';
-                }
-            }
-        }
-    }, {
-        key: 'switchToSignUp',
-        value: function switchToSignUp() {
-
-            if (document.getElementById('id02')) {
-                document.getElementById('id02').style.display = 'none';
-                document.getElementById('id01').style.display = 'flex';
-            }
-        }
-    }, {
-        key: 'switchToLogIn',
-        value: function switchToLogIn() {
-            if (document.getElementById('id01')) {
-                document.getElementById('id01').style.display = 'none';
-                document.getElementById('id02').style.display = 'flex';
-            }
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            var _this2 = this;
-
-            return _react2.default.createElement(
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+          'div',
+          { className: 'wrap-nav-and-info' },
+          _react2.default.createElement(
+            'div',
+            { className: 'nav-bar' },
+            _react2.default.createElement(
+              'div',
+              { className: 'logo-title-wrap' },
+              _react2.default.createElement('img', {
+                src: 'http://res.cloudinary.com/aazaiez/image/upload/v1519269426/logo_3_LT_sknvf1.svg',
+                className: 'LeanTerms-logo-white'
+              }),
+              _react2.default.createElement(
                 'div',
                 null,
+                'LeanTerms'
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'main-nav' },
+              _react2.default.createElement(
+                'button',
+                {
+                  id: 'login-effects',
+                  className: 'cd-signup',
+                  onClick: function onClick() {
+                    return _this2.changeDisplay('id02');
+                  }
+                },
+                'Log In'
+              ),
+              _react2.default.createElement(
+                'button',
+                {
+                  id: 'nav-bar-signup',
+                  className: 'cd-signup',
+                  onClick: function onClick() {
+                    return _this2.changeDisplay('id01');
+                  }
+                },
+                'Sign Up'
+              )
+            )
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { id: 'id01', className: 'modal' },
+          _react2.default.createElement(
+            'form',
+            { className: 'modal-content', action: '' },
+            _react2.default.createElement(
+              'div',
+              { className: 'container' },
+              _react2.default.createElement(
+                'span',
+                {
+                  onClick: function onClick() {
+                    return _this2.changeDisplay('id01');
+                  },
+                  className: 'close',
+                  title: 'Close Modal'
+                },
+                'X'
+              ),
+              _react2.default.createElement(
+                'h1',
+                null,
+                'Sign Up'
+              ),
+              _react2.default.createElement(
+                'p',
+                null,
+                'Please fill in this form to create an account.'
+              ),
+              _react2.default.createElement('hr', null),
+              _react2.default.createElement(
+                'label',
+                null,
                 _react2.default.createElement(
-                    'div',
-                    { className: 'wrap-nav-and-info' },
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'nav-bar' },
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'logo-title-wrap' },
-                            _react2.default.createElement('img', { src: 'http://res.cloudinary.com/aazaiez/image/upload/v1519269426/logo_3_LT_sknvf1.svg', className: 'LeanTerms-logo-white' }),
-                            _react2.default.createElement(
-                                'div',
-                                null,
-                                'LeanTerms'
-                            )
-                        ),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'main-nav' },
-                            _react2.default.createElement(
-                                'button',
-                                {
-                                    id: 'login-effects', className: 'cd-signup',
-                                    onClick: function onClick() {
-                                        return _this2.changeDisplay('id02');
-                                    } },
-                                'Log In'
-                            ),
-                            _react2.default.createElement(
-                                'button',
-                                {
-                                    id: 'nav-bar-signup', className: 'cd-signup',
-                                    onClick: function onClick() {
-                                        return _this2.changeDisplay('id01');
-                                    } },
-                                'Sign Up'
-                            )
-                        )
-                    )
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { id: 'id01', className: 'modal' },
-                    _react2.default.createElement(
-                        'form',
-                        { className: 'modal-content', action: '' },
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'container' },
-                            _react2.default.createElement(
-                                'span',
-                                { onClick: function onClick() {
-                                        return _this2.changeDisplay('id01');
-                                    }, className: 'close', title: 'Close Modal' },
-                                'X'
-                            ),
-                            _react2.default.createElement(
-                                'h1',
-                                null,
-                                'Sign Up'
-                            ),
-                            _react2.default.createElement(
-                                'p',
-                                null,
-                                'Please fill in this form to create an account.'
-                            ),
-                            _react2.default.createElement('hr', null),
-                            _react2.default.createElement(
-                                'label',
-                                null,
-                                _react2.default.createElement(
-                                    'b',
-                                    null,
-                                    'Username'
-                                )
-                            ),
-                            _react2.default.createElement('input', { type: 'text', placeholder: 'Enter Username', name: 'email', required: true }),
-                            _react2.default.createElement(
-                                'label',
-                                null,
-                                _react2.default.createElement(
-                                    'b',
-                                    null,
-                                    'Email'
-                                )
-                            ),
-                            _react2.default.createElement('input', { type: 'password', placeholder: 'Enter Email', name: 'psw', required: true }),
-                            _react2.default.createElement(
-                                'label',
-                                null,
-                                _react2.default.createElement(
-                                    'b',
-                                    null,
-                                    'Password'
-                                )
-                            ),
-                            _react2.default.createElement('input', { type: 'password', placeholder: 'Enter Password', name: 'psw-repeat', required: true }),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'clearfix' },
-                                _react2.default.createElement(
-                                    'button',
-                                    { type: 'submit', className: 'signup' },
-                                    'Sign Up'
-                                ),
-                                _react2.default.createElement(
-                                    'button',
-                                    { type: 'button', onClick: function onClick() {
-                                            return _this2.changeDisplay('id01');
-                                        }, className: 'cancelbtn' },
-                                    'Cancel'
-                                )
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'form-last-line' },
-                                _react2.default.createElement(
-                                    'button',
-                                    { type: 'button', className: 'demobtn' },
-                                    'Demo'
-                                ),
-                                _react2.default.createElement(
-                                    'p',
-                                    { className: 'alternative-option' },
-                                    'Already have an account? ',
-                                    _react2.default.createElement(
-                                        'a',
-                                        { id: 'log-in-instead', href: '#',
-                                            onClick: this.switchToLogIn, style: { color: "#c24e04d4" } },
-                                        'Log In'
-                                    ),
-                                    '.'
-                                )
-                            )
-                        )
-                    )
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { id: 'id02', className: 'modal' },
-                    _react2.default.createElement(
-                        'form',
-                        { className: 'modal-content', action: '' },
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'container' },
-                            _react2.default.createElement(
-                                'span',
-                                { onClick: function onClick() {
-                                        return _this2.changeDisplay('id02');
-                                    }, className: 'close', title: 'Close Modal' },
-                                'X'
-                            ),
-                            _react2.default.createElement(
-                                'h1',
-                                null,
-                                'Log In'
-                            ),
-                            _react2.default.createElement(
-                                'p',
-                                null,
-                                'In order to access your account, please enter your information.'
-                            ),
-                            _react2.default.createElement('hr', null),
-                            _react2.default.createElement(
-                                'label',
-                                null,
-                                _react2.default.createElement(
-                                    'b',
-                                    null,
-                                    'Username'
-                                )
-                            ),
-                            _react2.default.createElement('input', { type: 'text', placeholder: 'Enter Username', name: 'email', required: true }),
-                            _react2.default.createElement(
-                                'label',
-                                null,
-                                _react2.default.createElement(
-                                    'b',
-                                    null,
-                                    'Password'
-                                )
-                            ),
-                            _react2.default.createElement('input', { type: 'password', placeholder: 'Enter Password', name: 'psw-repeat', required: true }),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'clearfix' },
-                                _react2.default.createElement(
-                                    'button',
-                                    { type: 'submit', className: 'signup' },
-                                    'Log In'
-                                ),
-                                _react2.default.createElement(
-                                    'button',
-                                    { type: 'button', onClick: function onClick() {
-                                            return _this2.changeDisplay('id02');
-                                        }, className: 'cancelbtn' },
-                                    'Cancel'
-                                )
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'form-last-line' },
-                                _react2.default.createElement(
-                                    'button',
-                                    { type: 'button', className: 'demobtn' },
-                                    'Demo'
-                                ),
-                                _react2.default.createElement(
-                                    'p',
-                                    { className: 'alternative-option' },
-                                    'Don\'t have an account? ',
-                                    _react2.default.createElement(
-                                        'a',
-                                        { id: 'sign-up-instead', href: '#', onClick: this.switchToSignUp(), style: { color: "#c24e04d4" } },
-                                        'Sign Up'
-                                    ),
-                                    '.'
-                                )
-                            )
-                        )
-                    )
+                  'b',
+                  null,
+                  'Username'
                 )
-            );
-        }
-    }]);
+              ),
+              _react2.default.createElement('input', {
+                type: 'text',
+                placeholder: 'Enter Username',
+                name: 'email',
+                required: true
+              }),
+              _react2.default.createElement(
+                'label',
+                null,
+                _react2.default.createElement(
+                  'b',
+                  null,
+                  'Email'
+                )
+              ),
+              _react2.default.createElement('input', {
+                type: 'password',
+                placeholder: 'Enter Email',
+                name: 'psw',
+                required: true
+              }),
+              _react2.default.createElement(
+                'label',
+                null,
+                _react2.default.createElement(
+                  'b',
+                  null,
+                  'Password'
+                )
+              ),
+              _react2.default.createElement('input', {
+                type: 'password',
+                placeholder: 'Enter Password',
+                name: 'psw-repeat',
+                required: true
+              }),
+              _react2.default.createElement(
+                'div',
+                { className: 'clearfix' },
+                _react2.default.createElement(
+                  'button',
+                  { type: 'submit', className: 'signup' },
+                  'Sign Up'
+                ),
+                _react2.default.createElement(
+                  'button',
+                  {
+                    type: 'button',
+                    onClick: function onClick() {
+                      return _this2.changeDisplay('id01');
+                    },
+                    className: 'cancelbtn'
+                  },
+                  'Cancel'
+                )
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'form-last-line' },
+                _react2.default.createElement(
+                  'button',
+                  { type: 'button', className: 'demobtn' },
+                  'Demo'
+                ),
+                _react2.default.createElement(
+                  'p',
+                  { className: 'alternative-option' },
+                  'Already have an account?',
+                  ' ',
+                  _react2.default.createElement(
+                    'a',
+                    {
+                      id: 'log-in-instead',
+                      href: '#',
+                      onClick: this.switchToLogIn,
+                      style: { color: '#c24e04d4' }
+                    },
+                    'Log In'
+                  ),
+                  '.'
+                )
+              )
+            )
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { id: 'id02', className: 'modal' },
+          _react2.default.createElement(
+            'form',
+            { className: 'modal-content', action: '' },
+            _react2.default.createElement(
+              'div',
+              { className: 'container' },
+              _react2.default.createElement(
+                'span',
+                {
+                  onClick: function onClick() {
+                    return _this2.changeDisplay('id02');
+                  },
+                  className: 'close',
+                  title: 'Close Modal'
+                },
+                'X'
+              ),
+              _react2.default.createElement(
+                'h1',
+                null,
+                'Log In'
+              ),
+              _react2.default.createElement(
+                'p',
+                null,
+                'In order to access your account, please enter your information.'
+              ),
+              _react2.default.createElement('hr', null),
+              _react2.default.createElement(
+                'label',
+                null,
+                _react2.default.createElement(
+                  'b',
+                  null,
+                  'Username'
+                )
+              ),
+              _react2.default.createElement('input', {
+                type: 'text',
+                placeholder: 'Enter Username',
+                name: 'email',
+                required: true
+              }),
+              _react2.default.createElement(
+                'label',
+                null,
+                _react2.default.createElement(
+                  'b',
+                  null,
+                  'Password'
+                )
+              ),
+              _react2.default.createElement('input', {
+                type: 'password',
+                placeholder: 'Enter Password',
+                name: 'psw-repeat',
+                required: true
+              }),
+              _react2.default.createElement(
+                'div',
+                { className: 'clearfix' },
+                _react2.default.createElement(
+                  'button',
+                  { type: 'submit', className: 'signup' },
+                  'Log In'
+                ),
+                _react2.default.createElement(
+                  'button',
+                  {
+                    type: 'button',
+                    onClick: function onClick() {
+                      return _this2.changeDisplay('id02');
+                    },
+                    className: 'cancelbtn'
+                  },
+                  'Cancel'
+                )
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'form-last-line' },
+                _react2.default.createElement(
+                  'button',
+                  { type: 'button', className: 'demobtn' },
+                  'Demo'
+                ),
+                _react2.default.createElement(
+                  'p',
+                  { className: 'alternative-option' },
+                  'Don\'t have an account?',
+                  ' ',
+                  _react2.default.createElement(
+                    'a',
+                    {
+                      id: 'sign-up-instead',
+                      href: '#',
+                      onClick: this.switchToSignUp(),
+                      style: { color: '#c24e04d4' }
+                    },
+                    'Sign Up'
+                  ),
+                  '.'
+                )
+              )
+            )
+          )
+        )
+      );
+    }
+  }]);
 
-    return Navbar;
+  return Navbar;
 }(_react2.default.Component);
 
 exports.default = Navbar;
