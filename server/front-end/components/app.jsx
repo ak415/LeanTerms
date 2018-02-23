@@ -1,6 +1,6 @@
 import React from 'react';
 import {Route,Switch,Redirect} from 'react-router-dom';
-import Splash from './splash';
+import Navbar from './navbar';
 
 class App extends React.Component{
 
@@ -16,7 +16,7 @@ class App extends React.Component{
         
         
         return (
-            <Splash />
+            <Navbar />
         );
     }
 }

@@ -65,6 +65,21 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+
+if (process.env.NODE_ENV === 'production') {
+  module.exports = __webpack_require__(81);
+} else {
+  module.exports = __webpack_require__(82);
+}
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+
+/***/ }),
+/* 1 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -254,21 +269,6 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
-
-if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(81);
-} else {
-  module.exports = __webpack_require__(82);
-}
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
 /* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -334,7 +334,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = warning;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 3 */
@@ -369,7 +369,7 @@ if (process.env.NODE_ENV !== 'production') {
   module.exports = __webpack_require__(96)();
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 4 */
@@ -426,7 +426,7 @@ var invariant = function(condition, format, a, b, c, d, e, f) {
 
 module.exports = invariant;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 5 */
@@ -677,7 +677,7 @@ function invariant(condition, format, a, b, c, d, e, f) {
 }
 
 module.exports = invariant;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 10 */
@@ -714,7 +714,7 @@ if (process.env.NODE_ENV !== 'production' && typeof isCrushed.name === 'string' 
 }
 
 
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1)))
 
 /***/ }),
 /* 11 */
@@ -911,7 +911,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 module.exports = emptyObject;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 15 */
@@ -980,7 +980,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 module.exports = warning;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 16 */
@@ -1328,7 +1328,7 @@ function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
 
 module.exports = checkPropTypes;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 25 */
@@ -1644,7 +1644,7 @@ exports.default = createTransitionManager;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_warning__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_invariant__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_prop_types__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_prop_types__);
@@ -2277,7 +2277,7 @@ var EventListener = {
 };
 
 module.exports = EventListener;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 42 */
@@ -2499,7 +2499,7 @@ var storeShape = __WEBPACK_IMPORTED_MODULE_0_prop_types___default.a.shape({
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_hoist_non_react_statics___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_hoist_non_react_statics__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_invariant__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_Subscription__ = __webpack_require__(97);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__utils_PropTypes__ = __webpack_require__(46);
@@ -2792,7 +2792,7 @@ selectorFactory) {
     return __WEBPACK_IMPORTED_MODULE_0_hoist_non_react_statics___default()(Connect, WrappedComponent);
   };
 }
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1)))
 
 /***/ }),
 /* 48 */
@@ -3287,7 +3287,7 @@ function wrapMapToPropsFunc(mapToProps, methodName) {
     return proxy;
   };
 }
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1)))
 
 /***/ }),
 /* 54 */
@@ -3553,7 +3553,7 @@ var isExtraneousPopstateEvent = exports.isExtraneousPopstateEvent = function isE
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
@@ -3678,7 +3678,7 @@ Link.contextTypes = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_warning__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_invariant__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_prop_types__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_prop_types__);
@@ -4354,7 +4354,7 @@ module.exports = identity;
 "use strict";
 
 
-var _react = __webpack_require__(1);
+var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -5793,7 +5793,7 @@ module.exports = react;
   })();
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 83 */
@@ -5839,7 +5839,7 @@ if (process.env.NODE_ENV === 'production') {
   module.exports = __webpack_require__(87);
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 84 */
@@ -5858,7 +5858,7 @@ if (process.env.NODE_ENV === 'production') {
 /*
  Modernizr 3.0.0pre (Custom Build) | MIT
 */
-var aa=__webpack_require__(1),l=__webpack_require__(40),B=__webpack_require__(8),C=__webpack_require__(5),ba=__webpack_require__(41),da=__webpack_require__(42),ea=__webpack_require__(43),fa=__webpack_require__(44),ia=__webpack_require__(45),D=__webpack_require__(14);
+var aa=__webpack_require__(0),l=__webpack_require__(40),B=__webpack_require__(8),C=__webpack_require__(5),ba=__webpack_require__(41),da=__webpack_require__(42),ea=__webpack_require__(43),fa=__webpack_require__(44),ia=__webpack_require__(45),D=__webpack_require__(14);
 function E(a){for(var b=arguments.length-1,c="Minified React error #"+a+"; visit http://facebook.github.io/react/docs/error-decoder.html?invariant\x3d"+a,d=0;d<b;d++)c+="\x26args[]\x3d"+encodeURIComponent(arguments[d+1]);b=Error(c+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings.");b.name="Invariant Violation";b.framesToPop=1;throw b;}aa?void 0:E("227");
 var oa={children:!0,dangerouslySetInnerHTML:!0,defaultValue:!0,defaultChecked:!0,innerHTML:!0,suppressContentEditableWarning:!0,suppressHydrationWarning:!0,style:!0};function pa(a,b){return(a&b)===b}
 var ta={MUST_USE_PROPERTY:1,HAS_BOOLEAN_VALUE:4,HAS_NUMERIC_VALUE:8,HAS_POSITIVE_NUMERIC_VALUE:24,HAS_OVERLOADED_BOOLEAN_VALUE:32,HAS_STRING_BOOLEAN_VALUE:64,injectDOMPropertyConfig:function(a){var b=ta,c=a.Properties||{},d=a.DOMAttributeNamespaces||{},e=a.DOMAttributeNames||{};a=a.DOMMutationMethods||{};for(var f in c){ua.hasOwnProperty(f)?E("48",f):void 0;var g=f.toLowerCase(),h=c[f];g={attributeName:g,attributeNamespace:null,propertyName:f,mutationMethod:null,mustUseProperty:pa(h,b.MUST_USE_PROPERTY),
@@ -6155,7 +6155,7 @@ if (process.env.NODE_ENV !== "production") {
   (function() {
 'use strict';
 
-var React = __webpack_require__(1);
+var React = __webpack_require__(0);
 var invariant = __webpack_require__(9);
 var warning = __webpack_require__(15);
 var ExecutionEnvironment = __webpack_require__(40);
@@ -21533,7 +21533,7 @@ module.exports = reactDom;
   })();
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 88 */
@@ -21702,7 +21702,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _react = __webpack_require__(1);
+var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -21756,7 +21756,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/* harmony export (immutable) */ __webpack_exports__["a"] = createProvider;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
@@ -21834,7 +21834,7 @@ function createProvider() {
 }
 
 /* harmony default export */ __webpack_exports__["b"] = (createProvider());
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1)))
 
 /***/ }),
 /* 95 */
@@ -22384,7 +22384,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
   return ReactPropTypes;
 };
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 96 */
@@ -23178,7 +23178,7 @@ function combineReducers(reducers) {
     return hasChanged ? nextState : state;
   };
 }
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1)))
 
 /***/ }),
 /* 113 */
@@ -23367,7 +23367,7 @@ function whenMergePropsIsOmitted(mergeProps) {
 }
 
 /* harmony default export */ __webpack_exports__["a"] = ([whenMergePropsIsFunction, whenMergePropsIsOmitted]);
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1)))
 
 /***/ }),
 /* 117 */
@@ -23480,7 +23480,7 @@ function finalPropsSelectorFactory(dispatch, _ref2) {
 
   return selectorFactory(mapStateToProps, mapDispatchToProps, mergeProps, dispatch, options);
 }
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1)))
 
 /***/ }),
 /* 118 */
@@ -23514,7 +23514,7 @@ function verifySubselectors(mapStateToProps, mapDispatchToProps, mergeProps, dis
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_warning__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_prop_types__);
@@ -23894,7 +23894,7 @@ exports.default = createBrowserHistory;
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_warning__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_prop_types__);
@@ -24301,7 +24301,7 @@ exports.default = createHashHistory;
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_warning__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_prop_types__);
@@ -24542,7 +24542,7 @@ exports.default = createMemoryHistory;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
@@ -25075,7 +25075,7 @@ module.exports = Array.isArray || function (arr) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
@@ -25177,7 +25177,7 @@ Prompt.contextTypes = {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
@@ -26120,7 +26120,7 @@ var createMemoryHistory = function createMemoryHistory() {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_warning__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_invariant__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_prop_types__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_prop_types__);
@@ -26310,7 +26310,7 @@ StaticRouter.childContextTypes = {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
@@ -26426,7 +26426,7 @@ Switch.propTypes = {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
@@ -26479,7 +26479,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(1);
+var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -26527,12 +26527,12 @@ exports.default = App;
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(1);
+var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -26545,179 +26545,267 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var Splash = function (_React$Component) {
-  _inherits(Splash, _React$Component);
+    _inherits(Splash, _React$Component);
 
-  function Splash(props) {
-    _classCallCheck(this, Splash);
+    function Splash(props) {
+        _classCallCheck(this, Splash);
 
-    var _this = _possibleConstructorReturn(this, (Splash.__proto__ || Object.getPrototypeOf(Splash)).call(this, props));
+        var _this = _possibleConstructorReturn(this, (Splash.__proto__ || Object.getPrototypeOf(Splash)).call(this, props));
 
-    _this.changedisplay = _this.changedisplay.bind(_this);
-    _this.switchToLogIn = _this.switchToLogIn.bind(_this);
-    _this.switchToSignUp = _this.switchToSignUp.bind(_this);
-    return _this;
-  }
-
-  _createClass(Splash, [{
-    key: 'changedisplay',
-    value: function changedisplay(id) {
-      if (document.getElementById(id)) {
-        document.getElementById(id).style.display = 'flex';
-      }
-      return;
+        _this.changeDisplay = _this.changeDisplay.bind(_this);
+        _this.switchToLogIn = _this.switchToLogIn.bind(_this);
+        _this.switchToSignUp = _this.switchToSignUp.bind(_this);
+        return _this;
     }
-  }, {
-    key: 'switchToSignUp',
-    value: function switchToSignUp() {
-      document.getElementById('id02').style.display = 'none';
-      document.getElementById('id01').style.display = 'flex';
-    }
-  }, {
-    key: 'switchToLogIn',
-    value: function switchToLogIn() {
-      document.getElementById('id01').style.display = 'none';
-      document.getElementById('id02').style.display = 'flex';
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        'div',
-        null,
-        _react2.default.createElement(
-          'div',
-          { className: 'wrap-nav-and-info' },
-          _react2.default.createElement(
-            'div',
-            { className: 'nav-bar' },
-            _react2.default.createElement(
-              'div',
-              { className: 'logo-title-wrap' },
-              _react2.default.createElement('img', { src: 'http://res.cloudinary.com/aazaiez/image/upload/v1519269426/logo_3_LT_sknvf1.svg', className: 'LeanTerms-logo-white' }),
-              _react2.default.createElement(
+
+    _createClass(Splash, [{
+        key: 'changeDisplay',
+        value: function changeDisplay(id) {
+            window.onload = function () {
+                if (document.getElementById(id)) {
+                    document.getElementById(id).style.display = 'flex';
+                }
+            };
+        }
+    }, {
+        key: 'switchToSignUp',
+        value: function switchToSignUp() {
+
+            if (document.getElementById('id02')) {
+                document.getElementById('id02').style.display = 'none';
+                document.getElementById('id01').style.display = 'flex';
+            }
+        }
+    }, {
+        key: 'switchToLogIn',
+        value: function switchToLogIn() {
+            if (document.getElementById('id01')) {
+                document.getElementById('id01').style.display = 'none';
+                document.getElementById('id02').style.display = 'flex';
+            }
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
                 'div',
                 null,
-                'LeanTerms'
-              )
-            ),
-            _react2.default.createElement(
-              'div',
-              { className: 'main-nav' },
-              _react2.default.createElement(
-                'button',
-                {
-                  id: 'login-effects', className: 'cd-signup',
-                  onClick: this.changedisplay('id02') },
-                'Log In'
-              ),
-              _react2.default.createElement(
-                'button',
-                {
-                  id: 'nav-bar-signup', className: 'cd-signup',
-                  onClick: this.changedisplay('id01') },
-                'Sign Up'
-              )
-            )
-          )
-        ),
-        _react2.default.createElement(
-          'div',
-          { id: 'id01', className: 'modal' },
-          _react2.default.createElement(
-            'form',
-            { className: 'modal-content', action: '' },
-            _react2.default.createElement(
-              'div',
-              { className: 'container' },
-              _react2.default.createElement(
-                'span',
-                { onClick: this.changedisplay('id01'), className: 'close', title: 'Close Modal' },
-                'X'
-              ),
-              _react2.default.createElement(
-                'h1',
-                null,
-                'Sign Up'
-              ),
-              _react2.default.createElement(
-                'p',
-                null,
-                'Please fill in this form to create an account.'
-              ),
-              _react2.default.createElement('hr', null),
-              _react2.default.createElement(
-                'label',
-                null,
                 _react2.default.createElement(
-                  'b',
-                  null,
-                  'Username'
-                )
-              ),
-              _react2.default.createElement('input', { type: 'text', placeholder: 'Enter Username', name: 'email', required: true }),
-              _react2.default.createElement(
-                'label',
-                null,
-                _react2.default.createElement(
-                  'b',
-                  null,
-                  'Email'
-                )
-              ),
-              _react2.default.createElement('input', { type: 'password', placeholder: 'Enter Email', name: 'psw', required: true }),
-              _react2.default.createElement(
-                'label',
-                null,
-                _react2.default.createElement(
-                  'b',
-                  null,
-                  'Password'
-                )
-              ),
-              _react2.default.createElement('input', { type: 'password', placeholder: 'Enter Password', name: 'psw-repeat', required: true }),
-              _react2.default.createElement(
-                'div',
-                { className: 'clearfix' },
-                _react2.default.createElement(
-                  'button',
-                  { type: 'submit', className: 'signup' },
-                  'Sign Up'
+                    'div',
+                    { className: 'wrap-nav-and-info' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'nav-bar' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'logo-title-wrap' },
+                            _react2.default.createElement('img', { src: 'http://res.cloudinary.com/aazaiez/image/upload/v1519269426/logo_3_LT_sknvf1.svg', className: 'LeanTerms-logo-white' }),
+                            _react2.default.createElement(
+                                'div',
+                                null,
+                                'LeanTerms'
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'main-nav' },
+                            _react2.default.createElement(
+                                'button',
+                                {
+                                    id: 'login-effects', className: 'cd-signup',
+                                    onClick: this.changeDisplay('id02') },
+                                'Log In'
+                            ),
+                            _react2.default.createElement(
+                                'button',
+                                {
+                                    id: 'nav-bar-signup', className: 'cd-signup',
+                                    onClick: this.changeDisplay('id01') },
+                                'Sign Up'
+                            )
+                        )
+                    )
                 ),
                 _react2.default.createElement(
-                  'button',
-                  { type: 'button', onClick: this.changedisplay('id01'), className: 'cancelbtn' },
-                  'Cancel'
-                )
-              ),
-              _react2.default.createElement(
-                'div',
-                { className: 'form-last-line' },
-                _react2.default.createElement(
-                  'button',
-                  { type: 'button', className: 'demobtn' },
-                  'Demo'
+                    'div',
+                    { id: 'id01', className: 'modal' },
+                    _react2.default.createElement(
+                        'form',
+                        { className: 'modal-content', action: '' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'container' },
+                            _react2.default.createElement(
+                                'span',
+                                { onClick: this.changeDisplay('id01'), className: 'close', title: 'Close Modal' },
+                                'X'
+                            ),
+                            _react2.default.createElement(
+                                'h1',
+                                null,
+                                'Sign Up'
+                            ),
+                            _react2.default.createElement(
+                                'p',
+                                null,
+                                'Please fill in this form to create an account.'
+                            ),
+                            _react2.default.createElement('hr', null),
+                            _react2.default.createElement(
+                                'label',
+                                null,
+                                _react2.default.createElement(
+                                    'b',
+                                    null,
+                                    'Username'
+                                )
+                            ),
+                            _react2.default.createElement('input', { type: 'text', placeholder: 'Enter Username', name: 'email', required: true }),
+                            _react2.default.createElement(
+                                'label',
+                                null,
+                                _react2.default.createElement(
+                                    'b',
+                                    null,
+                                    'Email'
+                                )
+                            ),
+                            _react2.default.createElement('input', { type: 'password', placeholder: 'Enter Email', name: 'psw', required: true }),
+                            _react2.default.createElement(
+                                'label',
+                                null,
+                                _react2.default.createElement(
+                                    'b',
+                                    null,
+                                    'Password'
+                                )
+                            ),
+                            _react2.default.createElement('input', { type: 'password', placeholder: 'Enter Password', name: 'psw-repeat', required: true }),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'clearfix' },
+                                _react2.default.createElement(
+                                    'button',
+                                    { type: 'submit', className: 'signup' },
+                                    'Sign Up'
+                                ),
+                                _react2.default.createElement(
+                                    'button',
+                                    { type: 'button', onClick: this.changeDisplay('id01'), className: 'cancelbtn' },
+                                    'Cancel'
+                                )
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'form-last-line' },
+                                _react2.default.createElement(
+                                    'button',
+                                    { type: 'button', className: 'demobtn' },
+                                    'Demo'
+                                ),
+                                _react2.default.createElement(
+                                    'p',
+                                    { className: 'alternative-option' },
+                                    'Already have an account? ',
+                                    _react2.default.createElement(
+                                        'a',
+                                        { id: 'log-in-instead', href: '#',
+                                            onClick: this.switchToLogIn, style: { color: "#c24e04d4" } },
+                                        'Log In'
+                                    ),
+                                    '.'
+                                )
+                            )
+                        )
+                    )
                 ),
                 _react2.default.createElement(
-                  'p',
-                  { className: 'alternative-option' },
-                  'Already have an account? ',
-                  _react2.default.createElement(
-                    'a',
-                    { id: 'log-in-instead', href: '#',
-                      onClick: this.switchToLogIn, style: { color: "#c24e04d4" } },
-                    'Log In'
-                  ),
-                  '.'
+                    'div',
+                    { id: 'id02', className: 'modal' },
+                    _react2.default.createElement(
+                        'form',
+                        { className: 'modal-content', action: '' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'container' },
+                            _react2.default.createElement(
+                                'span',
+                                { onClick: this.changeDisplay('id02'), className: 'close', title: 'Close Modal' },
+                                'X'
+                            ),
+                            _react2.default.createElement(
+                                'h1',
+                                null,
+                                'Log In'
+                            ),
+                            _react2.default.createElement(
+                                'p',
+                                null,
+                                'In order to access your account, please enter your information.'
+                            ),
+                            _react2.default.createElement('hr', null),
+                            _react2.default.createElement(
+                                'label',
+                                null,
+                                _react2.default.createElement(
+                                    'b',
+                                    null,
+                                    'Username'
+                                )
+                            ),
+                            _react2.default.createElement('input', { type: 'text', placeholder: 'Enter Username', name: 'email', required: true }),
+                            _react2.default.createElement(
+                                'label',
+                                null,
+                                _react2.default.createElement(
+                                    'b',
+                                    null,
+                                    'Password'
+                                )
+                            ),
+                            _react2.default.createElement('input', { type: 'password', placeholder: 'Enter Password', name: 'psw-repeat', required: true }),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'clearfix' },
+                                _react2.default.createElement(
+                                    'button',
+                                    { type: 'submit', className: 'signup' },
+                                    'Log In'
+                                ),
+                                _react2.default.createElement(
+                                    'button',
+                                    { type: 'button', onClick: this.changeDisplay('id02'), className: 'cancelbtn' },
+                                    'Cancel'
+                                )
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'form-last-line' },
+                                _react2.default.createElement(
+                                    'button',
+                                    { type: 'button', className: 'demobtn' },
+                                    'Demo'
+                                ),
+                                _react2.default.createElement(
+                                    'p',
+                                    { className: 'alternative-option' },
+                                    'Don\'t have an account? ',
+                                    _react2.default.createElement(
+                                        'a',
+                                        { id: 'sign-up-instead', href: '#', onClick: this.switchToSignUp(), style: { color: "#c24e04d4" } },
+                                        'Sign Up'
+                                    ),
+                                    '.'
+                                )
+                            )
+                        )
+                    )
                 )
-              )
-            )
-          )
-        )
-      );
-    }
-  }]);
+            );
+        }
+    }]);
 
-  return Splash;
+    return Splash;
 }(_react2.default.Component);
 
 exports.default = Splash;
