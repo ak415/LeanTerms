@@ -1,6 +1,7 @@
 import React from 'react';
 import {Route,Switch,Redirect} from 'react-router-dom';
 import Navbar from './navbar';
+import Contract from './contract';
 
 class App extends React.Component{
 
@@ -16,7 +17,9 @@ class App extends React.Component{
 
 
         return (
-            <Navbar />
+            // <Navbar />
+            <Contract/>
+
         );
     }
 }
