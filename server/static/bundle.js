@@ -26485,9 +26485,9 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = __webpack_require__(55);
 
-var _splash = __webpack_require__(145);
+var _navbar = __webpack_require__(145);
 
-var _splash2 = _interopRequireDefault(_splash);
+var _navbar2 = _interopRequireDefault(_navbar);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -26510,7 +26510,7 @@ var App = function (_React$Component) {
         key: 'render',
         value: function render() {
 
-            return _react2.default.createElement(_splash2.default, null);
+            return _react2.default.createElement(_navbar2.default, null);
         }
     }]);
 
@@ -26544,13 +26544,13 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Splash = function (_React$Component) {
-    _inherits(Splash, _React$Component);
+var Navbar = function (_React$Component) {
+    _inherits(Navbar, _React$Component);
 
-    function Splash(props) {
-        _classCallCheck(this, Splash);
+    function Navbar(props) {
+        _classCallCheck(this, Navbar);
 
-        var _this = _possibleConstructorReturn(this, (Splash.__proto__ || Object.getPrototypeOf(Splash)).call(this, props));
+        var _this = _possibleConstructorReturn(this, (Navbar.__proto__ || Object.getPrototypeOf(Navbar)).call(this, props));
 
         _this.changeDisplay = _this.changeDisplay.bind(_this);
         _this.switchToLogIn = _this.switchToLogIn.bind(_this);
@@ -26558,14 +26558,17 @@ var Splash = function (_React$Component) {
         return _this;
     }
 
-    _createClass(Splash, [{
+    _createClass(Navbar, [{
         key: 'changeDisplay',
         value: function changeDisplay(id) {
-            window.onload = function () {
-                if (document.getElementById(id)) {
+            debugger;
+            if (document.getElementById(id)) {
+                if (document.getElementById(id).style.display === 'flex') {
+                    document.getElementById(id).style.display = 'none';
+                } else {
                     document.getElementById(id).style.display = 'flex';
                 }
-            };
+            }
         }
     }, {
         key: 'switchToSignUp',
@@ -26587,6 +26590,8 @@ var Splash = function (_React$Component) {
     }, {
         key: 'render',
         value: function render() {
+            var _this2 = this;
+
             return _react2.default.createElement(
                 'div',
                 null,
@@ -26613,14 +26618,18 @@ var Splash = function (_React$Component) {
                                 'button',
                                 {
                                     id: 'login-effects', className: 'cd-signup',
-                                    onClick: this.changeDisplay('id02') },
+                                    onClick: function onClick() {
+                                        return _this2.changeDisplay('id02');
+                                    } },
                                 'Log In'
                             ),
                             _react2.default.createElement(
                                 'button',
                                 {
                                     id: 'nav-bar-signup', className: 'cd-signup',
-                                    onClick: this.changeDisplay('id01') },
+                                    onClick: function onClick() {
+                                        return _this2.changeDisplay('id01');
+                                    } },
                                 'Sign Up'
                             )
                         )
@@ -26637,7 +26646,9 @@ var Splash = function (_React$Component) {
                             { className: 'container' },
                             _react2.default.createElement(
                                 'span',
-                                { onClick: this.changeDisplay('id01'), className: 'close', title: 'Close Modal' },
+                                { onClick: function onClick() {
+                                        return _this2.changeDisplay('id01');
+                                    }, className: 'close', title: 'Close Modal' },
                                 'X'
                             ),
                             _react2.default.createElement(
@@ -26691,7 +26702,9 @@ var Splash = function (_React$Component) {
                                 ),
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', onClick: this.changeDisplay('id01'), className: 'cancelbtn' },
+                                    { type: 'button', onClick: function onClick() {
+                                            return _this2.changeDisplay('id01');
+                                        }, className: 'cancelbtn' },
                                     'Cancel'
                                 )
                             ),
@@ -26730,7 +26743,9 @@ var Splash = function (_React$Component) {
                             { className: 'container' },
                             _react2.default.createElement(
                                 'span',
-                                { onClick: this.changeDisplay('id02'), className: 'close', title: 'Close Modal' },
+                                { onClick: function onClick() {
+                                        return _this2.changeDisplay('id02');
+                                    }, className: 'close', title: 'Close Modal' },
                                 'X'
                             ),
                             _react2.default.createElement(
@@ -26774,7 +26789,9 @@ var Splash = function (_React$Component) {
                                 ),
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', onClick: this.changeDisplay('id02'), className: 'cancelbtn' },
+                                    { type: 'button', onClick: function onClick() {
+                                            return _this2.changeDisplay('id02');
+                                        }, className: 'cancelbtn' },
                                     'Cancel'
                                 )
                             ),
@@ -26805,10 +26822,10 @@ var Splash = function (_React$Component) {
         }
     }]);
 
-    return Splash;
+    return Navbar;
 }(_react2.default.Component);
 
-exports.default = Splash;
+exports.default = Navbar;
 
 /***/ }),
 /* 146 */
