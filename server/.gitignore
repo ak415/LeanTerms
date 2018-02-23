@@ -1,4 +1,3 @@
 /node_modules
-./static/bundle.js
-./static/bundle.js.map
-/package-lock.json
+
+static
