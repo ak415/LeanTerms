@@ -3815,7 +3815,7 @@ var isExtraneousPopstateEvent = function isExtraneousPopstateEvent(event) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.ClearError = exports.CreateUser = exports.LogoutUser = exports.LoginUser = exports.RECEIVE_SIGNUP_ERRORS = exports.RECEIVE_SESSION_ERRORS = exports.REMOVE_CURRENT_USER = exports.RECEIVE_CURRENT_USER = undefined;
+exports.ClearError = exports.CurrentUser = exports.CreateUser = exports.LogoutUser = exports.LoginUser = exports.RECEIVE_SIGNUP_ERRORS = exports.RECEIVE_SESSION_ERRORS = exports.REMOVE_CURRENT_USER = exports.RECEIVE_CURRENT_USER = undefined;
 
 var _session_api = __webpack_require__(63);
 
@@ -3878,6 +3878,16 @@ var CreateUser = exports.CreateUser = function CreateUser(user) {
   };
 };
 
+var CurrentUser = exports.CurrentUser = function CurrentUser() {
+  return function (dispatch) {
+    return SessionAPI.CurrentUser().then(function (user) {
+      return dispatch(ReceiveCurrentUser(user));
+    }), function (err) {
+      return dispatch(ReceiveErrors(err.responseJSON));
+    };
+  };
+};
+
 var ClearError = exports.ClearError = function ClearError() {
   return function (dispatch) {
     return dispatch(ReceiveErrors([]));
@@ -3903,11 +3913,12 @@ var CreateUser = exports.CreateUser = function CreateUser(user) {
 };
 
 var LoginUser = exports.LoginUser = function LoginUser(user) {
-    return $.ajax({
+    var promise = $.ajax({
         method: "POST",
         url: "/api/login",
         data: user
     });
+    return promise;
 };
 
 var Logout = exports.Logout = function Logout() {
@@ -4383,6 +4394,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
     });
 
+    debugger;
     var preloadstate = undefined;
     if (window.current_user) {
         preloadstate = {
@@ -4392,7 +4404,7 @@ document.addEventListener("DOMContentLoaded", function () {
         };
     }
 
-    var store = (0, _store2.default)();
+    var store = (0, _store2.default)(preloadstate);
     window.store = store;
     window.LoginUser = _session_actions.LoginUser;
     window.ReceiveCurrentUser = _session_actions.ReceiveCurrentUser;
@@ -26474,7 +26486,7 @@ var withRouter = function withRouter(Component) {
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -26485,9 +26497,13 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = __webpack_require__(54);
 
-var _navbar = __webpack_require__(145);
+var _navbarContainer = __webpack_require__(223);
 
-var _navbar2 = _interopRequireDefault(_navbar);
+var _navbarContainer2 = _interopRequireDefault(_navbarContainer);
+
+var _splash = __webpack_require__(224);
+
+var _splash2 = _interopRequireDefault(_splash);
 
 var _contract = __webpack_require__(222);
 
@@ -26502,26 +26518,28 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var App = function (_React$Component) {
-  _inherits(App, _React$Component);
+    _inherits(App, _React$Component);
 
-  function App(props) {
-    _classCallCheck(this, App);
+    function App(props) {
+        _classCallCheck(this, App);
 
-    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
-  }
-
-  _createClass(App, [{
-    key: 'render',
-    value: function render() {
-
-      return (
-        // <Navbar />
-        _react2.default.createElement(_contract2.default, null)
-      );
+        return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
     }
-  }]);
 
-  return App;
+    _createClass(App, [{
+        key: 'render',
+        value: function render() {
+
+            return _react2.default.createElement(
+                'div',
+                null,
+                _react2.default.createElement(_navbarContainer2.default, null),
+                _react2.default.createElement(_splash2.default, null)
+            );
+        }
+    }]);
+
+    return App;
 }(_react2.default.Component);
 
 exports.default = App;
@@ -26545,6 +26563,8 @@ var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -26559,13 +26579,28 @@ var Navbar = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (Navbar.__proto__ || Object.getPrototypeOf(Navbar)).call(this, props));
 
+    _this.state = { username: '', password: '' };
     _this.changeDisplay = _this.changeDisplay.bind(_this);
     _this.switchToLogIn = _this.switchToLogIn.bind(_this);
     _this.switchToSignUp = _this.switchToSignUp.bind(_this);
+    _this.update = _this.update.bind(_this);
+    _this.handlesubmitlogin = _this.handlesubmitlogin.bind(_this);
+    _this.handlesubmitlogout = _this.handlesubmitlogout.bind(_this);
+    _this.handlesubmitnewuser = _this.handlesubmitnewuser.bind(_this);
     return _this;
   }
 
   _createClass(Navbar, [{
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+      this.props.currentuser();
+    }
+  }, {
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(nextProps) {
+      this.setState(nextProps.currentUser);
+    }
+  }, {
     key: 'changeDisplay',
     value: function changeDisplay(id) {
       if (document.getElementById(id)) {
@@ -26575,6 +26610,39 @@ var Navbar = function (_React$Component) {
           document.getElementById(id).style.display = 'flex';
         }
       }
+    }
+  }, {
+    key: 'update',
+    value: function update(type) {
+      var _this2 = this;
+
+      return function (e) {
+        return _this2.setState(_defineProperty({}, type, e.target.value));
+      };
+    }
+  }, {
+    key: 'handlesubmitlogin',
+    value: function handlesubmitlogin() {
+      var _this3 = this;
+
+      return this.props.loginuser(this.state).then(function (user) {
+        _this3.changeDisplay('id02');
+        return _this3.props.history.push('/profile');
+      });
+    }
+  }, {
+    key: 'handlesubmitlogout',
+    value: function handlesubmitlogout() {
+      var _this4 = this;
+
+      return this.props.logoutuser().then(function (user) {
+        return _this4.props.history.push('./home');
+      });
+    }
+  }, {
+    key: 'handlesubmitnewuser',
+    value: function handlesubmitnewuser() {
+      return this.props.createuser(this.state).then(this.props.loginuser(this.state)).then(this.props.history.push('./profile'));
     }
   }, {
     key: 'switchToSignUp',
@@ -26595,11 +26663,24 @@ var Navbar = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      var _this2 = this;
+      var _this5 = this;
+
+      var display = void 0;
+
+      if (this.props.currentUser && Object.keys(this.props.currentUser).length > 0) {
+        display = _react2.default.createElement(
+          'button',
+          { onClick: this.handlesubmitlogout },
+          'Logout'
+        );
+      } else {
+        display = '';
+      }
 
       return _react2.default.createElement(
         'div',
         null,
+        display,
         _react2.default.createElement(
           'div',
           { className: 'wrap-nav-and-info' },
@@ -26628,7 +26709,7 @@ var Navbar = function (_React$Component) {
                   id: 'login-effects',
                   className: 'cd-signup',
                   onClick: function onClick() {
-                    return _this2.changeDisplay('id02');
+                    return _this5.changeDisplay('id02');
                   }
                 },
                 'Log In'
@@ -26639,7 +26720,7 @@ var Navbar = function (_React$Component) {
                   id: 'nav-bar-signup',
                   className: 'cd-signup',
                   onClick: function onClick() {
-                    return _this2.changeDisplay('id01');
+                    return _this5.changeDisplay('id01');
                   }
                 },
                 'Sign Up'
@@ -26652,7 +26733,7 @@ var Navbar = function (_React$Component) {
           { id: 'id01', className: 'modal' },
           _react2.default.createElement(
             'form',
-            { className: 'modal-content', action: '' },
+            { className: 'modal-content' },
             _react2.default.createElement(
               'div',
               { className: 'container' },
@@ -26660,7 +26741,7 @@ var Navbar = function (_React$Component) {
                 'span',
                 {
                   onClick: function onClick() {
-                    return _this2.changeDisplay('id01');
+                    return _this5.changeDisplay('id01');
                   },
                   className: 'close',
                   title: 'Close Modal'
@@ -26691,6 +26772,7 @@ var Navbar = function (_React$Component) {
                 type: 'text',
                 placeholder: 'Enter Username',
                 name: 'email',
+                onChange: this.update('username'),
                 required: true
               }),
               _react2.default.createElement(
@@ -26703,9 +26785,10 @@ var Navbar = function (_React$Component) {
                 )
               ),
               _react2.default.createElement('input', {
-                type: 'password',
+                type: 'text',
                 placeholder: 'Enter Email',
                 name: 'psw',
+                onChange: this.update('email'),
                 required: true
               }),
               _react2.default.createElement(
@@ -26721,6 +26804,7 @@ var Navbar = function (_React$Component) {
                 type: 'password',
                 placeholder: 'Enter Password',
                 name: 'psw-repeat',
+                onChange: this.update('password'),
                 required: true
               }),
               _react2.default.createElement(
@@ -26728,7 +26812,11 @@ var Navbar = function (_React$Component) {
                 { className: 'clearfix' },
                 _react2.default.createElement(
                   'button',
-                  { type: 'submit', className: 'signup' },
+                  {
+                    type: 'submit',
+                    className: 'signup',
+                    onClick: this.handlesubmitnewuser
+                  },
                   'Sign Up'
                 ),
                 _react2.default.createElement(
@@ -26736,7 +26824,7 @@ var Navbar = function (_React$Component) {
                   {
                     type: 'button',
                     onClick: function onClick() {
-                      return _this2.changeDisplay('id01');
+                      return _this5.changeDisplay('id01');
                     },
                     className: 'cancelbtn'
                   },
@@ -26777,7 +26865,7 @@ var Navbar = function (_React$Component) {
           { id: 'id02', className: 'modal' },
           _react2.default.createElement(
             'form',
-            { className: 'modal-content', action: '' },
+            { className: 'modal-content' },
             _react2.default.createElement(
               'div',
               { className: 'container' },
@@ -26785,7 +26873,7 @@ var Navbar = function (_React$Component) {
                 'span',
                 {
                   onClick: function onClick() {
-                    return _this2.changeDisplay('id02');
+                    return _this5.changeDisplay('id02');
                   },
                   className: 'close',
                   title: 'Close Modal'
@@ -26816,6 +26904,7 @@ var Navbar = function (_React$Component) {
                 type: 'text',
                 placeholder: 'Enter Username',
                 name: 'email',
+                onChange: this.update('username'),
                 required: true
               }),
               _react2.default.createElement(
@@ -26831,14 +26920,19 @@ var Navbar = function (_React$Component) {
                 type: 'password',
                 placeholder: 'Enter Password',
                 name: 'psw-repeat',
-                required: true
+                required: true,
+                onChange: this.update('password')
               }),
               _react2.default.createElement(
                 'div',
                 { className: 'clearfix' },
                 _react2.default.createElement(
                   'button',
-                  { type: 'submit', className: 'signup' },
+                  {
+                    type: 'submit',
+                    className: 'signup',
+                    onClick: this.handlesubmitlogin
+                  },
                   'Log In'
                 ),
                 _react2.default.createElement(
@@ -26846,7 +26940,7 @@ var Navbar = function (_React$Component) {
                   {
                     type: 'button',
                     onClick: function onClick() {
-                      return _this2.changeDisplay('id02');
+                      return _this5.changeDisplay('id02');
                     },
                     className: 'cancelbtn'
                   },
@@ -26871,7 +26965,7 @@ var Navbar = function (_React$Component) {
                     {
                       id: 'sign-up-instead',
                       href: '#',
-                      onClick: this.switchToSignUp(),
+                      onClick: this.switchToSignUp,
                       style: { color: '#c24e04d4' }
                     },
                     'Sign Up'
@@ -26954,7 +27048,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var RootReducer = (0, _redux.combineReducers)({
     entities: _entity_reducer2.default,
-    Session: _session_reducer2.default,
+    session: _session_reducer2.default,
     errors: _errors_reducer2.default
 });
 
@@ -29410,6 +29504,126 @@ var Contract = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = Contract;
+
+/***/ }),
+/* 223 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _reactRedux = __webpack_require__(93);
+
+var _navbar = __webpack_require__(145);
+
+var _navbar2 = _interopRequireDefault(_navbar);
+
+var _reactRouterDom = __webpack_require__(54);
+
+var _session_actions = __webpack_require__(62);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var mapStateToProps = function mapStateToProps(state) {
+    return {
+        currentUser: state.session.CurrentUser
+    };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+    return {
+        loginuser: function loginuser(user) {
+            return dispatch((0, _session_actions.LoginUser)(user));
+        },
+        logoutuser: function logoutuser() {
+            return dispatch((0, _session_actions.LogoutUser)());
+        },
+        createuser: function createuser(user) {
+            return dispatch((0, _session_actions.CreateUser)(user));
+        },
+        currentuser: function currentuser() {
+            return dispatch((0, _session_actions.CurrentUser)());
+        }
+    };
+};
+
+exports.default = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_navbar2.default));
+
+/***/ }),
+/* 224 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Splash = function (_React$Component) {
+    _inherits(Splash, _React$Component);
+
+    function Splash(props) {
+        _classCallCheck(this, Splash);
+
+        return _possibleConstructorReturn(this, (Splash.__proto__ || Object.getPrototypeOf(Splash)).call(this, props));
+    }
+
+    _createClass(Splash, [{
+        key: "render",
+        value: function render() {
+            return _react2.default.createElement(
+                "ul",
+                { className: "homepage-intro" },
+                _react2.default.createElement(
+                    "li",
+                    null,
+                    _react2.default.createElement(
+                        "h1",
+                        { className: "welcome-page-message" },
+                        "Lease Contracts"
+                    ),
+                    _react2.default.createElement(
+                        "h2",
+                        { id: "redefined", className: "welcome-page-message" },
+                        "Redefined"
+                    )
+                ),
+                _react2.default.createElement(
+                    "li",
+                    null,
+                    _react2.default.createElement(
+                        "p",
+                        null,
+                        "Create, share, and sign a free customized lease contract in minutes."
+                    )
+                )
+            );
+        }
+    }]);
+
+    return Splash;
+}(_react2.default.Component);
+
+exports.default = Splash;
 
 /***/ })
 /******/ ]);

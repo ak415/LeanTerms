@@ -3,9 +3,22 @@ import React from 'react';
 class Navbar extends React.Component {
   constructor(props) {
     super(props);
+    this.state = { username: '', password: '' };
     this.changeDisplay = this.changeDisplay.bind(this);
     this.switchToLogIn = this.switchToLogIn.bind(this);
     this.switchToSignUp = this.switchToSignUp.bind(this);
+    this.update = this.update.bind(this);
+    this.handlesubmitlogin = this.handlesubmitlogin.bind(this);
+    this.handlesubmitlogout = this.handlesubmitlogout.bind(this);
+    this.handlesubmitnewuser = this.handlesubmitnewuser.bind(this);
+  }
+
+  componentWillMount() {
+    this.props.currentuser();
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState(nextProps.currentUser);
   }
 
   changeDisplay(id) {
@@ -16,6 +29,30 @@ class Navbar extends React.Component {
         document.getElementById(id).style.display = 'flex';
       }
     }
+  }
+
+  update(type) {
+    return e => this.setState({ [type]: e.target.value });
+  }
+
+  handlesubmitlogin() {
+    return this.props.loginuser(this.state).then(user => {
+      this.changeDisplay('id02');
+      return this.props.history.push('/profile');
+    });
+  }
+
+  handlesubmitlogout() {
+    return this.props
+      .logoutuser()
+      .then(user => this.props.history.push('./home'));
+  }
+
+  handlesubmitnewuser() {
+    return this.props
+      .createuser(this.state)
+      .then(this.props.loginuser(this.state))
+      .then(this.props.history.push('./profile'));
   }
 
   switchToSignUp() {
@@ -33,8 +70,20 @@ class Navbar extends React.Component {
   }
 
   render() {
+    let display;
+
+    if (
+      this.props.currentUser &&
+      Object.keys(this.props.currentUser).length > 0
+    ) {
+      display = <button onClick={this.handlesubmitlogout}>Logout</button>;
+    } else {
+      display = '';
+    }
+
     return (
       <div>
+        {display}
         <div className="wrap-nav-and-info">
           <div className="nav-bar">
             <div className="logo-title-wrap">
@@ -66,7 +115,7 @@ class Navbar extends React.Component {
         </div>
 
         <div id="id01" className="modal">
-          <form className="modal-content" action="">
+          <form className="modal-content">
             <div className="container">
               <span
                 onClick={() => this.changeDisplay('id01')}
@@ -85,6 +134,7 @@ class Navbar extends React.Component {
                 type="text"
                 placeholder="Enter Username"
                 name="email"
+                onChange={this.update('username')}
                 required
               />
 
@@ -92,9 +142,10 @@ class Navbar extends React.Component {
                 <b>Email</b>
               </label>
               <input
-                type="password"
+                type="text"
                 placeholder="Enter Email"
                 name="psw"
+                onChange={this.update('email')}
                 required
               />
 
@@ -105,11 +156,16 @@ class Navbar extends React.Component {
                 type="password"
                 placeholder="Enter Password"
                 name="psw-repeat"
+                onChange={this.update('password')}
                 required
               />
 
               <div className="clearfix">
-                <button type="submit" className="signup">
+                <button
+                  type="submit"
+                  className="signup"
+                  onClick={this.handlesubmitnewuser}
+                >
                   Sign Up
                 </button>
                 <button
@@ -143,7 +199,7 @@ class Navbar extends React.Component {
         </div>
 
         <div id="id02" className="modal">
-          <form className="modal-content" action="">
+          <form className="modal-content">
             <div className="container">
               <span
                 onClick={() => this.changeDisplay('id02')}
@@ -164,6 +220,7 @@ class Navbar extends React.Component {
                 type="text"
                 placeholder="Enter Username"
                 name="email"
+                onChange={this.update('username')}
                 required
               />
 
@@ -175,10 +232,15 @@ class Navbar extends React.Component {
                 placeholder="Enter Password"
                 name="psw-repeat"
                 required
+                onChange={this.update('password')}
               />
 
               <div className="clearfix">
-                <button type="submit" className="signup">
+                <button
+                  type="submit"
+                  className="signup"
+                  onClick={this.handlesubmitlogin}
+                >
                   Log In
                 </button>
                 <button
@@ -200,7 +262,7 @@ class Navbar extends React.Component {
                   <a
                     id="sign-up-instead"
                     href="#"
-                    onClick={this.switchToSignUp()}
+                    onClick={this.switchToSignUp}
                     style={{ color: '#c24e04d4' }}
                   >
                     Sign Up
