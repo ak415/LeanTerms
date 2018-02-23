@@ -70,11 +70,6 @@ app.get('/', function(req, res) {
   res.sendFile(__dirname + '/index.html');
 });
 
-
-app.get('/api/current_user',function(req,res,next){
-     window.current_user = next;
- });
-
 app.use(function(err, req, res, next) {
   console.log(err);
   res.status(422).json(err.message);

@@ -14,13 +14,14 @@ class Navbar extends React.Component{
         this.handlesubmitnewuser = this.handlesubmitnewuser.bind(this);
     }
     
-    componentWillMount(){
-        this.props.currentuser();
-    }
-    
-    
+//    componentWillMount(){
+//        debugger;
+//        this.props.currentuser();
+//    }
+//    
+//    
     componentWillReceiveProps(nextProps){
-        debugger;
+//        debugger;
         this.setState(nextProps.currentUser);
     }
 
@@ -44,12 +45,9 @@ class Navbar extends React.Component{
     }
     
     handlesubmitlogin(){
-        debugger;
-        return  this.props.loginuser(this.state)
-            .then((user) =>{
-            this.changeDisplay('id02');
-            return this.props.history.push('/profile');
-        });
+        let user1 = {username: this.state.username , password: this.state.password};
+        return this.props.loginuser(user1)
+            .then((user) => this.props.history.push('./profile'));
     }
     
     handlesubmitlogout(){
@@ -59,16 +57,15 @@ class Navbar extends React.Component{
     
     
     handlesubmitnewuser(){
+        debugger;
         return this.props.createuser(this.state)
-            .then(this.props.loginuser(this.state))
-            .then(this.props.history.push('./profile'));
+            .then((user) => this.props.history.push('./profile'));
     }
     
     
     
     
     switchToSignUp() {
-        debugger;
         if (document.getElementById('id02')){
              document.getElementById('id02').style.display='none';
              document.getElementById('id01').style.display='flex';
@@ -87,7 +84,6 @@ class Navbar extends React.Component{
     
     render(){
         let display;
-        debugger;
         if (this.props.currentUser && Object.keys(this.props.currentUser).length > 0){
             display=(
                 <button onClick={this.handlesubmitlogout}>
@@ -173,10 +169,10 @@ class Navbar extends React.Component{
                               <p>In order to access your account, please enter your information.</p>
                               <hr/>
                               <label><b>Username</b></label>
-                              <input type="text" placeholder="Enter Username" name="email" onChange={this.update("username")} required/>
+                              <input type="text" placeholder="Enter Username"  onChange={this.update("username")} required/>
 
                               <label><b>Password</b></label>
-                              <input type="password" placeholder="Enter Password" name="psw-repeat" required onChange={this.update('password')}/>
+                              <input type="password" placeholder="Enter Password" required onChange={this.update('password')}/>
 
 
                               <div className="clearfix">

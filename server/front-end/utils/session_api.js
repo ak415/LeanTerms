@@ -1,5 +1,5 @@
 export const CreateUser=(user)=>(
-    $.ajax({
+     $.ajax({
         method: "POST",
         url: "/api/signup",
         data: user
@@ -8,6 +8,8 @@ export const CreateUser=(user)=>(
 
 
 export const LoginUser=(user)=>{
+   debugger;    
+    console.log(user);
     let promise =$.ajax({
         method: "POST",
         url: "/api/login",
@@ -25,9 +27,8 @@ export const Logout=()=>(
 
 
 
-export const CurrentUser= () =>(
-    $.ajax({
+export const CurrentUser= () =>{
+   return $.ajax({
         url: "/api/current_user"
-    })
-
-);
+    });
+};

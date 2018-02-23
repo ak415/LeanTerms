@@ -42,6 +42,8 @@ const login = (req, res, next) => {
     if (!user) return res.status(422).json('Invalid login credentials');
     req.login(user, error => {
       if (error) {
+          console.log("=====ERROR=======");
+          console.log(error);
         return next(error);
       }
       User.findById(user.id, (anErr, fetchedUser) => {
