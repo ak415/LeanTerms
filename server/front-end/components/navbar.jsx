@@ -85,8 +85,8 @@ class Navbar extends React.Component {
     } else {
       display =(
           <div>
-              <div>
-                <div>
+
+
                     <div className="main-nav">
                       <button
                         id="login-effects"
@@ -104,8 +104,8 @@ class Navbar extends React.Component {
                         Sign Up
                       </button>
                     </div>
-                  </div>
-                </div>
+
+
 
                 <div id="id01" className="modal">
                   <form className="modal-content">
