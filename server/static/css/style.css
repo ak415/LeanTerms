@@ -85,7 +85,7 @@ body, html {
 
 .contract-form-wrapper {
   display: block;
-  padding: 0% 15%;
+  padding: 0% 10%;
 }
 
 
@@ -229,6 +229,50 @@ button {
   opacity: 0.9;
 }
 
+.nextbtn {
+background-color: blue;
+color: white;
+padding: 14px 20px;
+margin: 8px 0;
+border: none;
+cursor: pointer;
+width: 15%;
+display: flex;
+opacity: 0.9;
+justify-content: center;
+border-radius: 3px;
+background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#447e3d), to(#78a300));
+line-height: 1;
+font-size: 16px;
+user-select:  none;
+}
+
+.prvbtn {
+font-size: 16px;
+background-color: blue;
+color: white;
+padding: 14px 20px;
+margin: 8px 0;
+border: none;
+cursor: pointer;
+width: 15%;
+display: flex;
+opacity: 0.9;
+justify-content: center;
+margin-right: 10px;
+border-radius: 3px;
+background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#447e3d), to(#78a300));
+line-height: 1;
+user-select:  none;
+}
+
+.buttons {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	margin-top: 20px;
+}
+
 button:hover {
   opacity:1;
 }
@@ -237,6 +281,16 @@ button:hover {
 .cancelbtn {
   padding: 14px 20px;
   background-color: #C0C0C0;
+}
+
+#prv-icon {
+	margin-right: 6px;
+  font-size: 15px;
+}
+
+#next-icon {
+	margin-left: 6px;
+	font-size: 15px;
 }
 
 
@@ -350,7 +404,7 @@ hr {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a8a8a8', endColorstr='#cccccc',GradientType=0 );
     background: linear-gradient(top, rgba(168,168,168,1) 0%,rgba(204,204,204,1) 23%);
     position: relative;
-		margin: 10% 0 1% 0;
+		margin: 2% 0 1% 0;
 
 }
 #bar {
@@ -358,14 +412,28 @@ hr {
     background: rgb(255,197,120);
     background: -moz-linear-gradient(top, rgba(255,197,120,1) 0%, rgba(244,128,38,1) 100%);
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,197,120,1)), color-stop(100%,rgba(244,128,38,1)));
-    background: -webkit-linear-gradient(top, rgba(255,197,120,1) 0%,rgba(244,128,38,1) 100%);
-    background: -o-linear-gradient(top, rgba(255,197,120,1) 0%,rgba(244,128,38,1) 100%);
+        background: -webkit-linear-gradient(top, #78a300 0%,#23491e 100%);
+		background: -o-linear-gradient(top, rgba(255,197,120,1) 0%,rgba(244,128,38,1) 100%);
     background: -ms-linear-gradient(top, rgba(255,197,120,1) 0%,rgba(244,128,38,1) 100%);
     background: linear-gradient(top, rgba(255,197,120,1) 0%,rgba(244,128,38,1) 100%);
-    border-top: 1px solid #fceabb;
-    width: 43%;
+    border-top: 1px solid #e3e3e3;
+    width: 100%;
+    /*transition: width .3s ease;*/
+		/*width: 5%;*/
 }
-#bar p { position: absolute; text-align: center; width: 100%; margin: 0; line-height: 30px; }
+#bar p {
+	 color: white;
+	 text-align: center;
+	 width: 100%;
+	 font-weight: 700;
+	 margin: 0;
+	 line-height: 30px;
+	 text-align: right;
+	 padding-right: 5px;
+	 font-size: 18px;
+
+ }
+
 .error {
     /* These styles are arbitrary */
     background-color: #fceabb;
@@ -373,4 +441,175 @@ hr {
     font-weight: bold;
     color: red;
     border: 1px solid red;
+}
+
+.contract-title {
+	font-size: 20px;
+	margin: 10% 0 1% 0;
+}
+
+
+
+
+.party-name1 {
+	display: flex;
+	flex-direction: column;
+  align-items: flex-start;
+	margin-bottom: 16px;
+}
+
+.party-name1 label {
+	margin-bottom: 5px
+}
+
+.party-name2 label {
+	margin-bottom: 5px
+}
+
+.party-name2 {
+	display: flex;
+	flex-direction: column;
+  align-items: flex-start;
+	margin-bottom: 10px;
+}
+
+#contract-name-input {
+	width: 30%;
+	padding: 5px 10px;
+  display: inline-block;
+  border: none;
+  background: white;
+  margin: 0px 0 0px 0px;
+	font-size: 15px;
+	border-radius: 5px;
+	background-color: #ffffff;
+	border: 1px solid #cccccc;
+}
+
+#component-title {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	height: 380px;
+}
+
+#component-title span {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 20px;
+	margin-bottom: 30px;
+}
+
+
+
+#component-title p {
+	margin-bottom: 20px;
+	font-size: 24px;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.contract-title h1 {
+	font-size: 28px;
+	font-family: "Arial Black", Gadget, sans-serif
+}
+
+
+#element {
+	margin-bottom: 5px;
+}
+
+#date {
+	width: 200px;
+}
+
+#section04 input {
+	width: 50px;
+	margin-right: 4px;
+	text-align: center;
+}
+
+#section06 input {
+	width: 70%;
+}
+
+#section09 input {
+	width: 70%;
+}
+
+#city-state {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 70%;
+}
+
+
+.city {
+	width: 100%;
+}
+
+.state {
+width: 100%;
+}
+
+#city-state div {
+	width: 49%;
+}
+
+#nested-span {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 20px;
+	margin-bottom: 20px;
+	margin-top: 40px;
+}
+
+.hidden {
+	display: none;
+	height: 550px
+}
+
+.show {
+
+}
+
+.contract-page {
+	display: flex;
+	flex-direction: row;
+}
+
+.wrap-conract-navigation {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.navigation {
+	width: 30%;
+	flex: 1;
+}
+
+
+.navigation ul {
+	background: #f2f2f2;
+	padding: 10% 15%;
+}
+
+
+.navigation li {
+	border-bottom: 1px solid #dedede;
+  line-height: 2.4em;
+  list-style: none;
+  color: #5d5d5d;
+  display: block;
+  cursor: pointer;
+}
+
+.navigation li:hover {
+  color: #0d0d0d;
+}
+
+.contract-form {
+	margin-right: 40px;
+	margin-top: 50px;
+	flex: 4;
 }
