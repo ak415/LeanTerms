@@ -12,15 +12,6 @@ class Navbar extends React.Component {
     this.handlesubmitnewuser = this.handlesubmitnewuser.bind(this);
   }
 
-  //    componentWillMount(){
-  //        this.props.currentuser();
-  //    }
-  //
-  //
-  // componentWillReceiveProps(nextProps) {
-  //   this.setState(nextProps.currentUser);
-  // }
-
   changeDisplay(id) {
     if (document.getElementById(id)) {
       if (document.getElementById(id).style.display === 'flex') {
@@ -80,7 +71,11 @@ class Navbar extends React.Component {
     let display;
     if ( this.props.currentUser && Object.keys(this.props.currentUser).length > 0) {
       display = (
-        <button onClick={e => this.handlesubmitlogout(e)}>Logout</button>
+
+          <div>
+              <p style={{color: "white"}}>Welcome {this.props.currentUser.username}</p>
+            <button onClick={e => this.handlesubmitlogout(e)}>Logout</button>
+          </div>
       );
     } else {
       display =(

@@ -19,7 +19,6 @@ class App extends React.Component {
             <div>
                 <NavbarContainer />
                 <Splash />
-
             </div>
         );
     }
