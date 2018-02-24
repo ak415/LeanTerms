@@ -8,5 +8,4 @@ router.route('/api/contracts/:id').get(ContractsController.show);
 router.route('/api/contracts/:id').patch(ContractsController.update);
 router.route('/api/contracts/:id').delete(ContractsController.destroy);
 
-// /req.params.id
 module.exports = router;
