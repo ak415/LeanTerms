@@ -1,4 +1,6 @@
 import React from 'react';
+import { Route, Redirect, Switch, Link, HashRouter } from 'react-router-dom';
+
 
 class Navbar extends React.Component {
   constructor(props) {
@@ -71,17 +73,20 @@ class Navbar extends React.Component {
     let display;
     if ( this.props.currentUser && Object.keys(this.props.currentUser).length > 0) {
       display = (
+        <div className="if-logged-in-wrap">
 
-          <div>
-              <p style={{color: "white"}}>Welcome {this.props.currentUser.username}</p>
-            <button onClick={e => this.handlesubmitlogout(e)}>Logout</button>
+          <div className="nav-current-user">
+            {this.props.currentUser.username}
           </div>
+        <button className="logout-button" onClick={e => this.handlesubmitlogout(e)}>Logout</button>
+
+        </div>
       );
     } else {
       display =(
           <div>
-              <div>
-                <div>
+
+
                     <div className="main-nav">
                       <button
                         id="login-effects"
@@ -99,8 +104,8 @@ class Navbar extends React.Component {
                         Sign Up
                       </button>
                     </div>
-                  </div>
-                </div>
+
+
 
                 <div id="id01" className="modal">
                   <form className="modal-content">
@@ -119,6 +124,7 @@ class Navbar extends React.Component {
                         <b>Username</b>
                       </label>
                       <input
+                        autofocus
                         type="text"
                         placeholder="Enter Username"
                         name="email"
@@ -205,6 +211,7 @@ class Navbar extends React.Component {
                         <b>Username</b>
                       </label>
                       <input
+                        autofocus
                         type="text"
                         placeholder="Enter Username"
                         onChange={this.update('username')}
@@ -266,6 +273,8 @@ class Navbar extends React.Component {
       <div>
         <div className="wrap-nav-and-info">
           <div className="nav-bar">
+            <Link to="/" style={{ textDecoration: 'none', color: 'white' }}>
+
             <div className="logo-title-wrap">
                   <img
                     src="http://res.cloudinary.com/aazaiez/image/upload/v1519269426/logo_3_LT_sknvf1.svg"
@@ -273,6 +282,9 @@ class Navbar extends React.Component {
                   />
                   <div>LeanTerms</div>
               </div>
+
+              </Link>
+
             </div>
             {display}
         </div>

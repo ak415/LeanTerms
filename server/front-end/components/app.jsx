@@ -1,8 +1,10 @@
 import React from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Redirect, Switch, Link, HashRouter } from 'react-router-dom';
 import NavbarContainer from './navbar-container';
 import Splash from './splash';
 import Contract from './contract';
+import Footer from './footer';
+
 
 class App extends React.Component {
   constructor(props) {
@@ -16,15 +18,20 @@ class App extends React.Component {
 
 
         return (
-            <div>
-                <NavbarContainer />
-                <Splash />
-            </div>
+          <div>
+            <Route path="/" component={NavbarContainer} />
+          <Switch>
+            <Route path="/contract" component={Contract} />
+            <Route  exact path="/" component={Splash} />
+            <Redirect to="/"/>
+          </Switch>
+          <Route path="/" component={Footer} />
+          </div>
         );
     }
   }
 
-  
+
 
 
 export default App;
