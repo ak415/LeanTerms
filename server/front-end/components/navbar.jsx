@@ -1,4 +1,6 @@
 import React from 'react';
+import { Route, Redirect, Switch, Link, HashRouter } from 'react-router-dom';
+
 
 class Navbar extends React.Component {
   constructor(props) {
@@ -271,6 +273,8 @@ class Navbar extends React.Component {
       <div>
         <div className="wrap-nav-and-info">
           <div className="nav-bar">
+            <Link to="/" style={{ textDecoration: 'none', color: 'white' }}>
+
             <div className="logo-title-wrap">
                   <img
                     src="http://res.cloudinary.com/aazaiez/image/upload/v1519269426/logo_3_LT_sknvf1.svg"
@@ -278,6 +282,9 @@ class Navbar extends React.Component {
                   />
                   <div>LeanTerms</div>
               </div>
+
+              </Link>
+
             </div>
             {display}
         </div>
