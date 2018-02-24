@@ -1,12 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
-const ContractsController = require('../controllers/ContractsControllers');
+const ContractsController = require('../controllers/ContractsController');
 
-router.route('/api/contracts/:id').get(ContractsController);
+router.route('/api/contracts').post(ContractsController.create);
+router.route('/api/contracts/:id').get(ContractsController.show);
 router.route('/api/contracts/:id').patch(ContractsController.update);
-router.route('/api/contracts/new').post(ContractsController.new);
-router.route('/api/contracts/:id').delete(ContractsController.delete);
+router.route('/api/contracts/:id').delete(ContractsController.destroy);
 
-// /req.params.id
 module.exports = router;

@@ -42,6 +42,8 @@ const login = (req, res, next) => {
     if (!user) return res.status(422).json('Invalid login credentials');
     req.login(user, error => {
       if (error) {
+          console.log("=====ERROR=======");
+          console.log(error);
         return next(error);
       }
       User.findById(user.id, (anErr, fetchedUser) => {
@@ -73,7 +75,7 @@ const logout = (req, res, next) => {
 
 const currentUser = (req, res, next) => {
   User.findOne({ session_token: req.sessionID }, (err, foundUser) => {
-    if (err) throw err;
+    if (err) return res.send(err.errmsg);
     if (!foundUser) return res.send({});
     return res.send({
       id: foundUser.id,

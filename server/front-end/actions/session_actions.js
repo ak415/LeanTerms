@@ -29,7 +29,7 @@ const ReceiveErrors = errors =>(
 );
 
 
-export const LoginUser = (user)=> dispatch => (
+export const LoginUser = (user)=> dispatch =>(
     SessionAPI.LoginUser(user)
         .then((CurrentUser) => dispatch(ReceiveCurrentUser(CurrentUser))
             ,err => dispatch(ReceiveErrors(err.responseJSON)))
@@ -46,6 +46,13 @@ export const CreateUser = (user) =>dispatch =>(
     SessionAPI.CreateUser(user)
         .then((currentuser) => dispatch(ReceiveCurrentUser(currentuser)),
         err => dispatch(ReceiveErrors(err.responseJSON)))
+);
+
+
+export const CurrentUser= () => dispatch =>(
+    SessionAPI.CurrentUser()
+        .then((user) => dispatch(ReceiveCurrentUser(user))),
+        err => dispatch(ReceiveErrors(err.responseJSON))
 );
 
 export const ClearError = () => dispatch =>(

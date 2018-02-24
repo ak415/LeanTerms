@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
-import Navbar from './navbar';
+import NavbarContainer from './navbar-container';
+import Splash from './splash';
 import Contract from './contract';
 
 class App extends React.Component {
@@ -15,9 +16,11 @@ class App extends React.Component {
 
 
         return (
-            // <Navbar />
-            <Contract/>
+            <div>
+                <NavbarContainer />
+                <Splash />
 
+            </div>
         );
     }
   }

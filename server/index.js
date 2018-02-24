@@ -15,6 +15,7 @@ const mongoose = require('mongoose');
 const MongoDB = require('mongodb');
 
 const authRoutes = require('./routes/authRoutes');
+const contractRoutes = require('./routes/contractRoutes');
 
 //connect to MongoDB
 mongoose.connect('mongodb://localhost/leanterms', err => {
@@ -65,6 +66,7 @@ app.use(passport.session());
 app.use(express.static('static'));
 
 app.use(authRoutes);
+app.use(contractRoutes);
 
 app.get('/', function(req, res) {
   res.sendFile(__dirname + '/index.html');
