@@ -82,7 +82,14 @@ class Navbar extends React.Component {
     let display;
     if ( this.props.currentUser && Object.keys(this.props.currentUser).length > 0) {
       display = (
-        <button onClick={e => this.handlesubmitlogout(e)}>Logout</button>
+        <div className="if-logged-in-wrap">
+
+          <div className="nav-current-user">
+            {this.props.currentUser.username}
+          </div>
+        <button className="logout-button" onClick={e => this.handlesubmitlogout(e)}>Logout</button>
+
+        </div>
       );
     } else {
       display =(
@@ -126,6 +133,7 @@ class Navbar extends React.Component {
                         <b>Username</b>
                       </label>
                       <input
+                        autofocus
                         type="text"
                         placeholder="Enter Username"
                         name="email"
@@ -212,6 +220,7 @@ class Navbar extends React.Component {
                         <b>Username</b>
                       </label>
                       <input
+                        autofocus
                         type="text"
                         placeholder="Enter Username"
                         onChange={this.update('username')}
