@@ -8,10 +8,10 @@ class Navbar extends React.Component{
         this.switchToLogIn = this.switchToLogIn.bind(this);
         this.switchToSignUp = this.switchToSignUp.bind(this);
     }
-    
-    
+
+
     changeDisplay(id){
-        debugger;
+        
         if (document.getElementById(id)){
             if (document.getElementById(id).style.display === 'flex'){
                 document.getElementById(id).style.display = 'none';
@@ -19,16 +19,16 @@ class Navbar extends React.Component{
                 document.getElementById(id).style.display = 'flex';
             }
         }
-        
-        
+
+
     }
-    
+
     switchToSignUp() {
-    
+
         if (document.getElementById('id02')){
              document.getElementById('id02').style.display='none';
              document.getElementById('id01').style.display='flex';
-        }    
+        }
     }
 
     switchToLogIn() {
@@ -37,7 +37,7 @@ class Navbar extends React.Component{
             document.getElementById('id02').style.display='flex';
         }
     }
-    
+
     render(){
         return(
             <div>
@@ -62,7 +62,7 @@ class Navbar extends React.Component{
                         </div>
                     </div>
                 </div>
-                
+
                     <div id="id01" className="modal">
                       <form className="modal-content" action="">
                         <div className="container">
@@ -96,11 +96,11 @@ class Navbar extends React.Component{
                         </div>
                       </form>
                     </div>
-                
-                
-                
-                
-                
+
+
+
+
+
                     <div id="id02" className="modal">
                           <form className="modal-content" action="">
                             <div className="container">
@@ -129,7 +129,7 @@ class Navbar extends React.Component{
                           </form>
                     </div>
                 </div>
-                
+
         );
     }
 }
