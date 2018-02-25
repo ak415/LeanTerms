@@ -18,7 +18,9 @@ class Contract extends React.Component {
   }
 
   updateField(formField, value) {
-    this.setState({ [formField]: value });
+    this.setState({ [formField]: value }, () => {
+      console.log(this.state);
+    });
   }
 
   handleArrow(direction) {
@@ -31,6 +33,10 @@ class Contract extends React.Component {
       if (currentQuestionIdx === this.totalNumQuestions - 1) return;
       this.setState({ currentQuestionIdx: currentQuestionIdx + 1 });
     }
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
   }
 
   render() {
@@ -56,20 +62,27 @@ class Contract extends React.Component {
                 <i id="prv-icon" className="fa fa-arrow-left" />Previous
               </button>
 
-              <button
-                type="button"
-                onClick={() => this.handleArrow('next')}
-                className="nextbtn"
-              >
-                Next
-                <i id="next-icon" className="fa fa-arrow-right" />
-              </button>
+              {this.state.currentQuestionIdx === this.totalNumQuestions - 1 ? (
+                <button
+                  type="button"
+                  onClick={e => this.handleSubmit(e)}
+                  className="nextbtn"
+                >
+                  Submit
+                  <i id="next-icon" className="fa fa-arrow-right" />
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  onClick={() => this.handleArrow('next')}
+                  className="nextbtn"
+                >
+                  Next
+                  <i id="next-icon" className="fa fa-arrow-right" />
+                </button>
+              )}
             </div>
-            <Question
-              question={question}
-              updateRadio={this.updateRadio}
-              updateField={this.updateField}
-            />
+            <Question question={question} updateField={this.updateField} />
           </div>
           <ContractFormNavigation
             currentQuestionIdx={this.state.currentQuestionIdx}

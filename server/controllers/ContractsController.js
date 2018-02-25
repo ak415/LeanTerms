@@ -1,6 +1,25 @@
 const mongoose = require('mongoose');
 const Contract = require('../models/contract');
 
+const index = (req, res, next) => {
+  Contract.find(
+    {
+      $or: [
+        { landlordId: req.params.user_id },
+        { tenantId: req.params.user_id }
+      ]
+    },
+    (err, returnedContracts) => {
+      if (err) return res.send(err.errmsg);
+      if (!returnedContracts) {
+        res.send("You don't have any contracts");
+      } else {
+        res.send(returnedContracts);
+      }
+    }
+  );
+};
+
 const create = (req, res, next) => {
   Contract.create(req.body, (err, contract) => {
     if (err) return res.send(err.errmsg);
@@ -42,6 +61,7 @@ const destroy = (req, res, next) => {
 };
 
 module.exports = {
+  index,
   create,
   show,
   update,

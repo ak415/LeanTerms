@@ -38,7 +38,9 @@ const contracts = [
     utilityBillsIncluded: false,
     petsAllowed: 0,
     petsTotal: 0,
-    singlePetFee: 50
+    singlePetFee: 50,
+    landlordId: '5a90bc33d72f6c2099560b16',
+    tenantId: '5a90bc14d72f6c2099560b15'
   }
 ];
 
