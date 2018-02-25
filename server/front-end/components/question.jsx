@@ -34,6 +34,7 @@ class Question extends React.Component {
                 <div className="form-radio-btns">
                   <label key={i}>
                     <input
+                      name={radioButtonState}
                       type="radio"
                       className={radioButtonState}
                       onChange={e => this.handleChange(e, radioButtonState)}
