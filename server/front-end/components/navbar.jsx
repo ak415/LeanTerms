@@ -124,7 +124,7 @@ class Navbar extends React.Component {
                         <b>Username</b>
                       </label>
                       <input
-                        autofocus
+                        autoFocus
                         type="text"
                         placeholder="Enter Username"
                         name="email"
@@ -211,7 +211,7 @@ class Navbar extends React.Component {
                         <b>Username</b>
                       </label>
                       <input
-                        autofocus
+                        autoFocus
                         type="text"
                         placeholder="Enter Username"
                         onChange={this.update('username')}
