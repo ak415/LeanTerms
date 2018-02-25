@@ -173,6 +173,7 @@ html {
 
 .contract-form-wrapper {
   display: block;
+	margin: 7% 15%;
 }
 
 .logo-title-wrap {
@@ -248,34 +249,48 @@ html {
 	display: flex;
 	align-items: flex-start;
 	flex-direction: column;
-	margin-top: 100px;
+	margin-top: 140px;
+	margin-bottom: 50px;
 	width: 70%;
 }
 
 
 #start-contract-button{
+	margin: 145px 0;
+	padding: 10px 40px;
 	flex: 1;
-	color: grey;
-	font-size: 26px;
+	font-size: 30px;
+	text-align: center;
+	width: 100%;
+	box-shadow:  inset 0 0 10px #808080;
+	color: white;
+	background: black;
+	border-radius: 5px;
 }
 
 #start-contract-button:hover{
 	flex: 1;
-	color:#DAA520;
-	transition: color 0.7s ease;
+	color: black;
+	background: white;
+	transition: color 2s ease;
+	transition: background 0.7s ease;
+		box-shadow: rgba(0, 0, 0, 0.8) 1px 1px 10px inset;
+	text-shadow: -0.6px 0 grey, 0 0.6px grey, 0.6px 0 grey, 0 -0.6px grey;
 }
 
 .homepage-link-wrapper {
-	margin: 5% 50px 20% 50px;
-	width: 80%;
-  padding: 10px 110px;
+  border-radius: 5px;
+	text-align: center;
+	cursor: pointer;
+	margin-left: -70px;
 }
 
 
 .homepage-intro li {
-  font-size: 22px;
+  font-size: 36px;
+	text-shadow: -2px 0 grey, 0 2px grey, 2px 0 grey, 0 -2px grey;
   padding: 10px;
-  color: black;
+  color: #f2f2f2;
   border-radius: 25px;
   box-sizing: border-box;
   margin: 10px 50px 10px 50px;
@@ -284,9 +299,12 @@ html {
 
 .homepage-intro h1 {
   width: 100%;
-  font-size: 45px;
+  font-size: 55px;
+	text-shadow: -2px 0 grey, 0 2px grey, 2px 0 grey, 0 -2px grey;
   font-weight: 600;
   font-family: 'Georgia';
+	color: #f2f2f2;
+
 }
 
 .homepage-intro p {
@@ -297,7 +315,7 @@ html {
 #redefined {
   text-align: right;
   font-style: italic;
-  font-size: 25px;
+  font-size: 30px;
   padding-right: 10px;
   font-weight: 100;
 }
@@ -396,7 +414,7 @@ button {
 .buttons {
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: flex-start;
   margin-top: 20px;
 }
 
@@ -446,7 +464,9 @@ button:hover {
   text-align: center;
   margin-bottom: 20px;
   font-size: 30px;
+	text-shadow: -1px 0 grey, 0 1px grey, 1px 0 grey, 0 -1px grey;
   font-weight: 700;
+	color: #f2f2f2;
 }
 
 .modal {
@@ -486,6 +506,10 @@ hr {
   top: 0;
   left: 96%;
   font-family: 'verdana', sans-serif;
+}
+
+.container h1 {
+	color: black;
 }
 
 .close:hover,
@@ -614,7 +638,7 @@ hr {
 
 .contract-title {
   font-size: 20px;
-  margin: 10% 0 1% 0;
+  margin: 0% 0 1% 0;
 }
 
 .party-name1 {
@@ -787,7 +811,7 @@ hr {
 
 #question-navigation-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 #contract-form-left-container {
@@ -796,7 +820,6 @@ hr {
 }
 
 .footer-wrap {
-	position: fixed;
 	bottom: 0;
 	width: 100%;
 	background: black;
@@ -886,9 +909,28 @@ hr {
   color: black;
 }
 
+#root {
+	height: 100%;
+}
+
 .homepage-wrap0 {
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
 	align-items: center;
+	background: linear-gradient(rgba(200,200,200,-0.6), rgba(200,200,200,-0.6)), url("http://res.cloudinary.com/aazaiez/image/upload/v1519524412/Mattharus_updated_fdgyuq.jpg") no-repeat;
+	background-size: cover;
+	width:100%;
+	height:100%;
+}
+
+.app-div-wrapper {
+ height: 100%;
+}
+
+#bar {
+	color: white;
+	font-size: 18px;
+	padding: 4px 4px 0 0;
+	text-align: right;
+	transition: width 0.5s;
 }

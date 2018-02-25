@@ -58,15 +58,15 @@ class ContractForm extends React.Component {
 
     return (
       <div className="contract-form-wrapper">
+        <div className="contract-title">
+          <h1>California Residential Lease Agreement</h1>
+        </div>
+        <ProgressBar
+          progress={this.state.currentQuestionIdx}
+          totalWidth={this.totalNumQuestions}
+          />
         <div id="question-navigation-container">
           <div id="contract-form-left-container">
-            <div className="contract-title">
-              <h1>California Residential Lease Agreement</h1>
-            </div>
-            <ProgressBar
-              progress={this.state.currentQuestionIdx}
-              totalWidth={this.totalNumQuestions}
-            />
             <div className="buttons">
               {this.state.currentQuestionIdx > 0 ? (
                 <button

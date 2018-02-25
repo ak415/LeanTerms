@@ -14,8 +14,8 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <NavbarContainer />
+      <div className="app-div-wrapper">
+        <Route path="/" component={NavbarContainer} />
         <Switch>
           <Route exact path="/" component={Splash} />
           <ProtectedRoute
