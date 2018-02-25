@@ -1,5 +1,6 @@
 import React from 'react';
 import jsPDF from 'jspdf';
+import pdfkit from 'pdfkit/js/data'
 
 
 class ShowContract extends React.Component{
@@ -11,11 +12,10 @@ class ShowContract extends React.Component{
         };
 
         this.DownloadContract = this.DownloadContract.bind(this);
-        this.onDocumentLoad = this.onDocumentLoad.bind(this);
+        this.PdfPrep = this.PdfPrep.bind(this);
 
 
     }
-
 
     DownloadContract(){
         let doc = new jsPDF();
@@ -29,8 +29,6 @@ class ShowContract extends React.Component{
     onDocumentLoad( numPages ){
         this.setState({ numPages });
     };
-
-
 
 
     render(){
