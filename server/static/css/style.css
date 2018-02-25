@@ -926,3 +926,11 @@ hr {
 .app-div-wrapper {
  height: 100%;
 }
+
+#bar {
+	color: white;
+	font-size: 18px;
+	padding: 4px 4px 0 0;
+	text-align: right;
+	transition: width 0.5s;
+}
