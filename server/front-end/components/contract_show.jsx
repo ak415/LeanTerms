@@ -1,6 +1,6 @@
 import React from 'react';
 import jsPDF from 'jspdf';
-import PDF from 'react-pdf-js';
+
 
 class ShowContract extends React.Component{
     constructor(props){
@@ -20,8 +20,8 @@ class ShowContract extends React.Component{
     DownloadContract(){
         let doc = new jsPDF();
 
-        doc.text('Hello world!', 10, 10);
-        return doc;
+        doc.text('HI LeanTerms', 10, 10);
+        doc.save();
     }
 
 
@@ -34,11 +34,10 @@ class ShowContract extends React.Component{
 
 
     render(){
-        debugger
         let pdf=this.DownloadContract();
         return(
           <div>
-              <PDF file='../../PDF/a4.pdf'/>
+
           </div>
         );
     }
