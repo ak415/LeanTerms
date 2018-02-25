@@ -86,7 +86,7 @@ body, html {
 
 .LeanTerms-logo-white {
   width: auto;
-  height: 60px;
+  height: 30px;
   margin-left: 15px;
 }
 
@@ -108,7 +108,7 @@ body, html {
 
 .logo-title-wrap div {
   font-family: 'Apple Chancery', cursive;
-  font-size: 40px;
+  font-size: 25px;
 	text-decoration: none;
 }
 
@@ -124,7 +124,7 @@ body, html {
     padding: 5px 13px 5px 13px;
     text-decoration: none;
     color: white;
-    font-size: 22px;
+    font-size: 16px;
 }
 .main-nav button {
     background: transparent;
@@ -132,7 +132,7 @@ body, html {
     padding: 5px 13px 5px 13px;
     text-decoration: none;
     color: white;
-    font-size: 22px;
+    font-size: 16px;
 }
 
 #login-effects:hover {
@@ -157,15 +157,44 @@ body, html {
   cursor: pointer;
 }
 
-.homepage-intro{
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-  margin-top: 100px;
+
+.homepage-wrap {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }
 
+.homepage-intro{
+	display: flex;
+	align-items: flex-start;
+	flex-direction: column;
+	margin-top: 100px;
+	width: 70%;
+}
+
+
+#start-contract-button{
+	flex: 1;
+	color: grey;
+	font-size: 26px;
+}
+
+#start-contract-button:hover{
+	flex: 1;
+	color:#DAA520;
+	transition: color 0.7s ease;
+}
+
+.homepage-link-wrapper {
+	margin: 5% 50px 20% 50px;
+	width: 80%;
+  padding: 10px 110px;
+}
+
+
 .homepage-intro li {
-  font-size: 28px;
+  font-size: 22px;
   padding: 10px;
   color: black;
   border-radius: 25px;
@@ -176,20 +205,20 @@ body, html {
 
 .homepage-intro h1 {
   width: 100%;
-  font-size: 65px;
+  font-size: 45px;
   font-weight: 600;
   font-family: 'Georgia';
 }
 
 .homepage-intro p {
   font-style: italic;
-  width: 65%
+  width: 100%
 }
 
 #redefined{
   text-align: right;
   font-style: italic;
-  font-size: 35px;
+  font-size: 25px;
   padding-right: 10px;
   font-weight: 100;
 }
@@ -625,7 +654,7 @@ width: 100%;
 
 
 .footer-wrap {
-	position: absolute;
+	position: fixed;
 	bottom: 0;
 	width: 100%;
 	background: black;
@@ -689,7 +718,7 @@ width: 100%;
 	padding: 5px 13px 5px 13px;
 	text-decoration: none;
 	color: white;
-	font-size: 22px;
+	font-size: 16px;
 }
 
 .logout-button {
@@ -703,7 +732,7 @@ width: 100%;
 	padding: 5px 13px 5px 13px;
 	text-decoration: none;
 	color: white;
-	font-size: 22px;
+	font-size: 16px;
 	}
 
 .logout-button:hover {
@@ -714,4 +743,11 @@ width: 100%;
 	background: white;
 	color: black;
 
+}
+
+.homepage-wrap0 {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
