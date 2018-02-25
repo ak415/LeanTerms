@@ -9,23 +9,17 @@ class App extends React.Component {
     super(props);
   }
 
-
-
-    render(){
-
-
-
-        return (
-            <div>
-                <NavbarContainer />
-                <Splash />
-
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div>
+        <NavbarContainer />
+        <Splash />
+        <Switch>
+          <Route path="/contract" component={Contract} />
+        </Switch>
+      </div>
+    );
   }
-
-  
-
+}
 
 export default App;
