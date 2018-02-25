@@ -3,32 +3,32 @@ export default [
     title: 'Parties',
     body: 'Provide names of parties involved in the transaction.',
     textFields: ["Landlord's Full Name:", "Tenant's Full Name:"],
-    textFieldStates: ['party-name-1', 'party-name-2']
+    textFieldStates: ['landlordFullName', 'tenantFullName']
   },
   {
     title: 'Lease Type',
     body: 'Select lease type',
     radioButtons: ['Month-to-month', '1-year-lease'],
-    radioButtonState: 'lease-type'
+    radioButtonState: 'leaseType'
   },
   {
     title: 'Effective Date',
     body: 'Select lease start date:',
     dateField: true,
-    dateButtonState: 'lease-start-date'
+    dateButtonState: 'effectiveDate'
   },
   {
     title: 'Notice-to-Vacate',
     body:
       'A landlord or tenant must give a minimum period of notice when ending a periodic tenancy. What is the notice period?',
     textFields: ['Days'],
-    textFieldStates: ['notice-to-vacate']
+    textFieldStates: ['vacateNotice']
   },
   {
     title: 'Property Type',
     body: 'Select property type from the options below',
     radioButtons: ['Apartment', 'Condominium', 'House', 'Room'],
-    radioButtonState: 'property-type'
+    radioButtonState: 'propertyType'
   },
   {
     title: 'Address',
@@ -41,11 +41,11 @@ export default [
       'Zip Code'
     ],
     textFieldStates: [
-      'property-street-address',
-      'property-address-line-2',
-      'property-city',
-      'property-state',
-      'property-zip-code'
+      'propertyStreetAddress',
+      'propertyAddressLine2',
+      'propertyCity',
+      'propertyState',
+      'propertyZipCode'
     ]
   },
   {
@@ -58,10 +58,10 @@ export default [
     title: 'Parking Status',
     body: 'Is parking provided throughout the lease period?',
     radioButtons: ['Yes', 'No'],
-    radioButtonState: 'parking'
+    radioButtonState: 'parkingAvailable'
   },
   {
-    title: "Lessor's Address",
+    title: "Landlord's Address",
     body: "Provide the landlord's or lessor's address:",
     textFields: [
       'Street Address',
@@ -71,18 +71,36 @@ export default [
       'Zip Code'
     ],
     textFieldStates: [
-      'lessor-street-address',
-      'lessor-address-line-2',
-      'lessor-city',
-      'lessor-state',
-      'lessor-zip-code'
+      'landlordStreetAddress',
+      'landlordAddressLine2',
+      'landlordCity',
+      'landlordState',
+      'landlordZipCode'
+    ]
+  },
+  {
+    title: "Tenant's Address",
+    body: "Provide the tenant's current address:",
+    textFields: [
+      'Street Address',
+      'Address Line 2',
+      'City',
+      'State',
+      'Zip Code'
+    ],
+    textFieldStates: [
+      'tenantStreetAddress',
+      'tenantAddressLine2',
+      'tenantCity',
+      'tenantState',
+      'tenantZipCode'
     ]
   },
   {
     title: 'Rent Amount',
     body: 'What is the rent amount requied to be paid on a monthtly basis?',
     textFields: ['$'],
-    textFieldStates: ['rent-amount']
+    textFieldStates: ['rentAmount']
   },
   {
     title: 'Rent Due Date',
@@ -90,7 +108,7 @@ export default [
     textFields: [
       'The rent is due for the entire lease term, in equal payments, on which day of the month?'
     ],
-    textFieldStates: ['rent-due-day']
+    textFieldStates: ['rentDueDate']
   },
   {
     title: 'Payment Method',
@@ -100,63 +118,64 @@ export default [
       'Check',
       'PayPal',
       'Venmo'
-    ]
+    ],
+    radioButtonState: 'paymentMethod'
   },
   {
     title: 'Deposit terms',
     body: 'Is the tenant required to pay a deposit?',
     radioButtons: ['Yes', 'No'],
-    radioButtonState: 'deposit-required',
+    radioButtonState: 'depositRequired',
     textFields: ['What is the deosit amount?'],
-    textFieldStates: ['deposit-amount'],
+    textFieldStates: ['depositAmount'],
     dateField: "Select the deposit's due date:",
-    dateButtonState: 'deposit-due-date'
+    dateButtonState: 'depositDueDate'
   },
   {
     title: "First and Last month's Payment Requirements",
     body:
       'In addition to the desposit, what is the tenant required to pay upon move-in?',
     radioButtons: ["First month's rent only", "First and last month's rent"],
-    radioButtonState: 'first-last-month-requirements'
+    radioButtonState: 'firstLastMonthRequirements'
   },
   {
     title: 'Late Fees',
     body:
       'Is the tenant subject to late payment fees if rent is not paid by the due date?',
     radioButtons: ['Yes', 'No'],
-    radioButtonState: 'late-payment-fees',
+    radioButtonState: 'lateFee',
     textFields: ['What do the late fees amount to?'],
-    textFieldStates: ['total-late-fees']
+    textFieldStates: ['lateFeeAmount']
   },
   {
     title: 'Utilities',
     body: 'Is the tenant required to pay for utilities?',
     radioButtons: ['Yes', 'No'],
-    radioButtonState: ['utilities']
+    radioButtonState: ['utilityBillsIncluded']
   },
   {
     title: 'Pet Policy',
     body: 'Is the tenant allowed to have pets on the leased premises?',
     radioButtons: ['Yes', 'No'],
-    radioButtonState: 'pet-policy'
+    radioButtonState: 'petsAllowed'
   },
   {
     title: 'Subletting Policy',
     body:
       'Is the tenant allowed to fully or partially sublease the leased property?',
     radioButtons: ['Yes', 'No'],
-    radioButtonState: 'subletting-policy'
+    radioButtonState: 'sublettingAllowed'
   },
   {
     title: 'Guests',
     body: 'Is the tenant allowed to have guests stay overnight?',
     radioButtons: ['Yes', 'No'],
-    radioButtonState: 'guest-policy'
+    radioButtonState: 'guestsAllowed'
   },
   {
-    title: 'Tentative Signing Date',
+    title: 'scheduled Signing Date',
     body: 'Select lease signing date:',
     dateField: 'Select lease signing date:',
-    dateButtonState: 'tentative-signing-date'
+    dateButtonState: 'scheduledSigningDate'
   }
 ];

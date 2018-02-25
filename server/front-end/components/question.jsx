@@ -36,6 +36,7 @@ class Question extends React.Component {
                     <input
                       name={radioButtonState}
                       type="radio"
+                      value={radioButton}
                       className={radioButtonState}
                       onChange={e => this.handleChange(e, radioButtonState)}
                     />
