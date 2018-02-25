@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 const Contract = require('../models/contract');
 
 const index = (req, res, next) => {
-  let allContracts = [];
   Contract.find(
     {
       $or: [
