@@ -12,7 +12,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="app-div-wrapper">
         <Route path="/" component={NavbarContainer} />
         <Switch>
           <Route path="/contract" component={Contract} />
