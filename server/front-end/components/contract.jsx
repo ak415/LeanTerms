@@ -7,9 +7,9 @@ import Questions from '../utils/questions';
 class Contract extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { currentQuestionIdx: 0, currentSection: 'Parties' };
+    this.state = { currentQuestionIdx: 0 };
     this.totalNumQuestions = Questions.length;
-    this.updateTextField = this.updateTextField.bind(this);
+    this.updateField = this.updateField.bind(this);
     this.navigateToQuestion = this.navigateToQuestion.bind(this);
   }
 
@@ -17,13 +17,11 @@ class Contract extends React.Component {
     this.setState({ currentQuestionIdx: idx });
   }
 
-  updateTextField(formField, value) {
-    this.setState({ [formField]: value });
+  updateField(formField, value) {
+    this.setState({ [formField]: value }, () => {
+      console.log(this.state);
+    });
   }
-
-  updateRadio(formField, value) {}
-
-  updateDate(formField, value) {}
 
   handleArrow(direction) {
     const { currentQuestionIdx } = this.state;
@@ -54,7 +52,7 @@ class Contract extends React.Component {
             <Question
               question={question}
               updateRadio={this.updateRadio}
-              updateTextField={this.updateTextField}
+              updateField={this.updateField}
             />
             <div className="buttons">
               <button

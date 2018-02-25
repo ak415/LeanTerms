@@ -5,19 +5,9 @@ class Question extends React.Component {
     super(props);
   }
 
-  handleTextChange(e, textField) {
+  handleChange(e, formField) {
     e.preventDefault();
-    this.props.updateTextField(textField, e.target.value);
-  }
-
-  handleRadioButtonSelect(e) {
-    e.preventDefault();
-    this.props.updateRadio();
-  }
-
-  handleDateSelect(e) {
-    e.preventDefault();
-    this.props.updateDate();
+    this.props.updateField(formField, e.target.value);
   }
 
   render() {
@@ -41,14 +31,16 @@ class Question extends React.Component {
 
           {radioButtons
             ? radioButtons.map((radioButton, i) => (
-                <label key={i}>
-                  {radioButton}
-                  <input
-                    type="radio"
-                    className={radioButtonState}
-                    onChange={e => this.handleRadioButtonSelect(e)}
-                  />
-                </label>
+                <div className="form-radio-btns">
+                  <label key={i}>
+                    <input
+                      type="radio"
+                      className={radioButtonState}
+                      onChange={e => this.handleChange(e, radioButtonState)}
+                    />
+                    {radioButton}
+                  </label>
+                </div>
               ))
             : null}
 
@@ -59,7 +51,7 @@ class Question extends React.Component {
                   <input
                     type="text"
                     id={textFieldStates[i]}
-                    onChange={e => this.handleTextChange(e, textFieldStates[i])}
+                    onChange={e => this.handleChange(e, textFieldStates[i])}
                   />
                 </label>
               ))
@@ -71,7 +63,7 @@ class Question extends React.Component {
               <input
                 type="date"
                 id={dateButtonState}
-                onChange={e => this.handleDateSelect(e)}
+                onChange={e => this.handleChange(e, dateButtonState)}
               />
             </label>
           ) : null}
