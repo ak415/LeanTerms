@@ -6,6 +6,7 @@ import Contract from './contract';
 import Footer from './footer';
 import ContractShowContainer from './contract_show_container'
 
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -26,9 +27,6 @@ class App extends React.Component {
           </div>
         );
     }
-  }
-
-
-
+}
 
 export default App;
