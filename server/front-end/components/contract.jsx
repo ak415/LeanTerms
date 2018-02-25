@@ -65,11 +65,7 @@ class Contract extends React.Component {
                 <i id="next-icon" className="fa fa-arrow-right" />
               </button>
             </div>
-            <Question
-              question={question}
-              updateRadio={this.updateRadio}
-              updateField={this.updateField}
-            />
+            <Question question={question} updateField={this.updateField} />
           </div>
           <ContractFormNavigation
             currentQuestionIdx={this.state.currentQuestionIdx}
