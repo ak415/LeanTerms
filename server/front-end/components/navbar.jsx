@@ -88,25 +88,98 @@ class Navbar extends React.Component {
         </div>
       );
     } else {
-      display = (
-        <div>
-          <div className="main-nav">
-            <button
-              id="login-effects"
-              className="cd-signup"
-              onClick={() => this.changeDisplay('id02')}
-            >
-              Log In
-            </button>
+      display =(
+          <div>
 
-            <button
-              id="nav-bar-signup"
-              className="cd-signup"
-              onClick={() => this.changeDisplay('id01')}
-            >
-              Sign Up
-            </button>
-          </div>
+
+                    <div className="main-nav">
+                      <button
+                        id="login-effects"
+                        className="cd-signup"
+                        onClick={() => this.changeDisplay('id02')}
+                      >
+                        Log In
+                      </button>
+
+                      <button
+                        id="nav-bar-signup"
+                        className="cd-signup"
+                        onClick={() => this.changeDisplay('id01')}
+                      >
+                        Sign Up
+                      </button>
+                    </div>
+
+
+
+                <div id="id01" className="modal">
+                  <form className="modal-content">
+                    <div className="container">
+                      <span
+                        onClick={() => this.changeDisplay('id01')}
+                        className="close"
+                        title="Close Modal"
+                      >
+                        X
+                      </span>
+                      <h1>Sign Up</h1>
+                      <p>Please fill in this form to create an account.</p>
+                      <hr />
+                      <label>
+                        <b>Username</b>
+                      </label>
+                      <input
+                        autoFocus
+                        type="text"
+                        placeholder="Enter Username"
+                        name="email"
+                        onChange={this.update('username')}
+                        required
+                      />
+
+                      <label>
+                        <b>Email</b>
+                      </label>
+                      <input
+                        type="text"
+                        placeholder="Enter Email"
+                        name="psw"
+                        onChange={this.update('email')}
+                        required
+                      />
+
+                      <label>
+                        <b>Password</b>
+                      </label>
+                      <input
+                        type="password"
+                        placeholder="Enter Password"
+                        name="psw-repeat"
+                        onChange={this.update('password')}
+                        required
+                      />
+
+                      <div className="clearfix">
+                        <button
+                          type="submit"
+                          className="signup"
+                          onClick={e => this.handlesubmitnewuser(e)}
+                        >
+                          Sign Up
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => this.changeDisplay('id01')}
+                          className="cancelbtn"
+                        >
+                          Cancel
+                        </button>
+                      </div>
+
+                      <div className="form-last-line">
+                        <button type="button" className="demobtn">
+                          Demo
+                        </button>
 
           <div id="id01" className="modal">
             <form className="modal-content">
@@ -172,26 +245,58 @@ class Navbar extends React.Component {
                   </button>
                 </div>
 
-                <div className="form-last-line">
-                  <button type="button" className="demobtn">
-                    Demo
-                  </button>
+                <div id="id02" className="modal">
+                  <form className="modal-content">
+                    <div className="container">
+                      <span
+                        onClick={() => this.changeDisplay('id02')}
+                        className="close"
+                        title="Close Modal"
+                      >
+                        X
+                      </span>
+                      <h1>Log In</h1>
+                      <p>
+                        In order to access your account, please enter your information.
+                      </p>
+                      <hr />
+                      <label>
+                        <b>Username</b>
+                      </label>
+                      <input
+                        autoFocus
+                        type="text"
+                        placeholder="Enter Username"
+                        onChange={this.update('username')}
+                        required
+                      />
 
-                  <p className="alternative-option">
-                    Already have an account?{' '}
-                    <a
-                      id="log-in-instead"
-                      href="#"
-                      onClick={this.switchToLogIn}
-                      style={{ color: '#c24e04d4' }}
-                    >
-                      Log In
-                    </a>.
-                  </p>
-                </div>
-              </div>
-            </form>
-          </div>
+                      <label>
+                        <b>Password</b>
+                      </label>
+                      <input
+                        type="password"
+                        placeholder="Enter Password"
+                        required
+                        onChange={this.update('password')}
+                      />
+
+                      <div className="clearfix">
+                        <button
+                          type="submit"
+                          className="signup"
+                          onClick={e => this.handlesubmitlogin(e)}
+                        >
+                          Log In
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => this.changeDisplay('id02')}
+                          className="cancelbtn"
+                        >
+                          Cancel
+                        </button>
+                      </div>
 
           <div id="id02" className="modal">
             <form className="modal-content">
