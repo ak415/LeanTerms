@@ -12,7 +12,7 @@ const index = (req, res, next) => {
     (err, returnedContracts) => {
       if (err) return res.send(err.errmsg);
       if (!returnedContracts) {
-        res.send("You don't have any contracts");
+        res.send([]);
       } else {
         res.send(returnedContracts);
       }

@@ -14,7 +14,9 @@ class ContractForm extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchAllUserContracts(this.props.currentUser.id);
+    if (this.props.currentUser) {
+      this.props.fetchAllUserContracts(this.props.currentUser.id);
+    }
   }
 
   navigateToQuestion(idx) {
@@ -42,9 +44,12 @@ class ContractForm extends React.Component {
   }
 
   handleSubmit(e) {
-    // e.preventDefault();
+    e.preventDefault();
     console.log('HERE I AM!!!!!!!', this.state);
-    // this.props.createContract({ propertyType: 'House' });
+    // this.props.createContract({
+    //   currentQuestionIdx: 18,
+    //   landlordId: '5a92f9ce38b01f05be924b84'
+    // });
     this.props.createContract(this.state);
   }
 
@@ -63,13 +68,15 @@ class ContractForm extends React.Component {
         <div id="question-navigation-container">
           <div id="contract-form-left-container">
             <div className="buttons">
-              <button
-                type="button"
-                onClick={() => this.handleArrow('prev')}
-                className="prvbtn"
-              >
-                <i id="prv-icon" className="fa fa-arrow-left" />Previous
-              </button>
+              {this.state.currentQuestionIdx > 0 ? (
+                <button
+                  type="button"
+                  onClick={() => this.handleArrow('prev')}
+                  className="prvbtn"
+                >
+                  <i id="prv-icon" className="fa fa-arrow-left" />Previous
+                </button>
+              ) : null}
 
               {this.state.currentQuestionIdx === this.totalNumQuestions - 1 ? (
                 <button

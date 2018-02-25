@@ -15,23 +15,16 @@ export const receiveAllContracts = contracts => ({
 });
 
 export const createContract = contract => dispatch => {
-  return ContractAPI.createContract(contract).then(createdContract => {
-    console.log(createdContract);
-    dispatch(receiveContract(createdContract));
-  });
+  return ContractAPI.createContract(contract).then(createdContract =>
+    dispatch(receiveContract(createdContract))
+  );
 };
 
 export const fetchAllUserContracts = userId => dispatch => {
   return ContractAPI.fetchAllUserContracts(userId).then(serverContracts =>
-    dispatch(receiveAllContracts())
+    dispatch(receiveAllContracts(serverContracts))
   );
 };
-
-// export const CreateNewContract = data =>
-//   ContractAPI.CreateContract(data).then(
-//     serverData => dispatch(ReceiveNewContract(serverData)),
-//     err => dispatch(ReceiveErrorContract(err))
-//   );
 
 // export const UpdateContract = (data, contractId) =>
 //   ContractAPI.UpdateContract(data, contractId).then(

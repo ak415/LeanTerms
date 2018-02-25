@@ -76,11 +76,13 @@ const ContractSchema = new Schema({
   },
   landlordId: {
     type: Schema.Types.ObjectId,
-    ref: 'User'
+    ref: 'User',
+    default: null
   },
   tenantId: {
     type: Schema.Types.ObjectId,
-    ref: 'User'
+    ref: 'User',
+    default: null
   },
   rentAmount: {
     type: Number
