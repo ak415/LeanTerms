@@ -173,6 +173,7 @@ html {
 
 .contract-form-wrapper {
   display: block;
+	margin: 7% 15%;
 }
 
 .logo-title-wrap {
@@ -413,7 +414,7 @@ button {
 .buttons {
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: flex-start;
   margin-top: 20px;
 }
 
@@ -637,7 +638,7 @@ hr {
 
 .contract-title {
   font-size: 20px;
-  margin: 10% 0 1% 0;
+  margin: 0% 0 1% 0;
 }
 
 .party-name1 {
@@ -810,7 +811,7 @@ hr {
 
 #question-navigation-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 #contract-form-left-container {
@@ -819,7 +820,6 @@ hr {
 }
 
 .footer-wrap {
-	position: fixed;
 	bottom: 0;
 	width: 100%;
 	background: black;
