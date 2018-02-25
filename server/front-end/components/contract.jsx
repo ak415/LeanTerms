@@ -7,9 +7,9 @@ import Questions from '../utils/questions';
 class Contract extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { currentQuestionIdx: 0, currentSection: 'Parties' };
+    this.state = { currentQuestionIdx: 0 };
     this.totalNumQuestions = Questions.length;
-    this.updateTextField = this.updateTextField.bind(this);
+    this.updateField = this.updateField.bind(this);
     this.navigateToQuestion = this.navigateToQuestion.bind(this);
   }
 
@@ -17,13 +17,9 @@ class Contract extends React.Component {
     this.setState({ currentQuestionIdx: idx });
   }
 
-  updateTextField(formField, value) {
+  updateField(formField, value) {
     this.setState({ [formField]: value });
   }
-
-  updateRadio(formField, value) {}
-
-  updateDate(formField, value) {}
 
   handleArrow(direction) {
     const { currentQuestionIdx } = this.state;
@@ -51,11 +47,6 @@ class Contract extends React.Component {
               progress={this.state.currentQuestionIdx}
               totalWidth={this.totalNumQuestions}
             />
-            <Question
-              question={question}
-              updateRadio={this.updateRadio}
-              updateTextField={this.updateTextField}
-            />
             <div className="buttons">
               <button
                 type="button"
@@ -74,6 +65,11 @@ class Contract extends React.Component {
                 <i id="next-icon" className="fa fa-arrow-right" />
               </button>
             </div>
+            <Question
+              question={question}
+              updateRadio={this.updateRadio}
+              updateField={this.updateField}
+            />
           </div>
           <ContractFormNavigation
             currentQuestionIdx={this.state.currentQuestionIdx}

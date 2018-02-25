@@ -1,7 +1,7 @@
 export default [
   {
     title: 'Parties',
-    body: 'Provide names of parties involved in the transaction:',
+    body: 'Provide names of parties involved in the transaction.',
     textFields: ["Landlord's Full Name:", "Tenant's Full Name:"],
     textFieldStates: ['party-name-1', 'party-name-2']
   },
