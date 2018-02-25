@@ -18,9 +18,7 @@ class Contract extends React.Component {
   }
 
   updateField(formField, value) {
-    this.setState({ [formField]: value }, () => {
-      console.log(this.state);
-    });
+    this.setState({ [formField]: value });
   }
 
   handleArrow(direction) {

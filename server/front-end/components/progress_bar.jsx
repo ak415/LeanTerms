@@ -8,14 +8,14 @@ class ProgressBar extends React.Component {
   componentDidMount() {
     const bar = document.getElementById('bar');
     bar.style.width = `${Math.floor(
-      this.props.progress / this.props.totalWidth * 100
+      this.props.progress / this.props.totalWidth * 100 + 5
     )}%`;
   }
 
   componentDidUpdate() {
     const bar = document.getElementById('bar');
     bar.style.width = `${Math.floor(
-      this.props.progress / this.props.totalWidth * 100
+      this.props.progress / this.props.totalWidth * 100 + 5
     )}%`;
   }
 
@@ -23,7 +23,7 @@ class ProgressBar extends React.Component {
     return (
       <div id="progress" className="graph">
         <div id="bar">
-          {Math.floor(this.props.progress / this.props.totalWidth * 100)}%
+          {Math.floor(this.props.progress / this.props.totalWidth * 100 + 5)}%
         </div>
       </div>
     );
