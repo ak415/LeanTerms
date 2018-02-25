@@ -507,6 +507,10 @@ hr {
   font-family: 'verdana', sans-serif;
 }
 
+.container h1 {
+	color: black;
+}
+
 .close:hover,
 .close:focus {
   color: darkgrey;
