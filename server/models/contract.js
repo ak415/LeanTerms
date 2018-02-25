@@ -2,10 +2,6 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const ContractSchema = new Schema({
-  specialID: {
-    type: Number,
-    unique: true
-  },
   landlordFullName: {
     type: String
   },
@@ -79,11 +75,11 @@ const ContractSchema = new Schema({
     type: String
   },
   landlordId: {
-    type: [Schema.Types.ObjectId],
+    type: Schema.Types.ObjectId,
     ref: 'User'
   },
   tenantId: {
-    type: [Schema.Types.ObjectId],
+    type: Schema.Types.ObjectId,
     ref: 'User'
   },
   rentAmount: {

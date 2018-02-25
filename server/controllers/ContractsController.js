@@ -22,7 +22,7 @@ const index = (req, res, next) => {
 
 const create = (req, res, next) => {
   Contract.create(req.body, (err, contract) => {
-    if (err) return res.send(err.errmsg);
+    if (err) res.send(err.errmsg);
     res.send(contract);
   });
 };

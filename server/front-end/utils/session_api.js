@@ -1,4 +1,6 @@
-export const CreateUser = user =>
+import $ from 'jquery';
+
+export const createUser = user =>
   $.ajax({
     method: 'POST',
     url: '/api/signup',
@@ -19,7 +21,7 @@ export const Logout = () =>
     url: '/api/logout'
   });
 
-export const CurrentUser = () => {
+export const currentUser = () => {
   return $.ajax({
     url: '/api/current_user'
   });

@@ -6,7 +6,7 @@ import {
 import merge from 'lodash/merge';
 
 const _initialstate = {
-  CurrentUser: null
+  currentUser: null
 };
 
 const SessionReducer = (state = _initialstate, action) => {
@@ -14,7 +14,7 @@ const SessionReducer = (state = _initialstate, action) => {
   let newState;
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
-      return merge({}, { CurrentUser: action.user });
+      return merge({}, { currentUser: action.user });
     case REMOVE_CURRENT_USER:
       return _initialstate;
     default:

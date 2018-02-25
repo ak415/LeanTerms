@@ -1,24 +1,13 @@
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import Profile from './profile';
-import {withRouter} from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
+const mapStateToProps = state => ({
+  currentuser: state.session.currentUser
+});
 
+const mapDispatchToProps = dispatch => ({});
 
-const mapStateToProps = (state) =>(
-    {
-        currentuser: state.session.CurrentUser
-    }
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(Profile)
 );
-
-
-
-const mapDispatchToProps = (dispatch) =>(
-
-    {
-
-    }
-);
-
-
-
-export default withRouter(connect(mapStateToProps,mapDispatchToProps)(Profile));

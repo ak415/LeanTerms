@@ -2,10 +2,10 @@ import React from 'react';
 import { Route, Redirect, Switch, Link, HashRouter } from 'react-router-dom';
 import NavbarContainer from './navbar-container';
 import Splash from './splash';
-import Contract from './contract';
 import Footer from './footer';
 import ContractShowContainer from './contract_show_container';
 import { AuthRoute, ProtectedRoute } from '../utils/route_util';
+import ContractFormContainer from './contract_form_container';
 
 class App extends React.Component {
   constructor(props) {
@@ -22,7 +22,7 @@ class App extends React.Component {
             path="/contract/:id"
             component={ContractShowContainer}
           />
-          <ProtectedRoute path="/contract" component={Contract} />
+          <ProtectedRoute path="/contract" component={ContractFormContainer} />
           <Redirect to="/" />
         </Switch>
         <Footer />

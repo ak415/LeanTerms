@@ -1,9 +1,9 @@
 export default [
   {
     title: 'Parties',
-    body: 'Provide names of parties involved in the transaction.',
-    textFields: ["Landlord's Full Name:", "Tenant's Full Name:"],
-    textFieldStates: ['landlordFullName', 'tenantFullName']
+    body: 'Are you the landlord or tenant?',
+    radioButtons: ['Landlord', 'Tenant'],
+    radioButtonState: 'party'
   },
   {
     title: 'Lease Type',
@@ -61,42 +61,6 @@ export default [
     radioButtonState: 'parkingAvailable'
   },
   {
-    title: "Landlord's Address",
-    body: "Provide the landlord's or lessor's address:",
-    textFields: [
-      'Street Address',
-      'Address Line 2',
-      'City',
-      'State',
-      'Zip Code'
-    ],
-    textFieldStates: [
-      'landlordStreetAddress',
-      'landlordAddressLine2',
-      'landlordCity',
-      'landlordState',
-      'landlordZipCode'
-    ]
-  },
-  {
-    title: "Tenant's Address",
-    body: "Provide the tenant's current address:",
-    textFields: [
-      'Street Address',
-      'Address Line 2',
-      'City',
-      'State',
-      'Zip Code'
-    ],
-    textFieldStates: [
-      'tenantStreetAddress',
-      'tenantAddressLine2',
-      'tenantCity',
-      'tenantState',
-      'tenantZipCode'
-    ]
-  },
-  {
     title: 'Rent Amount',
     body: 'What is the rent amount requied to be paid on a monthtly basis?',
     textFields: ['$'],
@@ -104,7 +68,6 @@ export default [
   },
   {
     title: 'Rent Due Date',
-    body: 'Provide the day of the month by which rent is due:',
     textFields: [
       'The rent is due for the entire lease term, in equal payments, on which day of the month?'
     ],
@@ -126,7 +89,7 @@ export default [
     body: 'Is the tenant required to pay a deposit?',
     radioButtons: ['Yes', 'No'],
     radioButtonState: 'depositRequired',
-    textFields: ['What is the deosit amount?'],
+    textFields: ['What is the deposit amount?'],
     textFieldStates: ['depositAmount'],
     dateField: "Select the deposit's due date:",
     dateButtonState: 'depositDueDate'
@@ -151,7 +114,7 @@ export default [
     title: 'Utilities',
     body: 'Is the tenant required to pay for utilities?',
     radioButtons: ['Yes', 'No'],
-    radioButtonState: ['utilityBillsIncluded']
+    radioButtonState: 'utilityBillsIncluded'
   },
   {
     title: 'Pet Policy',
@@ -173,8 +136,7 @@ export default [
     radioButtonState: 'guestsAllowed'
   },
   {
-    title: 'scheduled Signing Date',
-    body: 'Select lease signing date:',
+    title: 'Scheduled Signing Date',
     dateField: 'Select lease signing date:',
     dateButtonState: 'scheduledSigningDate'
   }

@@ -4,23 +4,29 @@ import ProgressBar from './progress_bar';
 import ContractFormNavigation from './contact_form_navigation';
 import Questions from '../utils/questions';
 
-class Contract extends React.Component {
+class ContractForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = { currentQuestionIdx: 0 };
     this.totalNumQuestions = Questions.length;
-    this.updateField = this.updateField.bind(this);
+    this.updateContractState = this.updateContractState.bind(this);
     this.navigateToQuestion = this.navigateToQuestion.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.fetchAllUserContracts(this.props.currentUser.id);
   }
 
   navigateToQuestion(idx) {
     this.setState({ currentQuestionIdx: idx });
   }
 
-  updateField(formField, value) {
-    this.setState({ [formField]: value }, () => {
-      console.log(this.state);
-    });
+  updateContractState(formField, value, formField2, value2) {
+    console.log(this.state);
+    this.setState({ [formField]: value }, () => {});
+    if (formField2) {
+      this.setState({ [formField2]: value2 });
+    }
   }
 
   handleArrow(direction) {
@@ -36,7 +42,10 @@ class Contract extends React.Component {
   }
 
   handleSubmit(e) {
-    e.preventDefault();
+    // e.preventDefault();
+    console.log('HERE I AM!!!!!!!', this.state);
+    // this.props.createContract({ propertyType: 'House' });
+    this.props.createContract(this.state);
   }
 
   render() {
@@ -82,7 +91,12 @@ class Contract extends React.Component {
                 </button>
               )}
             </div>
-            <Question question={question} updateField={this.updateField} />
+            <Question
+              question={question}
+              currentUser={this.props.currentUser}
+              updateContractState={this.updateContractState}
+              contractState={this.state}
+            />
           </div>
           <ContractFormNavigation
             currentQuestionIdx={this.state.currentQuestionIdx}
@@ -94,4 +108,4 @@ class Contract extends React.Component {
   }
 }
 
-export default Contract;
+export default ContractForm;

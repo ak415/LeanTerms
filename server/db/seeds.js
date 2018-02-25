@@ -19,7 +19,6 @@ const users = [
 
 const contracts = [
   {
-    specialID: 1,
     type: 'Month-to-Month',
     cancelNotice: 10,
     propertyType: 'House',
@@ -44,24 +43,24 @@ const contracts = [
   }
 ];
 
-const seedContracts = () => {
-  for (let i = 0; i < contracts.length; i++) {
-    let contractToAdd = contracts[i];
-    Contract.findOne(
-      {
-        specialID: contractToAdd.specialID
-      },
-      (err, foundContract) => {
-        if (err) throw err;
-        if (!foundContract) {
-          let contract = new Contract(contractToAdd);
-          console.log('seeding contracts');
-          contract.save();
-        }
-      }
-    );
-  }
-};
+// const seedContracts = () => {
+//   for (let i = 0; i < contracts.length; i++) {
+//     let contractToAdd = contracts[i];
+//     Contract.findOne(
+//       {
+//         specialID: contractToAdd.specialID
+//       },
+//       (err, foundContract) => {
+//         if (err) throw err;
+//         if (!foundContract) {
+//           let contract = new Contract(contractToAdd);
+//           console.log('seeding contracts');
+//           contract.save();
+//         }
+//       }
+//     );
+//   }
+// };
 
 const seedUsers = () => {
   for (let i = 0; i < users.length; i++) {
@@ -86,6 +85,6 @@ const seedUsers = () => {
 };
 
 module.exports = {
-  seedUsers,
-  seedContracts
+  seedUsers
+  // seedContracts
 };
