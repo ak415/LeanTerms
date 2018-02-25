@@ -20,11 +20,11 @@ class Question extends React.Component {
       if (e.target.value === 'Landlord') {
         formField = 'landlordId';
         formField2 = 'tenantId';
-        value2 = null;
+        value2 = undefined;
       } else {
         formField = 'tenantId';
         formField2 = 'landlordId';
-        value2 = null;
+        value2 = undefined;
       }
       value = this.props.currentUser.id;
     }

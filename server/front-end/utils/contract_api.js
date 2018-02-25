@@ -1,6 +1,5 @@
 export const fetchAllUserContracts = userId =>
   $.ajax({
-    method: 'GET',
     url: `/api/${userId}/contracts`
   });
 

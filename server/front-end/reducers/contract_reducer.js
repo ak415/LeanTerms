@@ -4,16 +4,14 @@ import {
 } from '../actions/contracts_actions';
 import merge from 'lodash/merge';
 
-const ContractReducer = (state = {}, action) => {
+const ContractReducer = (state = [], action) => {
   Object.freeze(state);
+  let newState = Object.assign({}, state);
   switch (action.type) {
     case RECEIVE_CONTRACT:
-      console.log('in reducer');
-      console.log(action.contract);
-      return merge({}, state, action.contract);
+      return newState;
     case RECEIVE_ALL_CONTRACTS:
-      if (action.contracts) return action.contracts;
-      return state;
+      return action.contracts;
     default:
       return state;
   }
