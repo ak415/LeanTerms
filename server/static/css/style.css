@@ -790,6 +790,20 @@ hr {
   margin-top: 50px;
 }
 
+.contract-form h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.contract-form p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.form-radio-btns {
+  display: flex;
+}
+
 #question-navigation-container {
   display: flex;
   justify-content: space-around;

@@ -1,31 +1,31 @@
-export const CreateContract = (data) =>(
-    $.ajax({
-        method: "POST",
-        url: "/api/contracts",
-        data
-    })
-);
-
-export const ShowContract = (ContractId) =>(
+export const fetchAllUserContracts = userId =>
   $.ajax({
-      method:"GET",
-      url: `/api/contracts/${ContractId}`,
-  })
-);
+    method: 'GET',
+    url: `/api/${userId}/contracts`
+  });
 
-export const UpdateContract = (data,ContractId) =>(
+export const createContract = data =>
   $.ajax({
-      method: "PATCH",
-      url: `/api/contracts/${ContractId}`,
-      data
-  })
-);
+    method: 'POST',
+    url: '/api/contracts',
+    data
+  });
 
-export const DeleteContract = (ContractId) =>(
+export const showContract = ContractId =>
   $.ajax({
-      method: "DELETE",
-      url: `/api/contracts/${ContractId}`
-  })
-);
+    method: 'GET',
+    url: `/api/contracts/${ContractId}`
+  });
 
+export const udateContract = (data, ContractId) =>
+  $.ajax({
+    method: 'PATCH',
+    url: `/api/contracts/${ContractId}`,
+    data
+  });
 
+export const deleteContract = ContractId =>
+  $.ajax({
+    method: 'DELETE',
+    url: `/api/contracts/${ContractId}`
+  });

@@ -1,29 +1,46 @@
 import * as ContractAPI from '../utils/contract_api';
 
+export const RECEIVE_CONTRACT = 'RECEIVE_CONTRACT';
+export const RECEIVE_ALL_CONTRACTS = 'RECEIVE_ALL_CONTRACTS';
+export const REMOVE_CONTRACT = 'REMOVE_CONTRACT';
 
+export const receiveContract = contract => ({
+  type: RECEIVE_CONTRACT,
+  contract
+});
 
+export const receiveAllContracts = contracts => ({
+  type: RECEIVE_ALL_CONTRACTS,
+  contracts
+});
 
-export const RECEIVE_NEW_CONTRACT = "RECEIVE_NEW_CONTRACT";
-export const RECEIVE_ALL_CONTRACTS = "RECEIVE_ALL_CONTRACT";
-export const REMOVE_CONTRACT = "REMOVE_CONTRACT";
+export const createContract = contract => dispatch => {
+  return ContractAPI.createContract(contract).then(createdContract => {
+    console.log(createdContract);
+    dispatch(receiveContract(createdContract));
+  });
+};
 
+export const fetchAllUserContracts = userId => dispatch => {
+  return ContractAPI.fetchAllUserContracts(userId).then(serverContracts =>
+    dispatch(receiveAllContracts())
+  );
+};
 
-export const CreateNewContract = (data) =>(
-      ContractAPI.CreateContract(data)
-          .then((data) => dispatch(ReceiveNewContract(data))
-          ,err => dispatch(ReceiveErrorContract(err)))
-);
+// export const CreateNewContract = data =>
+//   ContractAPI.CreateContract(data).then(
+//     serverData => dispatch(ReceiveNewContract(serverData)),
+//     err => dispatch(ReceiveErrorContract(err))
+//   );
 
-
-export const UpdateContract = (data,contractId) =>(
-    ContractAPI.UpdateContract(data,contractId)
-        .then((data) => dispatch(ReceiveNewContract(data))
-            ,err => dispatch(RecieveErrorContract(err)))
-);
-
-export const DeleteContract = (contractId) => (
-    ContractAPI.DeleteContract(contractId)
-        .then((data) => dispatch(RemoveContract(contractId)),
-        err => dispatch(ReceiveErrorContract(err)))
-);
-
+// export const UpdateContract = (data, contractId) =>
+//   ContractAPI.UpdateContract(data, contractId).then(
+//     serverData => dispatch(ReceiveNewContract(serverData)),
+//     err => dispatch(RecieveErrorContract(err))
+//   );
+//
+// export const DeleteContract = contractId =>
+//   ContractAPI.DeleteContract(contractId).then(
+//     data => dispatch(RemoveContract(contractId)),
+//     err => dispatch(ReceiveErrorContract(err))
+//   );

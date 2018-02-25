@@ -4,26 +4,30 @@ import ProgressBar from './progress_bar';
 import ContractFormNavigation from './contact_form_navigation';
 import Questions from '../utils/questions';
 
-class Contract extends React.Component {
+class ContractForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { currentQuestionIdx: 0, currentSection: 'Parties' };
+    this.state = { currentQuestionIdx: 0 };
     this.totalNumQuestions = Questions.length;
-    this.updateTextField = this.updateTextField.bind(this);
+    this.updateContractState = this.updateContractState.bind(this);
     this.navigateToQuestion = this.navigateToQuestion.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.fetchAllUserContracts(this.props.currentUser.id);
   }
 
   navigateToQuestion(idx) {
     this.setState({ currentQuestionIdx: idx });
   }
 
-  updateTextField(formField, value) {
-    this.setState({ [formField]: value });
+  updateContractState(formField, value, formField2, value2) {
+    console.log(this.state);
+    this.setState({ [formField]: value }, () => {});
+    if (formField2) {
+      this.setState({ [formField2]: value2 });
+    }
   }
-
-  updateRadio(formField, value) {}
-
-  updateDate(formField, value) {}
 
   handleArrow(direction) {
     const { currentQuestionIdx } = this.state;
@@ -35,6 +39,13 @@ class Contract extends React.Component {
       if (currentQuestionIdx === this.totalNumQuestions - 1) return;
       this.setState({ currentQuestionIdx: currentQuestionIdx + 1 });
     }
+  }
+
+  handleSubmit(e) {
+    // e.preventDefault();
+    console.log('HERE I AM!!!!!!!', this.state);
+    // this.props.createContract({ propertyType: 'House' });
+    this.props.createContract(this.state);
   }
 
   render() {
@@ -51,11 +62,6 @@ class Contract extends React.Component {
               progress={this.state.currentQuestionIdx}
               totalWidth={this.totalNumQuestions}
             />
-            <Question
-              question={question}
-              updateRadio={this.updateRadio}
-              updateTextField={this.updateTextField}
-            />
             <div className="buttons">
               <button
                 type="button"
@@ -65,15 +71,32 @@ class Contract extends React.Component {
                 <i id="prv-icon" className="fa fa-arrow-left" />Previous
               </button>
 
-              <button
-                type="button"
-                onClick={() => this.handleArrow('next')}
-                className="nextbtn"
-              >
-                Next
-                <i id="next-icon" className="fa fa-arrow-right" />
-              </button>
+              {this.state.currentQuestionIdx === this.totalNumQuestions - 1 ? (
+                <button
+                  type="button"
+                  onClick={e => this.handleSubmit(e)}
+                  className="nextbtn"
+                >
+                  Submit
+                  <i id="next-icon" className="fa fa-arrow-right" />
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  onClick={() => this.handleArrow('next')}
+                  className="nextbtn"
+                >
+                  Next
+                  <i id="next-icon" className="fa fa-arrow-right" />
+                </button>
+              )}
             </div>
+            <Question
+              question={question}
+              currentUser={this.props.currentUser}
+              updateContractState={this.updateContractState}
+              contractState={this.state}
+            />
           </div>
           <ContractFormNavigation
             currentQuestionIdx={this.state.currentQuestionIdx}
@@ -85,4 +108,4 @@ class Contract extends React.Component {
   }
 }
 
-export default Contract;
+export default ContractForm;

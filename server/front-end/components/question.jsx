@@ -3,21 +3,41 @@ import React from 'react';
 class Question extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {};
   }
 
-  handleTextChange(e, textField) {
-    e.preventDefault();
-    this.props.updateTextField(textField, e.target.value);
+  componentDidMount() {
+    this.state = this.props.contractState;
   }
 
-  handleRadioButtonSelect(e) {
-    e.preventDefault();
-    this.props.updateRadio();
-  }
+  handleChange(e, formField) {
+    console.log(this.state);
+    let value = e.target.value;
+    let formField2;
+    let value2;
 
-  handleDateSelect(e) {
-    e.preventDefault();
-    this.props.updateDate();
+    if (formField == 'party') {
+      if (e.target.value === 'Landlord') {
+        formField = 'landlordId';
+        formField2 = 'tenantId';
+        value2 = null;
+      } else {
+        formField = 'tenantId';
+        formField2 = 'landlordId';
+        value2 = null;
+      }
+      value = this.props.currentUser.id;
+    }
+    this.setState({ [formField]: value }, () => {});
+    if (formField2) {
+      this.setState({ [formField2]: value2 });
+    }
+    if (e.target.value == 'Yes') {
+      value = true;
+    } else if (e.target.value == 'No') {
+      value = false;
+    }
+    this.props.updateContractState(formField, value, formField2, value2);
   }
 
   render() {
@@ -32,6 +52,7 @@ class Question extends React.Component {
       dateField,
       dateButtonState
     } = this.props.question;
+
     return (
       <div className="wrap-contract-navigation">
         <form className="contract-form">
@@ -40,26 +61,59 @@ class Question extends React.Component {
           <p>{body}</p>
 
           {radioButtons
-            ? radioButtons.map((radioButton, i) => (
-                <label key={i}>
-                  {radioButton}
-                  <input
-                    type="radio"
-                    className={radioButtonState}
-                    onChange={e => this.handleRadioButtonSelect(e)}
-                  />
-                </label>
-              ))
+            ? radioButtons.map(
+                (radioButton, i) =>
+                  radioButtonState == 'party' ? (
+                    <div className="form-radio-btns">
+                      <label key={i}>
+                        <input
+                          name={radioButtonState}
+                          type="radio"
+                          value={radioButton}
+                          checked={
+                            (radioButton == 'Landlord' &&
+                              this.state['landlordId']) ||
+                            (radioButton == 'Tenant' && this.state['tenantId'])
+                              ? 'checked'
+                              : null
+                          }
+                          className={radioButtonState}
+                          onChange={e => this.handleChange(e, radioButtonState)}
+                        />
+                        {radioButton}
+                      </label>
+                    </div>
+                  ) : (
+                    <div className="form-radio-btns">
+                      <label key={i}>
+                        <input
+                          name={radioButtonState}
+                          type="radio"
+                          value={radioButton}
+                          checked={
+                            this.state[radioButtonState] == radioButton
+                              ? 'checked'
+                              : null
+                          }
+                          className={radioButtonState}
+                          onChange={e => this.handleChange(e, radioButtonState)}
+                        />
+                        {radioButton}
+                      </label>
+                    </div>
+                  )
+              )
             : null}
 
           {textFields
             ? textFields.map((field, i) => (
                 <label key={i}>
-                  {field}{' '}
+                  {field}
                   <input
                     type="text"
                     id={textFieldStates[i]}
-                    onChange={e => this.handleTextChange(e, textFieldStates[i])}
+                    value={this.state[textFieldStates[i]] || ''}
+                    onChange={e => this.handleChange(e, textFieldStates[i])}
                   />
                 </label>
               ))
@@ -71,7 +125,8 @@ class Question extends React.Component {
               <input
                 type="date"
                 id={dateButtonState}
-                onChange={e => this.handleDateSelect(e)}
+                value={this.state[dateButtonState]}
+                onChange={e => this.handleChange(e, dateButtonState)}
               />
             </label>
           ) : null}
