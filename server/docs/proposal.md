@@ -18,7 +18,7 @@ A user will have the ability to virtually share an agreement with a second user,
 
 ### Technologies and Technical Challenges
 
-**Backend: Node.js, MongoDB, AWS S3 as Cloud Host**
+**Backend: Node.js, MongoDB**
 **Frontend: React/Redux**
 
 **Libraries**: PDFKit.js, Signature Pad, Paperclip
