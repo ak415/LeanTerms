@@ -34,7 +34,7 @@ const Seeds = require('./db/seeds.js');
 
 //Actually seed the data
 Seeds.seedUsers();
-// Seeds.seedContracts();
+Seeds.seedContracts();
 
 const app = express();
 

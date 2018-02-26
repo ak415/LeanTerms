@@ -1,9 +1,12 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
+import jsPDF from "jspdf";
 
 class Profile extends  React.Component{
     constructor(props){
         super(props);
-        this.state = {};
+        this.state =this.props.contracts || {};
+        this.DownloadContract = this.DownloadContract.bind(this);
     }
 
 
@@ -11,15 +14,32 @@ class Profile extends  React.Component{
         this.props.getcontract(this.props.currentUser.id);
     }
 
-    componentWillReceiveProps(nextprops){
-        this.setState(nextprops.contracts);
+    componentWillReceiveProps(nextProps){
+        debugger;
+        this.setState({contracts: nextProps.contracts});
+    }
+
+
+
+    DownloadContract(){
+        let doc = new jsPDF();
+        doc.text("Hello 1",10,10);
+        debugger;
+        doc.save("1.pdf");
     }
 
 
     render(){
-      if (this.props.currentUser === undefined) {
-        return null;
-      }
+        let contracts = [];
+        let link ="";
+        debugger;
+        if (this.state.contracts){
+            for(let i =0;i<this.state.contracts.length; i++){
+                link =<li onClick={this.DownloadContract(this[i])}>Contract {i + 1}</li>;
+                contracts.push(link);
+            }
+        }
+
         return (
           <div className="profile-wrap">
               <div className="userpage-title">
@@ -31,38 +51,11 @@ class Profile extends  React.Component{
                 </div>
               </div>
 
-              <div className="userpage-contracts-holder">
-                <div className="contract-drafts">
-                  <h1>
-                    Drafts
-                  </h1>
-
-                  <div className="contract-container-userpage">
-                    <span>Street Address Here</span>
-                    <span>Rent Price</span>
-                    <span>Tenant Name</span>
-                    <span>Edit</span>
-                    <span>Download</span>
-
-                  </div>
-
-                  <div>
-                    Example Contract
-                  </div>
-
-                  <div>
-                    Example Contract
-                  </div>
-
-                  <div>
-                    Example Contract
-                  </div>
-
-                  <div>
-                    Example Contract
-                  </div>
-
-
+              <div>
+                <div>
+                  <ul>
+                    {contracts}
+                  </ul>
                 </div>
 
                 <div className="contract-drafts">
