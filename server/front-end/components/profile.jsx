@@ -8,9 +8,30 @@ class Profile extends  React.Component{
 
 
     render(){
+      if (!this.props.currentUser) {
+        return null;
+      }
         return (
-          <div>
-              Hello
+          <div className="profile-wrap">
+              <div className="userpage-title">
+                <h1>
+                  Profile -
+                </h1>
+                <div>
+                  {this.props.currentUser.username}
+                </div>
+              </div>
+
+              <div>
+                <div>
+
+                </div>
+
+                <div>
+
+                </div>
+              </div>
+
           </div>
         );
     }

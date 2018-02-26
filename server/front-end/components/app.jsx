@@ -6,6 +6,7 @@ import Footer from './footer';
 import ContractShowContainer from './contract_show_container';
 import { AuthRoute, ProtectedRoute } from '../utils/route_util';
 import ContractFormContainer from './contract_form_container';
+import ProfileContainer from './profile_container';
 
 class App extends React.Component {
   constructor(props) {
@@ -23,6 +24,7 @@ class App extends React.Component {
             component={ContractShowContainer}
           />
           <ProtectedRoute path="/contract" component={ContractFormContainer} />
+          <ProtectedRoute path="/profile" component={ProfileContainer} />
           <Redirect to="/" />
         </Switch>
         <Footer />
