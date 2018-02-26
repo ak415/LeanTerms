@@ -7,7 +7,6 @@ class Profile extends  React.Component{
         super(props);
         this.state =this.props.contracts || {};
         this.DownloadContract = this.DownloadContract.bind(this);
-        this.getDate = this.getDate.bind(this);
     }
 
 
@@ -27,27 +26,18 @@ class Profile extends  React.Component{
         doc.save("1.pdf");
     }
 
-    getDate(){
-        return Date.now();
-    }
 
 
     render(){
         let contracts = [];
-        let link ="";
         if (this.state.contracts){
-            // for(let i =0;i<this.state.contracts.length; i++){
-            //     link =<li onClick={() => this.DownloadContract(this[i])}>Contract {i + 1}</li>
-            //     contracts.push(link)
-            // }
-            contracts = this.state.contracts.map(contract => <li onClick={() => this.DownloadContract(contract)} key={this.getDate()}>Contract (i+1)</li> )
+            contracts = this.state.contracts.map(contract => <li onClick={() => this.DownloadContract(contract)} key={contract._id}>Contract {contract.propertyStreetAddress}</li> )
         }
-
         return (
           <div className="profile-wrap">
               <div className="userpage-title">
                 <h1>
-                  Profile -
+                  User Homepage -
                 </h1>
                 <div>
                   {this.props.currentUser.username}
@@ -56,12 +46,69 @@ class Profile extends  React.Component{
 
               <div>
                 <div>
+                  <ul>
                     {contracts}
+                  </ul>
                 </div>
 
-                <div>
+                <div className="userpage-contracts">
 
+                <div className="contract-drafts">
+                  <h1>
+                    Drafts
+                  </h1>
+
+
+                  <div>
+                    Example Contract
+                  </div>
+
+                  <div>
+                    Example Contract
+                  </div>
+
+                  <div>
+                    Example Contract
+                  </div>
+
+                  <div>
+                    Example Contract
+                  </div>
+
+                  <div>
+                    Example Contract
+                  </div>
                 </div>
+
+                <div className="contract-drafts">
+                  <h1>
+                    Completed
+                  </h1>
+
+
+                  <div>
+                    Example Contract
+                  </div>
+
+                  <div>
+                    Example Contract
+                  </div>
+
+                  <div>
+                    Example Contract
+                  </div>
+
+                  <div>
+                    Example Contract
+                  </div>
+
+                  <div>
+                    Example Contract
+                  </div>
+                </div>
+
+              </div>
+
               </div>
 
           </div>
