@@ -45,11 +45,6 @@ class ContractForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log('HERE I AM!!!!!!!', this.state);
-    // this.props.createContract({
-    //   currentQuestionIdx: 18,
-    //   landlordId: '5a92f9ce38b01f05be924b84'
-    // });
     this.props.createContract(this.state);
   }
 
@@ -64,7 +59,7 @@ class ContractForm extends React.Component {
         <ProgressBar
           progress={this.state.currentQuestionIdx}
           totalWidth={this.totalNumQuestions}
-          />
+        />
         <div id="question-navigation-container">
           <div id="contract-form-left-container">
             <div className="buttons">
