@@ -5,3 +5,4 @@
 /2.static
 /static/bundle.*
 /config/keys.js
+/package-lock.json
