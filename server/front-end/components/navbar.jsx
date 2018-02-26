@@ -14,9 +14,7 @@ class Navbar extends React.Component {
   }
 
   changeDisplay(id) {
-    let allErrors = Array.prototype.slice.call(
-      document.querySelectorAll('.single-session-error')
-    );
+    let allErrors = document.querySelectorAll('.single-session-error');
     for (let i = 0; i < allErrors.length; i++) {
       allErrors[i].textContent = '';
     }
@@ -35,9 +33,7 @@ class Navbar extends React.Component {
 
   handlesubmitlogin(e) {
     e.preventDefault();
-    let allErrors = Array.prototype.slice.call(
-      document.querySelectorAll('.single-session-error')
-    );
+    let allErrors = document.querySelectorAll('.single-session-error');
     for (let i = 0; i < allErrors.length; i++) {
       allErrors[i].textContent = '';
     }
@@ -61,9 +57,7 @@ class Navbar extends React.Component {
 
   handlesubmitnewuser(e) {
     e.preventDefault();
-    let allErrors = Array.prototype.slice.call(
-      document.querySelectorAll('.single-session-error')
-    );
+    let allErrors = document.querySelectorAll('.single-session-error');
     for (let i = 0; i < allErrors.length; i++) {
       allErrors[i].textContent = '';
     }
@@ -74,9 +68,7 @@ class Navbar extends React.Component {
   }
 
   switchToSignUp() {
-    let allErrors = Array.prototype.slice.call(
-      document.querySelectorAll('.single-session-error')
-    );
+    let allErrors = document.querySelectorAll('.single-session-error');
     for (let i = 0; i < allErrors.length; i++) {
       allErrors[i].textContent = '';
     }
@@ -87,9 +79,7 @@ class Navbar extends React.Component {
   }
 
   switchToLogIn() {
-    let allErrors = Array.prototype.slice.call(
-      document.querySelectorAll('.single-session-error')
-    );
+    let allErrors = document.querySelectorAll('.single-session-error');
     for (let i = 0; i < allErrors.length; i++) {
       allErrors[i].textContent = '';
     }
@@ -159,13 +149,11 @@ class Navbar extends React.Component {
                 <h1>Sign Up</h1>
                 <hr />
                 <ul className="session-errors">
-                  {this.props.errors
-                    ? this.props.errors.map((error, i) => (
-                        <li className="single-session-error" key={i}>
-                          {error}
-                        </li>
-                      ))
-                    : null}
+                  {this.props.errors.map((error, i) => (
+                    <li className="single-session-error" key={i}>
+                      {error}
+                    </li>
+                  ))}
                 </ul>
                 <label>
                   <b>Username</b>
@@ -252,13 +240,11 @@ class Navbar extends React.Component {
                 <h1>Log In</h1>
                 <hr />
                 <ul className="session-errors">
-                  {this.props.errors
-                    ? this.props.errors.map((error, i) => (
-                        <li className="single-session-error" key={i}>
-                          {error}
-                        </li>
-                      ))
-                    : null}
+                  {this.props.errors.map((error, i) => (
+                    <li className="single-session-error" key={i}>
+                      {error}
+                    </li>
+                  ))}
                 </ul>
                 <label>
                   <b>Username</b>
