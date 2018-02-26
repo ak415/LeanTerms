@@ -964,6 +964,53 @@ hr {
   width: 50%;
 }
 
+.profile-wrap {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 2% 20% 0 20%;
+}
+
+.userpage-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.userpage-title h1,
+div {
+  font-size: 20px;
+  font-weight: bold;
+}
+.userpage-title div {
+  margin-left: 5px;
+}
+
+.userpage-contracts-holder {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.contract-drafts {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  text-align: center;
+  border-bottom: 1px solid #fff;
+}
+
+.contract-drafts h1 {
+  margin-bottom: 10px;
+}
+
+.userpage-contracts {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
 .session-errors {
   margin-bottom: 20px;
 }

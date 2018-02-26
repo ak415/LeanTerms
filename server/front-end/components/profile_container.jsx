@@ -1,12 +1,16 @@
 import { connect } from 'react-redux';
 import Profile from './profile';
 import { withRouter } from 'react-router-dom';
+import {fetchAllUserContracts} from "../actions/contracts_actions";
 
 const mapStateToProps = state => ({
-  currentuser: state.session.currentUser
+    currentUser: state.session.currentUser,
+    contracts: state.entities.contracts
 });
 
-const mapDispatchToProps = dispatch => ({});
+const mapDispatchToProps = dispatch => ({
+    getcontract: (userid) => dispatch(fetchAllUserContracts(userid))
+});
 
 export default withRouter(
   connect(mapStateToProps, mapDispatchToProps)(Profile)

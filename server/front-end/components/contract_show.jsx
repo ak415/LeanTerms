@@ -1,6 +1,6 @@
 import React from 'react';
 import jsPDF from 'jspdf';
-import pdfkit from 'pdfkit/js/data'
+
 
 class ShowContract extends React.Component{
     constructor(props){
@@ -11,16 +11,14 @@ class ShowContract extends React.Component{
         };
 
         this.DownloadContract = this.DownloadContract.bind(this);
-        this.PdfPrep = this.PdfPrep.bind(this);
-
 
     }
 
     DownloadContract(){
         let doc = new jsPDF();
-
-        doc.text('HI LeanTerms', 10, 10);
-        doc.save();
+        doc.text("Hello 1",10,10);
+        debugger;
+        doc.save("../../pdf/1.pdf");
     }
 
 
