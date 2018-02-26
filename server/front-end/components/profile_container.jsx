@@ -4,7 +4,8 @@ import { withRouter } from 'react-router-dom';
 import {fetchAllUserContracts} from "../actions/contracts_actions";
 
 const mapStateToProps = state => ({
-    current_user: state.session.currentUser
+    currentUser: state.session.currentUser,
+    contracts: state.entities.contracts
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -12,7 +12,7 @@ const index = (req, res, next) => {
     (err, returnedContracts) => {
       if (err) return res.send(err.errmsg);
       if (!returnedContracts) {
-        res.send([]);
+        res.send(null);
       } else {
         res.send(returnedContracts);
       }
