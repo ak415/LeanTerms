@@ -59,6 +59,8 @@ const seedContracts = () => {
         }
       }
     );
+    let contract = new Contract(contractToAdd);
+    contract.save();
   }
 };
 
