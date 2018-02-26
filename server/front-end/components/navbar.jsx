@@ -14,7 +14,9 @@ class Navbar extends React.Component {
   }
 
   changeDisplay(id) {
-    let allErrors = document.querySelectorAll('.single-session-error');
+    let allErrors = Array.prototype.slice.call(
+      document.querySelectorAll('.single-session-error')
+    );
     for (let i = 0; i < allErrors.length; i++) {
       allErrors[i].textContent = '';
     }
@@ -33,7 +35,9 @@ class Navbar extends React.Component {
 
   handlesubmitlogin(e) {
     e.preventDefault();
-    let allErrors = document.querySelectorAll('.single-session-error');
+    let allErrors = Array.prototype.slice.call(
+      document.querySelectorAll('.single-session-error')
+    );
     for (let i = 0; i < allErrors.length; i++) {
       allErrors[i].textContent = '';
     }
@@ -57,7 +61,9 @@ class Navbar extends React.Component {
 
   handlesubmitnewuser(e) {
     e.preventDefault();
-    let allErrors = document.querySelectorAll('.single-session-error');
+    let allErrors = Array.prototype.slice.call(
+      document.querySelectorAll('.single-session-error')
+    );
     for (let i = 0; i < allErrors.length; i++) {
       allErrors[i].textContent = '';
     }
@@ -68,7 +74,9 @@ class Navbar extends React.Component {
   }
 
   switchToSignUp() {
-    let allErrors = document.querySelectorAll('.single-session-error');
+    let allErrors = Array.prototype.slice.call(
+      document.querySelectorAll('.single-session-error')
+    );
     for (let i = 0; i < allErrors.length; i++) {
       allErrors[i].textContent = '';
     }
@@ -79,7 +87,9 @@ class Navbar extends React.Component {
   }
 
   switchToLogIn() {
-    let allErrors = document.querySelectorAll('.single-session-error');
+    let allErrors = Array.prototype.slice.call(
+      document.querySelectorAll('.single-session-error')
+    );
     for (let i = 0; i < allErrors.length; i++) {
       allErrors[i].textContent = '';
     }

@@ -11,7 +11,6 @@ class Question extends React.Component {
   }
 
   handleChange(e, formField) {
-    console.log(this.state);
     let value = e.target.value;
     let formField2;
     let value2;
