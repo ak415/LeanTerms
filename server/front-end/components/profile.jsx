@@ -7,16 +7,15 @@ class Profile extends  React.Component{
         super(props);
         this.state =this.props.contracts || {};
         this.DownloadContract = this.DownloadContract.bind(this);
+        this.getDate = this.getDate.bind(this);
     }
 
 
     componentWillMount(){
-        debugger;
         this.props.getcontract(this.props.currentUser.id);
     }
 
     componentWillReceiveProps(nextProps){
-        debugger;
         this.setState({contracts: nextProps.contracts});
     }
 
@@ -25,20 +24,23 @@ class Profile extends  React.Component{
     DownloadContract(){
         let doc = new jsPDF();
         doc.text("Hello 1",10,10);
-        debugger;
-        doc.save("../../pdf/1.pdf");
+        doc.save("1.pdf");
+    }
+
+    getDate(){
+        return Date.now();
     }
 
 
     render(){
         let contracts = [];
         let link ="";
-        debugger;
         if (this.state.contracts){
-            for(let i =0;i<this.state.contracts.length; i++){
-                link =<li onClick={this.DownloadContract(this[i])}>Contract {i + 1}</li>
-                contracts.push(link)
-            }
+            // for(let i =0;i<this.state.contracts.length; i++){
+            //     link =<li onClick={() => this.DownloadContract(this[i])}>Contract {i + 1}</li>
+            //     contracts.push(link)
+            // }
+            contracts = this.state.contracts.map(contract => <li onClick={() => this.DownloadContract(contract)} key={this.getDate()}>Contract (i+1)</li> )
         }
 
         return (
