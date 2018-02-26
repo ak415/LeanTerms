@@ -963,3 +963,12 @@ hr {
 .logged-out-nav {
   width: 50%;
 }
+
+.session-errors {
+  margin-bottom: 20px;
+}
+
+.session-errors li {
+  margin: 10px 0;
+  color: #cc0000;
+}

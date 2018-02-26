@@ -14,6 +14,10 @@ class Navbar extends React.Component {
   }
 
   changeDisplay(id) {
+    let allErrors = document.querySelectorAll('.single-session-error');
+    for (let i = 0; i < allErrors.length; i++) {
+      allErrors[i].textContent = '';
+    }
     if (document.getElementById(id)) {
       if (document.getElementById(id).style.display === 'flex') {
         document.getElementById(id).style.display = 'none';
@@ -29,6 +33,11 @@ class Navbar extends React.Component {
 
   handlesubmitlogin(e) {
     e.preventDefault();
+    let allErrors = document.querySelectorAll('.single-session-error');
+    for (let i = 0; i < allErrors.length; i++) {
+      allErrors[i].textContent = '';
+    }
+
     let user1 = {
       username: this.state.username,
       password: this.state.password
@@ -48,6 +57,10 @@ class Navbar extends React.Component {
 
   handlesubmitnewuser(e) {
     e.preventDefault();
+    let allErrors = document.querySelectorAll('.single-session-error');
+    for (let i = 0; i < allErrors.length; i++) {
+      allErrors[i].textContent = '';
+    }
     return this.props.createuser(this.state).then(response => {
       this.setState({ username: '', password: '', email: '' });
       return user => this.props.history.push('./profile');
@@ -55,6 +68,10 @@ class Navbar extends React.Component {
   }
 
   switchToSignUp() {
+    let allErrors = document.querySelectorAll('.single-session-error');
+    for (let i = 0; i < allErrors.length; i++) {
+      allErrors[i].textContent = '';
+    }
     if (document.getElementById('id02')) {
       document.getElementById('id02').style.display = 'none';
       document.getElementById('id01').style.display = 'flex';
@@ -62,6 +79,10 @@ class Navbar extends React.Component {
   }
 
   switchToLogIn() {
+    let allErrors = document.querySelectorAll('.single-session-error');
+    for (let i = 0; i < allErrors.length; i++) {
+      allErrors[i].textContent = '';
+    }
     if (document.getElementById('id01')) {
       document.getElementById('id01').style.display = 'none';
       document.getElementById('id02').style.display = 'flex';
@@ -76,29 +97,25 @@ class Navbar extends React.Component {
     ) {
       display = (
         <div className="if-logged-in-wrap">
-          <Link
-            className="create-contract-button"
-            to="/contract">
+          <Link className="create-contract-button" to="/contract">
             Create Contract
           </Link>
-            <div className="nav-current-user">
-              {this.props.currentUser.username}
-            </div>
-            <button
-              className="logout-button"
-              onClick={e => this.handlesubmitlogout(e)}
-            >
-              Logout
-            </button>
+          <div className="nav-current-user">
+            {this.props.currentUser.username}
+          </div>
+          <button
+            className="logout-button"
+            onClick={e => this.handlesubmitlogout(e)}
+          >
+            Logout
+          </button>
         </div>
       );
     } else {
       display = (
         <div className="logged-out-nav">
           <div className="main-nav">
-            <Link
-              className="create-contract-button"
-              to="/contract">
+            <Link className="create-contract-button" to="/contract">
               Create Contract
             </Link>
 
@@ -130,8 +147,16 @@ class Navbar extends React.Component {
                   X
                 </span>
                 <h1>Sign Up</h1>
-                <p>Please fill in this form to create an account.</p>
                 <hr />
+                <ul className="session-errors">
+                  {this.props.errors
+                    ? this.props.errors.map((error, i) => (
+                        <li className="single-session-error" key={i}>
+                          {error}
+                        </li>
+                      ))
+                    : null}
+                </ul>
                 <label>
                   <b>Username</b>
                 </label>
@@ -215,11 +240,16 @@ class Navbar extends React.Component {
                   X
                 </span>
                 <h1>Log In</h1>
-                <p>
-                  In order to access your account, please enter your
-                  information.
-                </p>
                 <hr />
+                <ul className="session-errors">
+                  {this.props.errors
+                    ? this.props.errors.map((error, i) => (
+                        <li className="single-session-error" key={i}>
+                          {error}
+                        </li>
+                      ))
+                    : null}
+                </ul>
                 <label>
                   <b>Username</b>
                 </label>

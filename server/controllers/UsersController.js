@@ -8,42 +8,58 @@ const User = require('../models/user');
 const Session = require('../models/session');
 
 const signup = (req, res, next) => {
+  const allErrors = [];
   const username = req.body.username;
   const email = req.body.email;
   const password = req.body.password;
   const session_token = req.sessionID;
+  if (password.length < 6) {
+    allErrors.push('Password must be at least 6 characters long');
+  }
   bcrypt.hash(password, saltRounds, (err, hash) => {
-    //insert into database
     const user = new User({
       username,
       email,
       password: hash,
       session_token
     });
-    user
-      .save()
-      .then(savedUser => {
-        req.login(user, error => {
-          return res.send({
-            id: savedUser.id,
-            email: savedUser.email,
-            username: savedUser.username,
-            session_token: savedUser.session_token
-          });
-        });
-      })
-      .catch(next);
+    user.validate((err2, ok) => {
+      if (err2) {
+        if (err2.errors['email']) {
+          allErrors.push(err2.errors['email'].message);
+        }
+        if (err2.errors['username']) {
+          allErrors.push(err2.errors['username'].message);
+        }
+        res.status(422).send(allErrors);
+      } else {
+        user.save().then(
+          savedUser => {
+            req.login(user, error => {
+              return res.send({
+                id: savedUser.id,
+                email: savedUser.email,
+                username: savedUser.username,
+                session_token: savedUser.session_token
+              });
+            });
+          },
+          error => {
+            res.status(404).send(error.errmsg);
+          }
+        );
+      }
+    });
   });
 };
 
 const login = (req, res, next) => {
   passport.authenticate('local', (err, user, info) => {
     if (err) return res.status(422).json(err);
-    if (!user) return res.status(422).json('Invalid login credentials');
+    if (!user) return res.status(422).send(['Invalid login credentials']);
     req.login(user, error => {
       if (error) {
-          console.log("=====ERROR=======");
-          console.log(error);
+        console.log(error);
         return next(error);
       }
       User.findById(user.id, (anErr, fetchedUser) => {
