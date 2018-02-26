@@ -16,9 +16,10 @@ const MongoDB = require('mongodb');
 
 const authRoutes = require('./routes/authRoutes');
 const contractRoutes = require('./routes/contractRoutes');
+const keys = require('./config/keys');
 
 //connect to MongoDB
-mongoose.connect('mongodb://localhost/leanterms', err => {
+mongoose.connect(keys.mongoURI, err => {
   if (err) console.log(err);
 });
 
@@ -28,13 +29,6 @@ const Session = require('./models/session');
 const Contract = require('./models/contract');
 
 const UsersController = require('./controllers/UsersController');
-
-///Seeds
-const Seeds = require('./db/seeds.js');
-
-//Actually seed the data
-// Seeds.seedUsers();
-// Seeds.seedContracts();
 
 const app = express();
 
@@ -49,7 +43,7 @@ app.use(cookieParser());
 // Express-session middleware
 app.use(
   session({
-    secret: 'jhsdlfhsdkjfh2345345kjh',
+    secret: keys.sessionSecret,
     saveUninitialized: false,
     resave: false,
     ttl: 14 * 24 * 60 * 60,

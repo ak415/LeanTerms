@@ -4,3 +4,4 @@
 /1.static
 /2.static
 /static/bundle.*
+/config/keys.js
