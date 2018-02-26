@@ -76,21 +76,32 @@ class Navbar extends React.Component {
     ) {
       display = (
         <div className="if-logged-in-wrap">
-          <div className="nav-current-user">
-            {this.props.currentUser.username}
-          </div>
-          <button
-            className="logout-button"
-            onClick={e => this.handlesubmitlogout(e)}
-          >
-            Logout
-          </button>
+          <Link
+            className="create-contract-button"
+            to="/contract">
+            Create Contract
+          </Link>
+            <div className="nav-current-user">
+              {this.props.currentUser.username}
+            </div>
+            <button
+              className="logout-button"
+              onClick={e => this.handlesubmitlogout(e)}
+            >
+              Logout
+            </button>
         </div>
       );
     } else {
       display = (
-        <div>
+        <div className="logged-out-nav">
           <div className="main-nav">
+            <Link
+              className="create-contract-button"
+              to="/contract">
+              Create Contract
+            </Link>
+
             <button
               id="login-effects"
               className="cd-signup"
