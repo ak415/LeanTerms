@@ -19,6 +19,7 @@ class App extends React.Component {
         <Route path="/" component={NavbarContainer} />
         <Switch>
           <Route exact path="/" component={Splash} />
+            <ProtectedRoute path="/profile" component={ProfileContainer}/>
           <ProtectedRoute
             path="/contract/:id"
             component={ContractShowContainer}

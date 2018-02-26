@@ -16,7 +16,7 @@ export const showContract = ContractId =>
     url: `/api/contracts/${ContractId}`
   });
 
-export const udateContract = (data, ContractId) =>
+export const updateContract = (data, ContractId) =>
   $.ajax({
     method: 'PATCH',
     url: `/api/contracts/${ContractId}`,
