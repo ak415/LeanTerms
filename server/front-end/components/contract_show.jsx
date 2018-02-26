@@ -16,8 +16,10 @@ class ShowContract extends React.Component{
 
     DownloadContract(){
         let doc = new jsPDF();
-        doc.text("Hello 1",10,10);
-        debugger;
+        doc.text("Contract",10,10);
+
+
+
         doc.save("../../pdf/1.pdf");
     }
 
