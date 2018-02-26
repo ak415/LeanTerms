@@ -8,7 +8,7 @@ class Profile extends  React.Component{
 
 
     componentWillMount(){
-        this.props.getcontract(this.props.current_user.id);
+        this.props.getcontract(this.props.currentUser.id);
     }
 
     componentWillReceiveProps(nextprops){
@@ -17,27 +17,79 @@ class Profile extends  React.Component{
 
 
     render(){
-      if (!this.props.currentUser) {
+      if (this.props.currentUser === undefined) {
         return null;
       }
         return (
           <div className="profile-wrap">
               <div className="userpage-title">
                 <h1>
-                  Profile -
+                  User Homepage -
                 </h1>
                 <div>
                   {this.props.currentUser.username}
                 </div>
               </div>
 
-              <div>
-                <div>
+              <div className="userpage-contracts-holder">
+                <div className="contract-drafts">
+                  <h1>
+                    Drafts
+                  </h1>
+
+                  <div className="contract-container-userpage">
+                    <span>Street Address Here</span>
+                    <span>Rent Price</span>
+                    <span>Tenant Name</span>
+                    <span>Edit</span>
+                    <span>Download</span>
+
+                  </div>
+
+                  <div>
+                    Example Contract
+                  </div>
+
+                  <div>
+                    Example Contract
+                  </div>
+
+                  <div>
+                    Example Contract
+                  </div>
+
+                  <div>
+                    Example Contract
+                  </div>
+
 
                 </div>
 
-                <div>
+                <div className="contract-drafts">
+                  <h1>
+                    Completed
+                  </h1>
 
+
+                  <div>
+                    Example Contract
+                  </div>
+
+                  <div>
+                    Example Contract
+                  </div>
+
+                  <div>
+                    Example Contract
+                  </div>
+
+                  <div>
+                    Example Contract
+                  </div>
+
+                  <div>
+                    Example Contract
+                  </div>
                 </div>
               </div>
 
