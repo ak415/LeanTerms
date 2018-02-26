@@ -38,29 +38,29 @@ const contracts = [
     petsAllowed: 0,
     petsTotal: 0,
     singlePetFee: 50,
-    landlordId: '5a90bc33d72f6c2099560b16',
-    tenantId: '5a90bc14d72f6c2099560b15'
+    landlordId: '5a9358aa541334fc5c040ce4',
+    tenantId: '5a935225af6aa5fa37d17ac8'
   }
 ];
 
-// const seedContracts = () => {
-//   for (let i = 0; i < contracts.length; i++) {
-//     let contractToAdd = contracts[i];
-//     Contract.findOne(
-//       {
-//         specialID: contractToAdd.specialID
-//       },
-//       (err, foundContract) => {
-//         if (err) throw err;
-//         if (!foundContract) {
-//           let contract = new Contract(contractToAdd);
-//           console.log('seeding contracts');
-//           contract.save();
-//         }
-//       }
-//     );
-//   }
-// };
+const seedContracts = () => {
+  for (let i = 0; i < contracts.length; i++) {
+    let contractToAdd = contracts[i];
+    Contract.findOne(
+      {
+        specialID: contractToAdd.specialID
+      },
+      (err, foundContract) => {
+        if (err) throw err;
+        if (!foundContract) {
+          let contract = new Contract(contractToAdd);
+          console.log('seeding contracts');
+          contract.save();
+        }
+      }
+    );
+  }
+};
 
 const seedUsers = () => {
   for (let i = 0; i < users.length; i++) {
@@ -85,6 +85,6 @@ const seedUsers = () => {
 };
 
 module.exports = {
-  seedUsers
-  // seedContracts
+  seedUsers,
+  seedContracts
 };
