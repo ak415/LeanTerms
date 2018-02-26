@@ -46,8 +46,8 @@ const contracts = [
 const seedContracts = () => {
   for (let i = 0; i < contracts.length; i++) {
     let contractToAdd = contracts[i];
-      let contract = new Contract(contractToAdd);
-      contract.save();
+    let contract = new Contract(contractToAdd);
+    contract.save();
   }
 };
 
@@ -74,6 +74,6 @@ const seedUsers = () => {
 };
 
 module.exports = {
-  seedUsers
+  seedUsers,
   seedContracts
 };
