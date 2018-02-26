@@ -19,7 +19,7 @@ const users = [
 
 const contracts = [
   {
-    type: 'Month-to-Month',
+    leaseType: 'Month-to-Month',
     cancelNotice: 10,
     propertyType: 'House',
     propertyStreetAddress: '7218 Battery St',
