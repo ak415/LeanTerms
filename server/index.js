@@ -33,8 +33,8 @@ const UsersController = require('./controllers/UsersController');
 const Seeds = require('./db/seeds.js');
 
 //Actually seed the data
-Seeds.seedUsers();
-Seeds.seedContracts();
+// Seeds.seedUsers();
+// Seeds.seedContracts();
 
 const app = express();
 

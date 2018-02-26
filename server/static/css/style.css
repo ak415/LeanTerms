@@ -1006,3 +1006,9 @@ hr {
 .contract-drafts h1 {
 	margin-bottom: 10px;
 }
+
+.userpage-contracts {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}

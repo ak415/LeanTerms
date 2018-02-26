@@ -32,13 +32,13 @@ class Profile extends  React.Component{
     render(){
         let contracts = [];
         let link ="";
-        debugger;
-        if (this.state.contracts){
-            for(let i =0;i<this.state.contracts.length; i++){
-                link =<li onClick={this.DownloadContract(this[i])}>Contract {i + 1}</li>;
-                contracts.push(link);
-            }
-        }
+        // debugger;
+        // if (this.state.contracts){
+        //     for(let i =0;i<this.state.contracts.length; i++){
+        //         link =<li onClick={this.DownloadContract(this[i])}>Contract {i + 1}</li>;
+        //         contracts.push(link);
+        //     }
+        // }
 
         return (
           <div className="profile-wrap">
@@ -56,6 +56,35 @@ class Profile extends  React.Component{
                   <ul>
                     {contracts}
                   </ul>
+                </div>
+
+                <div className="userpage-contracts">
+
+                <div className="contract-drafts">
+                  <h1>
+                    Drafts
+                  </h1>
+
+
+                  <div>
+                    Example Contract
+                  </div>
+
+                  <div>
+                    Example Contract
+                  </div>
+
+                  <div>
+                    Example Contract
+                  </div>
+
+                  <div>
+                    Example Contract
+                  </div>
+
+                  <div>
+                    Example Contract
+                  </div>
                 </div>
 
                 <div className="contract-drafts">
@@ -84,6 +113,9 @@ class Profile extends  React.Component{
                     Example Contract
                   </div>
                 </div>
+
+              </div>
+
               </div>
 
           </div>
